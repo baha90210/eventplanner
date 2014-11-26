@@ -2,4 +2,4 @@ eventplanner
 ============
 
 
-wijziging door Frits
+wijziging door Joan
