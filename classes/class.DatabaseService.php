@@ -9,6 +9,7 @@ class DatabaseService
     public static function Connect($hostname, $database, $username, $password)
     {
         self::$connection = @new mysqli($hostname, $username, $password);
+        //als niet verbonden....
         if (self::$connection->connect_errno)
         {
            die("Failed to connect to MySQL: (" . self::$connection->connect_errno . ") " . self::$connection->connect_error);
@@ -41,7 +42,7 @@ class DatabaseService
         self::_NoConnection();
         $sqldata = array();
         self::_InternalQuery($sql);
-        
+        //check welke props gegeven zijn
         if($insert_id)
         {
             $sqldata['insert_id'] = self::$connection->insert_id;
