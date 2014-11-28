@@ -8,12 +8,26 @@
  */
 //Defines hier
 define('DOCUMENTROOT',$_SERVER['DOCUMENT_ROOT']);
-define('BASEFOLDER','/netprojects/eduvisionmasterclass/');
-define('DB_HOST','');
-define('DB_USER','');
-define('DB_PASS','');
-define('DB_NAME','');
+define('BASEFOLDER','');
+//instellen van servermap en DB credentials per persoon een case toevoegen
 
+//boudewijns test server instelling
+switch($_SERVER['REMOTE_ADDR']){
+            case "195.35.240.142" :
+                        define('BASEFOLDER','/netprojects/eduvisionmasterclass/');
+                        define('DB_HOST','localhost');
+                        define('DB_USER','boudewijn_main');
+                        define('DB_PASS','');
+                        define('DB_NAME','boudewijn_OOP');
+                        break;
+}           default :
+                        define('BASEFOLDER','');
+                        define('DB_HOST','localhost');
+                        define('DB_USER','');
+                        define('DB_PASS','');
+                        define('DB_NAME','');
+                        break;
+                        
             //AUTOLOADER//
 //classes automatisch ophalen uit de classes map
 function __autoload($class_name)
