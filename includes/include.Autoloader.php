@@ -1,6 +1,7 @@
 <?php
 /**
- * Description of class
+ *  Root defines en Class Autoloader functie
+ * 
  *
  * @author Boudewijn Xander Cornelis Kooij
  */
@@ -15,3 +16,5 @@ function __autoload($class_name)
         require_once DOCUMENTROOT.BASEFOLDER."classes/class.$class_name.php";
     }
 }
+// server settings worden gedaan in de construct van LoadSettings
+new LoadSettings;
