@@ -20,7 +20,7 @@ switch($_SERVER['REMOTE_ADDR']){
                         define('DB_PASS','');
                         define('DB_NAME','boudewijn_OOP');
                         break;
-}           default :
+            default :
                         define('BASEFOLDER','');
                         define('DB_HOST','localhost');
                         define('DB_USER','');
