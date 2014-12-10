@@ -42,13 +42,5 @@ class DataBase {
             $this->setCharset(); // TODO: geforseerde charset weg halen kweet nie hoe kweet nie hoe hahaha
             return true;
         }
-        // Select database to use
-        private function UseDB(){
-            if(!mysql_select_db($this->database, $this->databaseLink)){
-                $this->lastError = 'Cannot select database: ' . mysql_error($this->databaseLink);
-                return false;
-            }else{
-                return true;
-            }
-        }
+        
 }
