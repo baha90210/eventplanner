@@ -13,19 +13,14 @@ class eventController extends Controller{
         // 1 event bekijken
 	public function oneEvent(){
 		$this->setTitle('Een event bekijken');
-                
                 $this->id = $_GET['event_id'];
-                
                 $this->loadModel('event');
-                
-		$this->event = $this->model->getEvent($this->id);
-		
+                $this->event = $this->model->getEvent($this->id);
 		$this->render('event_viewone.tpl');
 	}
         // event toevoegen
 	public function addEvent(){
 		$this->setTitle('Voeg events toe');
-		
 		$this->render('event_add.tpl');
 	}
 	public function deleteEvent(){
@@ -33,7 +28,6 @@ class eventController extends Controller{
                 $this->id = $_GET['event_id'];
                 $this->loadModel('event');
 		$this->added_event = $this->model->deleteEvent($this->id);
-		
 		$this->render('event_delete.tpl');
 	}
         

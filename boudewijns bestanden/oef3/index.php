@@ -1,4 +1,5 @@
 <?php 
+
 require_once('./config.php');
 
 if(isset($_GET['route']) && $_GET['route'] != ''){
