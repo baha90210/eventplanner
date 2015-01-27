@@ -1,16 +1,8 @@
 <?php
-//define('THEME', 'default');
-//define('APPNAME', 'Eventplanner - ');
-//
-//define('DB_HOST', 'localhost');
-//define('DB_DB', 'eventplanner');	
-//define('DB_USER', 'root');	
-//define('DB_PASSWORD', '');
-
 define('THEME', 'default');
 define('APPNAME', 'Eventplanner - ');
 
 define('DB_HOST', 'localhost');
-define('DB_DB', 'boudewijn_event');	
-define('DB_USER', 'boudewijn_EDU');	
-define('DB_PASSWORD', 'edu1234');
+define('DB_DB', 'eventplanner');	
+define('DB_USER', 'root');	
+define('DB_PASSWORD', '');

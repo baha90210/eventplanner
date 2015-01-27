@@ -32,6 +32,29 @@ class Controller{
 		$this->loadFile('footer.tpl');
 	}
 	
+	public function redirect($route, $token = ''){
+		if($token != ''){
+			header('Location: index.php?route='.$route.'&token='.$token);
+		}else{
+			header('Location: index.php?route='.$route);
+		}
+	}
+	
+	public function authorize(){
+		if(!isset($_GET['token'])){
+			$this->redirect('login', '');
+		}else{
+			$this->loadModel('login');
+			$result = $this->model->authorize($_GET['token']);
+			
+			if($result){
+				return true;
+			}else{
+				$this->redirect('login', '');
+			}
+		}
+	}
+	
 	public function loadFile($file){
 		if(file_exists('./themes/'.THEME.'/'.$file)){
 			include('./themes/'.THEME.'/'.$file);

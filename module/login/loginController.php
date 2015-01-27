@@ -9,9 +9,10 @@ class loginController extends Controller{
 		$this->loadModel('login');
 		
 		$result = $this->model->checkUser($_POST['username'], $_POST['password']);
-		
-		if($result->num_rows == 1){
-			echo 'Je bent ingelogd als '.$result->row['email'];
+
+		if($result){
+//			echo 'Je bent ingelogd als '.$result['email'];
+			$this->redirect('event/overview', $result['token']);
 		}else{
 			$this->error_msg = 'Je hebt een verkeerde email/wachtwoord combinatie gebruikt!';
 			$this->index();

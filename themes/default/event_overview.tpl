@@ -18,16 +18,17 @@
 				<td><?php echo $event['start_date']; ?></td>
 				<td><?php echo $event['end_date']; ?></td>
 				<td class="right"><?php echo number_format($event['price'], 2, ',', '.'); ?></td>
-				<td><a href="index.php?route=event/edit&id=<?php echo $event['event_id'] ?>">Edit</a></td>
-				<td><a href="index.php?route=event/delete&id=<?php echo $event['event_id'] ?>">Delete</a></td>
+				<td><a href="index.php?route=event/edit&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>">Edit</a></td>
+				<td><a href="index.php?route=event/delete&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>">Delete</a></td>
 			</tr>
 		<?php } ?>
 		<tr><td colspan="6"><input type="button" onclick="addEvent();" value="Event toevoegen" /></td></tr>
+		<tr><td colspan="6"><a href="index.php?route=location/overview&token=<?php echo $_GET['token'] ?>">Locaties beheren</a></td></tr>
 	</table>
 </div>
 
 <script>
 	function addEvent(){
-		document.location.href='index.php?route=event/add';
+		document.location.href='index.php?route=event/add&token=<?php echo $_GET['token'] ?>';
 	}
 </script>
