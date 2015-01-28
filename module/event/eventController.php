@@ -11,43 +11,30 @@ class eventController extends Controller{
 		
 		$this->loadModel('event');
 		
-		$this->events = $this->model->getEvents();
-		//haal de locations
-                foreach($this->events as $event){
-                    //begin van de loop eerst de event model weer laden
-                    $this->loadModel('event');
-                    //haal de locations op
-                    $this->event_locations = $this->model->getEventLocations($event['event_id']);
-                    //location model laden
-                    $this->loadModel('location');
-                    //teller op 0
-                    $i= 0;
-                    //lus door de  locations en haal de data op
-                    foreach($this->event_locations as $event_location){
-                        //stop ze in een array
-                        $this->event_locationsdata[$event['event_id']][$i] = $this->model->getLocation($event_location['location_id']);
-                        //teller omhoog wippen
-                        $i++;
-                    }
-                }
-                //haal de resources
-                foreach($this->events as $event){
-                    $this->loadModel('event');
-                    //echo "<pre>";var_dump($event);echo "</pre>"; 
-                    $this->event_resources = $this->model->getEventResources($event['event_id']);
-                    //haal de resources op
-                    $this->loadModel('resource');
-                    //teller op 0
-                    $i= 0;
-                    //lus door de  resources en haal de data op
-                    foreach($this->event_resources as $event_resource){
-                        //prop ze weer in de array
-                        $this->event_resourcesdata[$event['event_id']][$i] = $this->model->getResource($event_resource['resource_id']);
-                        //teller schoppen
-                        $i++;
-                    }
-                }
-                //spuug uit die bende..........
+		$events = $this->model->getEvents();
+
+		$this->events = array();
+		
+        foreach($events as $event){
+	        //get event locations
+	        $event['locations'] = array();
+	        $event_locations = $this->model->baha_getEventLocation($event['event_id']);
+	        
+	        foreach($event_locations as $location){
+		        $event['locations'][] = $location;
+	        }
+
+	        //get event resources
+	        $event['resources'] = array();
+	        $event_resources = $this->model->baha_getEventResources($event['event_id']);
+	        
+	        foreach($event_resources as $resource){
+		        $event['resources'][] = $resource;
+	        }
+	        
+	        $this->events[] = $event;
+		}		
+
 		$this->render('event_overview.tpl');
 	}
 
