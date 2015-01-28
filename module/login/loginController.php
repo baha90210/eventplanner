@@ -18,4 +18,13 @@ class loginController extends Controller{
 			$this->index();
 		}
 	}
+	
+	public function logout(){
+		$this->loadModel('login');
+		
+		$this->model->logout();
+		
+		$this->index();
+		
+	}
 }

@@ -26,6 +26,14 @@ class loginModel extends Model{
 		}
 	}
 	
+	public function logout(){
+		$sql = "UPDATE users SET token = '' WHERE token = '".$_GET['token']."'";
+		
+		$this->db->query($sql);
+		
+		return;
+	}
+	
 	public function authorize($token){
 		$sql  = "SELECT * FROM users ";
 		$sql .= "WHERE token = '".$token."' ";

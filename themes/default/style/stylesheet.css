@@ -40,3 +40,10 @@ table.list{
 	color: #f00;
 	margin-left: 5px;
 }
+ul.menu{
+	list-style-type: none;
+}
+ul.menu li{
+	float: left;
+	margin-right: 20px;
+}
