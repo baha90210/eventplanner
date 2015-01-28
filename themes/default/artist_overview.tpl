@@ -7,9 +7,6 @@
 			<tr>
 				<td>Artiest</td>
 				<td>Prijs</td>
-			<!--	<td>Einddatum</td>	-->
-			<!--	<td class="right">Toegangsprijs</td>	-->
-			<!--	<td colspan="2">&nbsp;</td>	-->
 			</tr>
 		</thead>
 		<?php foreach($this->artists as $artist){ ?>
@@ -20,8 +17,6 @@
 				</a>
 				</td>
 				<td style="text-align:right;"><?php echo $artist['rate']; ?></td>
-			<!--	<td><?php //echo $event['end_date']; ?></td>	-->
-			<!--	<td class="right"><?php // echo number_format($event['price'], 2, ',', '.'); ?></td>	-->
 				<td><a href="index.php?route=artist/edit&id=<?php echo $artist['artist_id'] ?>&token=<?php echo $_GET['token'] ?>">Edit</a></td>
 				<td><a href="index.php?route=artist/delete&id=<?php echo $artist['artist_id'] ?>&token=<?php echo $_GET['token'] ?>">Delete</a></td>
 			</tr>

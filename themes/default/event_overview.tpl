@@ -1,4 +1,5 @@
 <div>
+<<<<<<< HEAD
     <?php if(isset($this->msg)){ ?>
        <div class="msg"><?php echo $this->msg; ?></div>
     <?php } ?>
@@ -77,6 +78,8 @@
     </table>
 
 
+=======
+>>>>>>> FETCH_HEAD
 	<?php if(isset($this->msg)){ ?>
 	<div class="msg"><?php echo $this->msg; ?></div>
 	<?php } ?>
@@ -111,6 +114,9 @@
 				<td>&nbsp;</td>
 			</tr>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> FETCH_HEAD
 			<?php } ?>
 			<?php foreach($event['resources'] as $resource){ ?>
 			<tr class="resource_<?php echo $event['event_id'] ?>">
@@ -125,6 +131,7 @@
 			<?php } ?>
 			<tr><td colspan="6"><input type="button" onclick="addEvent();" value="Event toevoegen" /></td></tr>
     </table>
+<<<<<<< HEAD
 =======
 		<?php } ?>
 		<tr><td colspan="6"><input type="button" onclick="addEvent();" value="Event toevoegen" /></td></tr>
@@ -132,6 +139,8 @@
 	</table>
 
 >>>>>>> 2a9f62c6f01292d63d2718e496b4cfdb6af5ac2d
+=======
+>>>>>>> FETCH_HEAD
 </div>
 
 <script>
