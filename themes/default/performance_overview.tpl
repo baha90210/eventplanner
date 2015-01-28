@@ -20,7 +20,7 @@
             <?php } ?>
         </select>
         </div>
-	<table class="table">
+	<table class="list">
             <thead>
                 <tr>
                     <td>Event</td>
