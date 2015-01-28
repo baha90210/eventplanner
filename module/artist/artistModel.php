@@ -22,7 +22,7 @@ class artistModel extends Model{
 			$sql  = "INSERT INTO artist SET ";
 			$sql .= "name = '".$this->db->escape($data['req_name'])."', ";
 			$sql .= "rate = '".$data['reqnum_rate']."', ";
-			$sql .= "website = '".$data['url_website']."', ";
+			$sql .= "website = '".$this->db->escape($data['url_website'])."', ";
 			$sql .= "image = '".$data['img_image']."'";
 		
 			$this->db->query($sql);
@@ -37,7 +37,7 @@ class artistModel extends Model{
 			$sql  = "UPDATE artist SET ";
 			$sql .= "name = '".$this->db->escape($data['req_name'])."', ";
 			$sql .= "rate = '".$data['reqnum_rate']."', ";
-			$sql .= "website = '".$data['url_website']."', ";
+			$sql .= "website = '".$this->db->escape($data['url_website'])."', ";
 			$sql .= "image = '".$data['img_image']."' ";
 			$sql .= "WHERE artist_id = '".$data['id']."'";
 			

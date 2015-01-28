@@ -46,7 +46,7 @@ class artistController extends Controller{
 
 			$this->artist = array(
 				'name'			=> '',
-				'rate'	=> '',			
+				'rate'			=> '',			
 				'website'		=> '',
 				'image'			=> '' 
 				
