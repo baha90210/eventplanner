@@ -6,7 +6,7 @@
         <select id="event" name="event" onchange="SelectEvent()">
             <option value="">Alle Events</option>   
             <?php foreach($this->events as $events){ ?>
-                <option value="<?php echo $events['event_id']; ?>" <?php echo($events['event_id']==$_GET['event'])?'selected':'' ?> >
+                <option value="<?php echo $events['event_id']; ?>"  <?php echo(isset($_GET['event']) && $events['event_id']==$_GET['event'])?'selected':'' ?> >
                 <?php echo $events['name']; ?>
                 </option>
             <?php } ?>
@@ -14,7 +14,7 @@
         <select id="artist" name="artist" onchange="SelectArtist()">
             <option value="">Alle Artiesten</option>   
             <?php foreach($this->artists as $artists){ ?>
-                <option value="<?php echo $artists['artists_id']; ?>" <?php echo($events['artist_id']==$_GET['artist'])?'selected':'' ?> >
+                <option value="<?php echo $artists['artist_id']; ?>" <?php if (isset($_GET['artist']) && isset($_GET['artist'])) echo($artists['artist_id']==$_GET['artist'])?'selected':'' ?> >
                 <?php echo $artists['name']; ?>
                 </option>
             <?php } ?>
