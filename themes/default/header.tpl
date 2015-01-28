@@ -12,6 +12,11 @@
 					Artists
 				</a>
 			</li>
+                        <li>
+				<a href="index.php?route=performance/overview&event=&token=<?php echo $_GET['token'] ?>">
+					Performances
+				</a>
+			</li>
 			<li>
 				<a href="index.php?route=login/logout&token=<?php echo $_GET['token'] ?>">
 					Log Out
