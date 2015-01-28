@@ -2,7 +2,7 @@
 require_once('./config.php');
 
 if(isset($_GET['route']) && $_GET['route'] != ''){
-	//correcte class instantiëren
+	//correcte class instantiÃ«ren
 	$route = explode('/', $_GET['route']);
 
 	if(isset($route[0])){
@@ -25,7 +25,7 @@ if(isset($_GET['route']) && $_GET['route'] != ''){
 		$obj = new $controllerName();
 		$obj->$action();
 	}else{
-		echo 'module does not exist';
+		echo 'module does not exis!!!!t';
 	}
 }else{
 	//redirect naar 404
