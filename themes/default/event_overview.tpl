@@ -15,7 +15,7 @@
 		<tbody>
 			<?php foreach($this->events as $event){ ?>
 			<tr onclick="showLocRes(<?php echo $event['event_id'] ?>);">
-				<td><?php echo $event['name']; ?></td>
+				<td><?php echo stripslashes($event['name']); ?></td>
 				<td><?php echo $event['start_date']; ?></td>
 				<td><?php echo $event['end_date']; ?></td>
 				<td class="center"><?php echo number_format($event['price'], 2, ',', '.'); ?></td>

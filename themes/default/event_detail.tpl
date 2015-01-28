@@ -7,7 +7,7 @@
 	<table class="list">
 		<tr>
 			<td>Naam event:</td>
-			<td><input class="required" type="text" name="req_name" value="<?php echo $this->event['name']; ?>" /></td>
+			<td><input class="required" type="text" name="req_name" value="<?php echo stripslashes($this->event['name']); ?>" /></td>
 		</tr>
 		<tr>
 			<td>Startdatum:</td>

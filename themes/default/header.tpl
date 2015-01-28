@@ -18,6 +18,11 @@
 				</a>
 			</li>
 			<li>
+				<a href="index.php?route=resource/overview&event=&token=<?php echo $_GET['token'] ?>">
+					Resources
+				</a>
+			</li>
+			<li>
 				<a href="index.php?route=performance/overview&event=&token=<?php echo $_GET['token'] ?>">
 					Performances
 				</a>
