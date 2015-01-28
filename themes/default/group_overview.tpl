@@ -14,11 +14,12 @@
 			</tr>
 		</thead>
 		<?php foreach($this->groups as $group){ ?>
+<?php //echo '<pre>';var_dump($group);echo '</pre>'; ?>
 			<tr>
-				<td><?php echo $group['name']; ?><small> (<?php echo $group['description']; ?>)</small><input type="hidden" name="groupid[]" value="<?php echo $group['id']; ?>"></td>
-				<td><input type="text" name="module[]" value="<?php echo $group['module']; ?>"></td>
-				<td><input name="edit[]" value="<?php echo $group['edit']; ?>" type="checkbox" <?php echo ($group['edit'] =='1')?'checked="checked"':''; ?>></td>
-				<td><input name="view[]" value="<?php echo $group['view']; ?>" type="checkbox" <?php echo ($group['view'] =='1')?'checked="checked"':''; ?>></td>
+				<td><?php echo $group['name']; ?><small> (<?php echo $group['description']; ?>)</small></td>
+				<td><input type="text" name="group[<?php echo $group['id'] ?>][<?php echo $group['module']; ?>]" value="<?php echo $group['module']; ?>"></td>
+				<td><input name="group[<?php echo $group['id'] ?>][<?php echo $group['module']; ?>][edit]" value="<?php echo $group['edit']; ?>" type="checkbox" <?php echo ($group['edit'] =='1')?'checked="checked"':''; ?>></td>
+				<td><input name="group[<?php echo $group['id'] ?>][<?php echo $group['module']; ?>][view]" value="<?php echo $group['view']; ?>" type="checkbox" <?php echo ($group['view'] =='1')?'checked="checked"':''; ?>></td>
 				<td><a href="index.php?route=user/group_delete&email=<?php echo $group['group_id'] ?>&token=<?php echo $_GET['token'] ?>">Delete</a></td>
 			</tr>
 		<?php } ?>
@@ -48,7 +49,7 @@
     	       cb[i].value = 0; // set the value to "off"
     	       cb[i].checked = true; // make sure it submits
     	    }else{
-      	       cb[i].value = 1; // set the value to "off"
+      	       //cb[i].value = 1; // set the value to "off"
     	       //cb[i].checked = true; // make sure it submits
     	    }
     	}

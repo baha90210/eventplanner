@@ -30,7 +30,7 @@ class userController extends Controller{
         $this->setTitle("Overzicht Autorisatiegroepen");
                 
         if($_POST){
-            var_dump($_POST);
+            echo '<pre>';var_dump($_POST);echo '</pre>';
             die;
         }
         $this->loadModel('user');
