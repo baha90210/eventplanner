@@ -12,7 +12,12 @@
 					Artists
 				</a>
 			</li>
-                        <li>
+			<li>
+				<a href="index.php?route=location/overview&event=&token=<?php echo $_GET['token'] ?>">
+					Locations
+				</a>
+			</li>
+			<li>
 				<a href="index.php?route=performance/overview&event=&token=<?php echo $_GET['token'] ?>">
 					Performances
 				</a>
