@@ -1,14 +1,6 @@
 <?php
 class eventModel extends Model{
 	public function getEvents(){
-//            $sql = "SELECT event.*,EVTL.location_id,LOCA.name as loca_name,LOCA.address as loca_address,LOCA.rate as loca_rate,LOCA.capacity as loca_capacity,EVTR.event_id as resource_event_id,RESO.name,RESO.rate,RESO.description,RESO.type "
-//                        ."FROM event "
-//                        ."LEFT JOIN event_location EVTL ON event.event_id = EVTL.event_id "
-//                        ."LEFT JOIN location LOCA ON EVTL.location_id = LOCA.location_id "
-//                        ."LEFT JOIN event_resource EVTR ON event.event_id = EVTR.event_id "
-//                        ."LEFT JOIN resource RESO ON EVTR.resource_id = RESO.resource_id "
-//                        ."ORDER BY event.start_date ASC"; 
-            
 		$sql = "SELECT * FROM event ORDER BY start_date ASC";
 		
 		$result = $this->db->query($sql);
@@ -123,4 +115,39 @@ class eventModel extends Model{
 		
 		return true;
 	}
+	
+	public function baha_getEventLocation($event_id){
+		$sql  = "SELECT l.* FROM event_location el ";
+		$sql .= "LEFT JOIN location l ON el.location_id = l.location_id ";
+		$sql .= "WHERE event_id = '".$event_id."'";
+
+		$result = $this->db->query($sql);
+		
+		return $result->rows;
+	}
+
+	public function baha_getEventResources($event_id){
+		$sql  = "SELECT r.*, rt.name type_name FROM event_resource er ";
+		$sql .= "LEFT JOIN resource r ON er.resource_id = r.resource_id ";
+		$sql .= "LEFT JOIN resource_type rt ON rt.resource_type_id = r.type ";
+		$sql .= "WHERE event_id = '".$event_id."'";
+
+		$result = $this->db->query($sql);
+		
+		return $result->rows;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -1,8 +1,10 @@
 <div>
-
     <?php if(isset($this->msg)){ ?>
-        <div class="msg"><?php echo $this->msg; ?></div>
+       <div class="msg"><?php echo $this->msg; ?></div>
     <?php } ?>
+<<<<<<< HEAD
+    <table class="list">
+=======
 
 
     <table  class="list">
@@ -74,34 +76,62 @@
             <tr><td colspan="6"><input type="button" onclick="addEvent();" value="Event toevoegen" /></td></tr>
     </table>
 
-=======
+
 	<?php if(isset($this->msg)){ ?>
 	<div class="msg"><?php echo $this->msg; ?></div>
 	<?php } ?>
 	<table class="list">
+>>>>>>> 2a9f62c6f01292d63d2718e496b4cfdb6af5ac2d
 		<thead>
 			<tr>
 				<td>Event</td>
 				<td>Startdatum</td>
 				<td>Einddatum</td>
-				<td class="right">Toegangsprijs</td>
-				<td colspan="2">&nbsp;</td>
+				<td class="center">Toegangsprijs</td>
+				<td colspan="1">&nbsp;</td>
 			</tr>
 		</thead>
-		<?php foreach($this->events as $event){ ?>
+		<tbody>
+			<?php foreach($this->events as $event){ ?>
 			<tr>
 				<td><?php echo $event['name']; ?></td>
 				<td><?php echo $event['start_date']; ?></td>
 				<td><?php echo $event['end_date']; ?></td>
-				<td class="right"><?php echo number_format($event['price'], 2, ',', '.'); ?></td>
-				<td><a href="index.php?route=event/edit&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>">Edit</a></td>
-				<td><a href="index.php?route=event/delete&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>">Delete</a></td>
+				<td class="center"><?php echo number_format($event['price'], 2, ',', '.'); ?></td>
+				<td><a href="index.php?route=event/edit&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME ?>/images/edit.png"  /></a></td>
+				<td><a href="index.php?route=event/delete&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME ?>/images/remove.png"  /></a></td>
 			</tr>
+			<?php foreach($event['locations'] as $location){ ?>
+			<tr class="location_<?php echo $event['event_id'] ?>">
+				<td><?php echo $location['name']; ?></td>
+				<td><?php echo $location['address']; ?></td>
+				<td><?php echo $location['capacity']; ?></td>
+				<td class="center"><?php echo number_format($location['rate'], 2, ',', '.'); ?></td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+<<<<<<< HEAD
+			<?php } ?>
+			<?php foreach($event['resources'] as $resource){ ?>
+			<tr class="resource_<?php echo $event['event_id'] ?>">
+				<td><?php echo $resource['name']; ?></td>
+				<td><?php echo $resource['description']; ?></td>
+				<td><?php echo $resource['type_name']; ?></td>
+				<td class="center"><?php echo number_format($resource['rate'], 2, ',', '.'); ?></td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<?php } ?>
+			<?php } ?>
+			<tr><td colspan="6"><input type="button" onclick="addEvent();" value="Event toevoegen" /></td></tr>
+    </table>
+=======
 		<?php } ?>
 		<tr><td colspan="6"><input type="button" onclick="addEvent();" value="Event toevoegen" /></td></tr>
 		<tr><td colspan="6"><a href="index.php?route=location/overview&token=<?php echo $_GET['token'] ?>">Locaties beheren</a></td></tr>
 	</table>
->>>>>>> f8fb32eda476932b04f7e63afb08f7da6b9b5615
+
+>>>>>>> 2a9f62c6f01292d63d2718e496b4cfdb6af5ac2d
 </div>
 
 <script>
