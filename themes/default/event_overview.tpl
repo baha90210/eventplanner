@@ -74,7 +74,7 @@
             <tr><td colspan="6"><input type="button" onclick="addEvent();" value="Event toevoegen" /></td></tr>
     </table>
 
-=======
+
 	<?php if(isset($this->msg)){ ?>
 	<div class="msg"><?php echo $this->msg; ?></div>
 	<?php } ?>
@@ -101,7 +101,7 @@
 		<tr><td colspan="6"><input type="button" onclick="addEvent();" value="Event toevoegen" /></td></tr>
 		<tr><td colspan="6"><a href="index.php?route=location/overview&token=<?php echo $_GET['token'] ?>">Locaties beheren</a></td></tr>
 	</table>
->>>>>>> f8fb32eda476932b04f7e63afb08f7da6b9b5615
+
 </div>
 
 <script>
