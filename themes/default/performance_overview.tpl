@@ -50,7 +50,7 @@
 </div>
 <div id="artist_info"></div>
 <script>
-	function addPerfomance(){
+	function addPerformance(){
 		document.location.href='index.php?route=performance/add&token=<?php echo $_GET['token'] ?> ';
 	}
 	function __SelectEvent(){
