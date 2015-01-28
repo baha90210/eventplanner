@@ -58,33 +58,23 @@
             var location = 'index.php?route=performance/overview&event='.concat(str,'&token=<?php echo $_GET['token'] ?>');
             document.location.href=location;
         }
+
     function SelectRows(){
-		event_id = $('select[name="event"]').val();
-		artist_id = $('select[name="artist"]').val();
 
-		if(event_id == '' && artist_id == ''){
-			$('.row').show();
-		}else{
-			$('.row').hide();
+        /* Kortere SelectRows door Alexander */
 
-			if(event_id != ''){
-				if(artist_id != ''){
-					$('.event_'+event_id+'.artist_'+artist_id).show();
-				}else{
-					$('.event_'+event_id).show();
-				}
-			}else if(artist_id != ''){
-					$('.artist_'+artist_id).show();
-			}
-		}			
+        // Verberg alles
+        $('.row').hide();
 
-		
+        artist_id = $('select[name="artist"]').val();
+        event_id = $('select[name="event"]').val();
 
-/*
-        var myselect = document.getElementById("artist");
-        var str = myselect.options[myselect.selectedIndex].value;
-        var location = 'index.php?route=performance/overview&artist='.concat(str,'&token=<?php echo $_GET['token'] ?>');
-        document.location.href=location;
-*/
+        // Bepaal welke regels getoond moeten worden
+        selector = '.row'; // Begin met alles
+        if (event_id) { selector += '.event_'+event_id; } // Voeg event toe als die is ingesteld.
+        if (artist_id) { selector += '.artist_'+artist_id; } // Voeg artist toe als die is ingesteld.
+
+        $(selector).show(); // Toon deze rijen.
+
     }
 </script>
