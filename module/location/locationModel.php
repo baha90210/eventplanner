@@ -19,7 +19,7 @@ class locationModel extends Model{
 	public function addLocation($data){
 		$sql  = "INSERT INTO location SET ";
 		$sql .= "name = '".$this->db->escape($data['req_name'])."', ";
-		$sql .= "address = '".$data['req_address']."', ";
+		$sql .= "address = '".$this->db->escape($data['req_address'])."', ";
 		$sql .= "rate = '".$data['reqnum_rate']."', ";
 		$sql .= "capacity = '".$data['reqnum_capacity']."'";
 		
@@ -31,7 +31,7 @@ class locationModel extends Model{
 	public function editLocation($data){
 		$sql  = "UPDATE location SET ";
 		$sql .= "name = '".$this->db->escape($data['req_name'])."', ";
-		$sql .= "address = '".$data['req_address']."', ";
+		$sql .= "address = '".$this->db->escape($data['req_address'])."', ";
 		$sql .= "rate = '".$data['reqnum_rate']."', ";
 		$sql .= "capacity = '".$data['reqnum_capacity']."' ";
 		$sql .= "WHERE location_id = '".$data['id']."'";
