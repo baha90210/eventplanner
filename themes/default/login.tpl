@@ -2,6 +2,7 @@
 	<?php if($this->error_msg != ''){ ?>
 		<div class="error"><?php echo $this->error_msg; ?></div>	
 	<?php } ?>
+	<h3>Een wijziging!</h3>
 	<form method="post" action="index.php?route=login/login">
 		<table>
 			<tr>
