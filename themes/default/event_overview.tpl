@@ -25,9 +25,9 @@
 			<?php foreach($event['locations'] as $location){ ?>
 			<tr class="row location_<?php echo $event['event_id'] ?>">
 				<td><?php echo $location['name']; ?></td>
-				<td><?php echo $location['address']; ?></td>
-				<td><?php echo $location['capacity']; ?></td>
-				<td class="center"><?php echo number_format($location['rate'], 2, ',', '.'); ?></td>
+				<td>Adres: <?php echo $location['address']; ?></td>
+				<td>Capacity: <?php echo $location['capacity']; ?></td>
+				<td class="center">Prijs: <?php echo number_format($location['rate'], 2, ',', '.'); ?></td>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 			</tr>
