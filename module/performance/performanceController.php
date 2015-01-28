@@ -16,6 +16,10 @@ class performanceController extends Controller{
                 $this->loadModel('event');
                 $this->events = $this->model->getEvents();
 		
+                $this->loadModel('artist');
+                $this->artists = $this->model->getArtists();
+                
+                //var_dump($this->artists);
 		$this->render('performance_overview.tpl');
 	}
 
