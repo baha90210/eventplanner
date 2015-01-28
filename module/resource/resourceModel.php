@@ -7,7 +7,7 @@ class resourceModel extends Model{
 		
 		return $result->rows;
 	}	
-	public function getResourcesbyId($id){
+	public function getResource($id){
 		$sql  = "SELECT * FROM resource WHERE resource_id = '".$id."' ORDER BY name";
 		
 		$result = $this->db->query($sql);
