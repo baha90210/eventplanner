@@ -23,6 +23,7 @@
 			</tr>
 		<?php } ?>
 		<tr><td colspan="6"><input type="button" onclick="addEvent();" value="Event toevoegen" /></td></tr>
+		<tr><td colspan="6"><a href="index.php?route=location/overview&token=<?php echo $_GET['token'] ?>">Locaties beheren</a></td></tr>
 	</table>
 </div>
 
