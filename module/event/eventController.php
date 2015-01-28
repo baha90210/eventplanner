@@ -1,6 +1,12 @@
 <?php
 class eventController extends Controller{
-	public function overview(){
+	public function __construct(){
+		//parent::__construct();
+		
+		$this->authorize();
+	}
+
+	public function overview(){		
 		$this->setTitle('Overzicht events');
 		
 		$this->loadModel('event');
@@ -12,19 +18,13 @@ class eventController extends Controller{
 
 	public function add(){
 		$this->setTitle('Event toevoegen');
-		
-/*
-		$this->event['name'] = '';
-		$this->event['start_date'] = '';
-		$this->event['end_date'] = '';
-		$this->event['price'] = '';
-*/
+
 		if($_POST){
 			$this->loadModel('event');
 
 			$this->model->addEvent($_POST);
 			
-			$this->msg = 'Event '.$_POST['name'].' werd toegevoegd.';
+			$this->msg = 'Event '.$_POST['req_name'].' werd toegevoegd.';
 			
 			$this->overview();
 		}else{		
@@ -36,6 +36,12 @@ class eventController extends Controller{
 				'end_date'		=> '',
 				'price'			=> ''
 			);
+			
+			$this->event_locations = array();
+			
+			$this->loadModel('location');
+			
+			$this->locations = $this->model->getLocations();
 	
 			$this->render('event_detail.tpl');		
 		}
@@ -45,7 +51,7 @@ class eventController extends Controller{
 		$this->setTitle('Event aanpassen');
 		$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
 		$this->loadModel('event');
-		
+
 		if($_POST){
 			if($this->validate($_POST)){
 				$this->model->editEvent($_POST);
@@ -60,6 +66,11 @@ class eventController extends Controller{
 			$id = $_GET['id'];
 			
 			$this->event = $this->model->getEvent($id);
+			$this->event_locations = $this->model->getEventLocations($id);
+			
+			$this->loadModel('location');
+			
+			$this->locations = $this->model->getLocations();
 			
 			$this->render('event_detail.tpl');		
 		}
