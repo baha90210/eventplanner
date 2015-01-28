@@ -25,7 +25,7 @@ class eventController extends Controller{
                     //lus door de  locations en haal de data op
                     foreach($this->event_locations as $event_location){
                         //stop ze in een array
-                        $this->event_locationsdata[$event['event_id']][$i] = $this->model->getLocationsbyId($event_location['location_id']);
+                        $this->event_locationsdata[$event['event_id']][$i] = $this->model->getLocation($event_location['location_id']);
                         //teller omhoog wippen
                         $i++;
                     }
