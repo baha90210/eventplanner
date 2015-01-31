@@ -4,7 +4,8 @@ class performanceController extends Controller{
 		//parent::__construct();
 		
 		$this->authorize();
-                $this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+                $this->addScript('//code.jquery.com/jquery-1.11.2.min.js');
+                $this->addScript('./themes/sander/bootstrap-3.3.2-dist/js/bootstrap.min.js');
 	}
 
 	public function overview(){		
