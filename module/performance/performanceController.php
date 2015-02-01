@@ -70,19 +70,16 @@ public function edit(){
     }
 }
 
-	public function delete(){
-		if(isset($_GET['id'])){
-                    
-			$id = $_GET['id'];
-			$this->loadModel('performance');
-			$performance = $this->model->getEvent($id);
-			$this->model->deleteEvent($id);
-			$this->msg = 'U heeft performance '.$event['name'].' verwijderd.';
-		}
-		
-		$this->overview();
-		//$this->redirect('index.php?route=event/overview');
-	}
+public function delete(){
+    if(isset($_GET['id']))
+    {
+            $id = $_GET['id'];
+            $this->loadModel('performance');
+            $this->model->deletePerformance($id);
+            $this->msg = 'U heeft performance '.$event['name'].' verwijderd.';
+    }
+    $this->redirect('performance/overview', $_GET['token']);
+}
 	
 private function validate($data){
         foreach($data as $k => $v){

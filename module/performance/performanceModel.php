@@ -16,11 +16,11 @@ public function getPerformances()
     return $result->rows;
 }
 
-	public function deletePerformance($id){
-		$sql = "DELETE FROM performance WHERE performance_id = '".$this->db->escape($id)."'";
-		$this->db->query($sql);
-		return;
-	}
+public function deletePerformance($id){
+        $sql = "DELETE FROM performance WHERE performance_id = '".$this->db->escape($id)."'";
+        $this->db->query($sql);
+        return;
+}
 	
 public function addPerformance($data){
     if($this->validatePerformance($data))
