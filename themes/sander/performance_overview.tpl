@@ -42,15 +42,16 @@
                 <td><?php echo $perf['date_from']; ?></td>
                 <td><?php echo $perf['date_until']; ?></td>
                 <td><?php echo $perf['confirmed']; ?></td>
-                <td><a href="index.php?route=performance/edit&id=<?php echo $perf['performance_id'] ?>&token=<?php echo $_GET['token'] ?>">Edit</a> &nbsp;
-					<a href="index.php?route=performance/delete&id=<?php echo $perf['performance_id'] ?>&token=<?php echo $_GET['token'] ?>">Delete</a></td>
-			</tr>
+                <td><a href="index.php?route=performance/edit&id=<?php echo $perf['performance_id'] ?>&token=<?php echo $_GET['token'] ?>"><span class="glyphicon glyphicon-edit"></span></a></td>
+                <td><a href="index.php?route=performance/delete&id=<?php echo $perf['performance_id'] ?>&token=<?php echo $_GET['token'] ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
+			</tr>   
 		<?php } ?>	
 		</table>	
 		<button type="button" class="btn btn-default" onclick="addPerformance();">Performance toevoegen</button>
-		
 </div>
-<div id="artist_info" class="bg-info"></div>
+
+<div id="artist_info" class="panel"></div>
+
 <script>
 	function addPerformance(){
 		document.location.href='index.php?route=performance/add&token=<?php echo $_GET['token'] ?> ';
@@ -73,7 +74,7 @@
         event_id = $('select[name="event"]').val();
 
         // Bepaal welke regels getoond moeten worden
-        selector = '.row'; // Begin met alles
+        selector = '.rij'; // Begin met alles
         if (event_id) { selector += '.event_'+event_id; } // Voeg event toe als die is ingesteld.
         if (artist_id) { selector += '.artist_'+artist_id; } // Voeg artist toe als die is ingesteld.
 
@@ -89,9 +90,10 @@
 			dataType: 'json',
 			success: function(json){
 				console.log(json);
-				inhoud  = 'Naam: '+json['name']+'<br />';
+                                inhoud  =  '<div class="panel-heading">Panel heading without title</div>'
+				inhoud += '<div>Naam: '+json['name']+'<br />';
 				inhoud += 'Tarief: '+json['rate']+'<br />';
-				inhoud += 'Website: '+json['website']+'<br />';
+				inhoud += 'Website: '+json['website']+'<br /></div>';
 
 				$('#artist_info').html(inhoud);
 			},

@@ -37,5 +37,4 @@
 		<div class="clear_all">&nbsp;</div>
 		<div>
 			<h2><?php echo $this->title; ?></h2>
-			<h2><?php echo $this->title; ?></h2>
 			
