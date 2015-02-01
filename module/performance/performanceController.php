@@ -72,7 +72,7 @@ public function edit(){
 
 public function delete(){
     if(isset($_GET['id']))
-    {
+        {
             $id = $_GET['id'];
             $this->loadModel('performance');
             $this->model->deletePerformance($id);
