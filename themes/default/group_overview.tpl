@@ -32,7 +32,7 @@
 	</table>
 	</form>
 		<p class="module_placeholder">
-		<p onclick="getGroupsnorights();">Klik hier voor groepen zonder rechten</p><div id="group_norights"></div>
+		<p onclick="getGroupsnorights();">Groepen zonder rechten</p><div id="group_norights"></div>
 		
 	
 </div>
