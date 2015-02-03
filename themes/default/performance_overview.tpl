@@ -39,7 +39,7 @@
                 <td><?php echo $perf['artistname']; ?></td>
                 <td><?php echo $perf['date_from']; ?></td>
                 <td><?php echo $perf['date_until']; ?></td>
-                <td><?php echo $perf['confirmed']; ?></td>
+                <td><?php if ($perf['confirmed']==1) echo ('Ja'); ?></td>
                 <td><a href="index.php?route=performance/edit&id=<?php echo $perf['performance_id'] ?>&token=<?php echo $_GET['token'] ?>">Edit</a></td>
 		<td><a href="index.php?route=performance/delete&id=<?php echo$perf['performance_id'] ?>&token=<?php echo $_GET['token'] ?>">Delete</a></td>
 			</tr>
