@@ -145,14 +145,9 @@
 		html += '<td>';
 		html += '<select name="resource[]">';
 		html += '<option value="">-- Selecteer een resource --</option>';
-		<?php 
-                if(is_array($this->resoures)){
-                    foreach($this->resources as $resource){ ?>
-                        html += '<option value="<?php echo $resource['resource_id'] ?>"><?php echo $resource['name'] ?></option>';
-                <?php
-                    }
-                } 
-                ?>
+		<?php foreach($this->resources as $resource){ ?>
+		html += '<option value="<?php echo $resource['resource_id'] ?>"><?php echo $resource['name'] ?></option>';
+		<?php } ?>
 		html += '</select>';
 		html += '  <img src="./themes/<?php echo THEME ?>/images/remove.png" onclick="deleteResource(this);" />';
 		html += '</td>';
