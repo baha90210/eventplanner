@@ -1,5 +1,31 @@
 <?php
 class userModel extends Model{
+    public function addUser($email, $password){
+        $sql  = "INSERT INTO users ";
+        $sql .= "(email, password, date_last_logged_in, token) ";
+        $sql .= "VALUES ('".$this->db->escape($email)."', MD5('".$this->db->escape($password).":12345abc'), ";
+        $sql .= "'00-00-00', 0)";
+        //echo $sql; die;
+        $this->db->query($sql);
+        return;
+    }
+    
+    public function updateUser($email, $password){
+        $sql  = "UPDATE users ";
+        $sql .= "SET email='".$email."', ";
+        $sql .= "password= MD5('".$this->db->escape($password).":12345abc') ";
+        $sql .= "WHERE email='".$email."'";
+        $this->db->query($sql);
+        return;
+        
+    }
+    
+    public function getUser($email){
+        $sql  = "SELECT * FROM users ";
+        $sql .= "WHERE email = '".$email."'";
+        $result = $this->db->query($sql);
+        return $result->row;
+    }
     
     public function getUsers(){
         $sql = "SELECT * FROM users";

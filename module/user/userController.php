@@ -22,7 +22,27 @@ class userController extends Controller{
     }
     
     public function add(){
-        echo "module: user; <br />functie: add";
+        //echo "module: user; <br />functie: add";
+        
+        if(isset($_GET['email'])){
+            $this->loadModel('user');
+            $this->user = $this->model->getUser($_GET['email']);
+        //var_dump($this->users);
+            $this->readonly="readonly";
+            $this->setTitle("Beheer Gebruiker");
+        }else{
+            $this->setTitle("Toevoegen Gebruiker");
+            $this->readonly="";
+            
+			$this->user = array(
+				'email'			         => '<email>',
+				'password'	             => '',
+				'date_last_logged_in'	 => '',
+				'token'			         => ''
+			);
+        }
+        $this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+        $this->render('user_detail.tpl');
     }
     
     public function group(){
@@ -80,19 +100,33 @@ class userController extends Controller{
     }
 
     public function user(){
-        echo "module: user; <br />functie: user";
+        //echo "module: user; <br />functie: user";
+        $this->overview();
     }
     
     public function edit(){
-        echo "module: user; <br />functie: edit";
+        if(isset($_POST['req_email']) && isset($_POST['req_password'])){
+            //code voor opslaan in db
+            if($_POST['token']!=""){
+                //user bestaat al
+                //var_dump($_POST);die;
+                $this->loadModel('user');
+                $this->model->updateUser($_POST['req_email'], $_POST['req_password']);
+            }else{
+                //nieuwe user"
+                //echo 'new';
+                $this->loadModel('user');
+                $this->model->addUser($_POST['req_email'], $_POST['req_password']);
+            }
+            $this->overview();
+        }else{
+            $this->add();
+        }
     }
     
     public function delete(){
+        //verwijderen gebruiker
         echo "module: user; <br />functie: delete";
-    }
-    
-    public function add_group(){
-        echo "module: user; <br />functie: add_group";
     }
     
     public function group_delete(){
