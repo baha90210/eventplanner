@@ -37,6 +37,28 @@
 		<tr class="location_placeholder">
 			<td colspan="2"><input type="button" name="addLocationhtml" value="Add location" onclick="addLocation();" /></td>
 		</tr>
+                
+                <?php //var_dump($this->event_resources); ?>
+                
+                 
+		<?php if(is_array($this->event_resource)){
+                    foreach($this->event_resources as $resource_id){ ?>
+                    <tr>
+                            <td>Resource:</td>
+                            <td>
+                                    <select name="resource[]">
+                                            <option value="">-- Selecteer een resource --</option>
+                                            <?php foreach($this->resources as $resource){ ?>
+                                            <option value="<?php echo $resource['resource_id'] ?>" <?php echo ($resource['resource_id'] == $resource_id['resource_id'])?'selected="selected"':''; ?>><?php echo $resource['name'] ?></option>
+                                            <?php } ?>
+                                    </select> <img src="./themes/<?php echo THEME ?>/images/remove.png" onclick="deleteResource(this);" />
+                            </td>
+                    </tr>
+                    <?php }
+                    } ?>
+		<tr class="resource_placeholder">
+			<td colspan="2"><input type="button" name="addResourcehtml" value="Add resource" onclick="addResource();" /></td>
+		</tr>
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
 		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=event/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
 	</table>
@@ -78,6 +100,17 @@
 				location_array.push($(this).val());
 			}
 		});
+                
+		resource_array = [];
+		
+		$('select[name="resource[]"]').each(function(){
+			if($.inArray($(this).val(), resource_array) != -1){
+				error = true;
+				$(this).css('border', '1px solid #f00');
+			}else{
+				resource_array.push($(this).val());
+			}
+		});
 
 		if(!error){
 			$('form').submit();
@@ -102,9 +135,31 @@
 
 		$('.location_placeholder').before(html);
 	}
+        
+	function addResource(){
+		html = '';
+		
+		html += '<tr>';
+		html += '<td>Resource:</td>';
+		html += '<td>';
+		html += '<select name="resource[]">';
+		html += '<option value="">-- Selecteer een resource --</option>';
+		<?php foreach($this->resources as $resource){ ?>
+		html += '<option value="<?php echo $resource['resource_id'] ?>"><?php echo $resource['name'] ?></option>';
+		<?php } ?>
+		html += '</select>';
+		html += '  <img src="./themes/<?php echo THEME ?>/images/remove.png" onclick="deleteResource(this);" />';
+		html += '</td>';
+		html += '</tr>';
+
+		$('.resource_placeholder').before(html);
+	}
 
 	function deleteLocation(location){
 		$(location).parent().parent().remove();
+	}	
+	function deleteResource(resource){
+		$(resource).parent().parent().remove();
 	}	
 </script>
 

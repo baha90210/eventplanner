@@ -28,7 +28,7 @@ class eventController extends Controller{
 	        //get event resources
 	        $event['resources'] = array();
 	        $event_resources = $this->model->baha_getEventResources($event['event_id']);
-	        
+	        //var_dump($event_resources);
 	        foreach($event_resources as $resource){
 		        $event['resources'][] = $resource;
 	        }
@@ -65,6 +65,12 @@ class eventController extends Controller{
 			$this->loadModel('location');
 			
 			$this->locations = $this->model->getLocations();
+                        
+			$this->event_resources = array();
+			
+			$this->loadModel('resource');
+			
+			$this->resources = $this->model->getResources();
 	
 			$this->render('event_detail.tpl');		
 		}

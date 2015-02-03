@@ -32,7 +32,7 @@ class eventModel extends Model{
 					$sql = "INSERT IGNORE INTO event_location SET ";
 					$sql .= "event_id = '".$data['id']."', ";
 					$sql .= "location_id = '".$v."'";
-					echo $sql;
+
 					$this->db->query($sql);
 				}
 			}
