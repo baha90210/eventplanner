@@ -1,11 +1,11 @@
 <?php
 class performanceController extends Controller{
 public function __construct(){
-        //parent::__construct();
+    //parent::__construct();
 
-        $this->authorize();
-        $this->addScript('//code.jquery.com/jquery-1.11.2.min.js');
-        $this->addScript('./themes/sander/bootstrap-3.3.2-dist/js/bootstrap.min.js');
+    $this->authorize();
+    $this->addScript('//code.jquery.com/jquery-1.11.2.min.js');
+    $this->addScript('./themes/sander/bootstrap-3.3.2-dist/js/bootstrap.min.js');
 }
 
 public function overview(){		
@@ -39,7 +39,7 @@ public function add(){
     }
     else
     {		
-        $this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+        // $this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
         $this->render('performance_detail.tpl');		
     }
 }
@@ -55,10 +55,7 @@ public function edit(){
     if($_POST)
     {
         if($this->validate($_POST))
-        {
-            $this->model->editPerformance($_POST);
-            $this->msg = 'Performance '.$_POST['req_name'].' werd aangepast.';
-        }						
+            $this->model->editPerformance($_POST);					
         $this->redirect('performance/overview', $_GET['token']);
     }
 
@@ -95,7 +92,6 @@ private function validate($data){
                         }
                 }
         }
-
         return true;
 }
 

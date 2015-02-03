@@ -19,6 +19,9 @@
                     <a href="index.php?route=performance/overview&event=&token=<?php echo $_GET['token'] ?>">Performances</a>
                 </li>
                 <li role="presentation">
+                    <a href="index.php?route=user/overview&event=&token=<?php echo $_GET['token'] ?>">Users</a>
+                </li>
+                <li role="presentation">
                     <a href="index.php?route=login/logout&token=<?php echo $_GET['token'] ?>">Log Out</a>
                 </li>
             </ul>

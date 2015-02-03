@@ -1,0 +1,39 @@
+Gebruikte tabellen voor user- en groepbeheer:
+groups
+====== 
+Kolom	Type	Leeg	Standaardwaarde	Opmerkingen	   
+id	int(11)	Nee 	 	 	   
+name	varchar(255)	Nee 	 	 	   
+description	varchar(255)	Nee 	 	 	 
+Indexen 
+ 
+Sleutelnaam	Type	Unieke waarde	Gecomprimeerd	Kolom	Kardinaliteit	Collatie	Leeg	Opmerking	   
+PRIMARY	BTREE	Ja	Nee	id	5	A	Nee		 
+
+group_rights
+============ 
+Kolom	Type	Leeg	Standaardwaarde	Opmerkingen	   
+group_id	int(11)	Nee 	 	 	   
+module	varchar(255)	Nee 	 	 	   
+edit	tinyint(1)	Nee 	 	 	   
+view	tinyint(1)	Nee 	 	 	 
+Indexen 
+Geen index gedefinieerd!
+
+user_group
+========== 
+Kolom	Type	Leeg	Standaardwaarde	Opmerkingen	   
+user_email	varchar(200)	Nee 	 	 	   
+group_id	int(11)	Nee 	 	 	 
+Indexen 
+Geen index gedefinieerd!
+
+users
+===== 
+Kolom	Type	Leeg	Standaardwaarde	Opmerkingen	   
+email	varchar(200)	Nee 	 	 	   
+password	varchar(200)	Nee 	 	 	   
+date_last_logged_in	datetime	Nee 	 	 	   
+token	varchar(100)	Nee 	 	 	 
+Indexen 
+Geen index gedefinieerd!

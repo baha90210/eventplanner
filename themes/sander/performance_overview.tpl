@@ -24,7 +24,7 @@
             <table class="table table-hover">
                 <thead><tr>
                     <td>Event</td><td>Titel</td><td>Artiest</td><td>Start datum</td><td>Eind datum</td>
-                    <td>Confirmed</td><td>&nbsp;</td> 
+                    <td>Confirmed</td><td colspan="2">Bewerking</td> 
                 </tr></thead>
                 <?php foreach($this->performance as $perf){ ?>
                 <tr class="rij artist_<?php echo $perf['artist_id'] ?> event_<?php echo $perf['event_id'] ?>" onclick="getArtistInfo(<?php echo $perf['artist_id'] ?>);">
@@ -33,7 +33,7 @@
                     <td><?php echo $perf['artistname']; ?></td>
                     <td><?php echo $perf['date_from']; ?></td>
                     <td><?php echo $perf['date_until']; ?></td>
-                    <td><?php echo $perf['confirmed']; ?></td>
+                    <td><?php if ($perf['confirmed']==1) echo ('<span class="glyphicon glyphicon-ok"></span>'); ?></td>
                     <td><a href="index.php?route=performance/edit&id=<?php echo $perf['performance_id'] ?>&token=<?php echo $_GET['token'] ?>"><span class="glyphicon glyphicon-edit"></span></a></td>
                     <td><a href="index.php?route=performance/delete&id=<?php echo $perf['performance_id'] ?>&token=<?php echo $_GET['token'] ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
                 </tr>   

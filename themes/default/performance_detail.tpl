@@ -3,17 +3,17 @@
 	<div class="msg"><?php echo $this->msg; ?></div>
         
 	<?php } ?>
-	<form class="form-horizontal" name="frm" method="post" action="index.php?route=<?php echo $_GET['route'] ?>&token=<?php echo $_GET['token'] ?>" enctype="multipart/form-data">
+	<form class="" name="frm" method="post" action="index.php?route=<?php echo $_GET['route'] ?>&token=<?php echo $_GET['token'] ?>" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="<?php echo (isset($_GET['id']))?$_GET['id']:''; ?>" />
         <table>
         <tr>
             <td>Performance Naam</td>
-            <td><input class="required form_control" type="text" name="req_perfname" value="<?php if (isset($this->performance)) echo $this->performance['performance_title']; ?>" /></td>
+            <td><input class="" type="text" name="req_perfname" value="<?php if (isset($this->performance)) echo $this->performance['performance_title']; ?>" /></td>
         </tr>
         <tr>
             <td>Event</td>
             <td>
-	        <select name="req_eventid" class="form-control">
+	        <select name="req_eventid">
 	            <?php foreach($this->events as $events){ ?>
                     <option value="<?php echo $events['event_id']; ?>" <?php echo(isset($_GET['id']) && $this->performance['event_id']==$events['event_id'])?'selected>':'>'; echo $events['name']; ?></option>
 	            <?php } ?>
@@ -23,7 +23,7 @@
 	<tr>
             <td>Artist</td>
             <td>
-     	        <select name="req_artistid" class="form-control">
+     	        <select name="req_artistid">
 	            <?php foreach($this->artists as $artists){ ?>
                     <option value="<?php echo $artists['artist_id']; ?>" <?php echo(isset($_GET['id']) && $this->performance['artist_id']==$artists['artist_id'])?'selected >':'>'; echo $artists['name']; ?></option>
 	            <?php } ?>
@@ -32,17 +32,17 @@
         </tr>
 	<tr>
             <td>Start:</td>
-            <td><input class="required form_control" type="date" name="req_date_from" value="<?php if (isset($this->performance)) echo $this->performance['date_from']; ?>" />
+            <td><input class="" type="date" name="req_date_from" value="<?php if (isset($this->performance)) echo $this->performance['date_from']; ?>" />
             </div>
         </tr>
 	<tr>
             <td>Tot:</td>
-            <td><input class="required form_control" type="date" name="req_date_until" value="<?php if (isset($this->performance)) echo $this->performance['date_until']; ?>" />
+            <td><input class="" type="date" name="req_date_until" value="<?php if (isset($this->performance)) echo $this->performance['date_until']; ?>" />
             </div>
         </tr>
         <tr>
             <td>Bevestigd</td>
-            <td><input class="required form_control" type="number" name="num_confirmed" value="<?php if (isset($this->performance)) echo $this->performance['confirmed']; ?>" />
+            <td><input type="checkbox" name="confirmed" value="1" <?php if( isset($this->performance) && ($this->performance['confirmed'] == 1)) echo('checked'); ?> >
             </td>
         </tr>
         
