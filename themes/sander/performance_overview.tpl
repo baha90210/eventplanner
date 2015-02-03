@@ -1,6 +1,7 @@
 <div>
     <div class="panel panel-info">
-        <div class="panel-heading">
+        <div class="panel-heading"><?php echo ($this->header_msg); ?></div> 
+        <div class="panel-body">
             <div class="row form-group form-horizontal" >
                 <div class="col-xs-3">
                 <select name="event" class="form-control" onchange="SelectRows()">
@@ -19,8 +20,6 @@
                 </select>
                 </div>
             </div>
-        </div> 
-        <div class="panel-body">
             <table class="table table-hover">
                 <thead><tr>
                     <td>Event</td><td>Titel</td><td>Artiest</td><td>Start datum</td><td>Eind datum</td>

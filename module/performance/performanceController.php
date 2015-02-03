@@ -9,8 +9,8 @@ public function __construct(){
 }
 
 public function overview(){		
-    $this->setTitle('Overzicht performance');
-
+    $this->setHeaderMSG('Overzicht performances');
+    
     $this->loadModel('performance');
     $this->performance = $this->model->getPerformances();
 
@@ -20,12 +20,11 @@ public function overview(){
     $this->loadModel('artist');
     $this->artists = $this->model->getArtists();
 
-    //var_dump($this->artists);
     $this->render('performance_overview.tpl');
 }
 
 public function add(){
-    $this->setTitle('Performance toevoegen');
+
     $this->loadModel('event');
     $this->events = $this->model->getEvents();
     $this->loadModel('artist');
@@ -73,7 +72,6 @@ public function delete(){
             $id = $_GET['id'];
             $this->loadModel('performance');
             $this->model->deletePerformance($id);
-            $this->msg = 'U heeft performance '.$event['name'].' verwijderd.';
     }
     $this->redirect('performance/overview', $_GET['token']);
 }

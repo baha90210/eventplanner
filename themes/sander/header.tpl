@@ -22,11 +22,13 @@
                     <a href="index.php?route=user/overview&event=&token=<?php echo $_GET['token'] ?>">Users</a>
                 </li>
                 <li role="presentation">
+                    <a href="index.php?route=message/overview&event=&token=<?php echo $_GET['token'] ?>">Messages</a>
+                </li>
+                <li role="presentation">
                     <a href="index.php?route=login/logout&token=<?php echo $_GET['token'] ?>">Log Out</a>
                 </li>
             </ul>
             <?php endif; ?>
         </div>
         <div>
-           <h2><?php //echo $this->title; ?></h2>
 			

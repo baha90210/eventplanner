@@ -2,7 +2,8 @@
 class Controller{
 	private $title = '';
 	protected $model;
-	protected $error_msg;
+	protected $error_msg = '';
+	private $header_msg = '';
 	public $scripts = array();
 	
 	public function index(){
@@ -37,12 +38,12 @@ class Controller{
 		$this->loadFile('footer.tpl');
 	}
 	
-	public function redirect($route, $token = ''){
-		if($token != ''){
-			header('Location: index.php?route='.$route.'&token='.$token);
-		}else{
-			header('Location: index.php?route='.$route);
-		}
+	public function redirect($route, $token = '', $msg = ''){
+	    $str='Location: index.php?route='.$route;
+		if($token != '') $str .= '&token='.$token;
+		if($msg != '') $str .= '&msg='.$msg;
+		// Redirect browser, $str contains location data
+        header($str);
 	}
 	
 	public function authorize(){
@@ -72,6 +73,10 @@ class Controller{
 	
 	public function setTitle($title){
 		$this->title = APPNAME.$title;
+	}
+	
+	public function setHeaderMSG($text){
+	    $this->header_msg = $text;
 	}
 }	
 	
