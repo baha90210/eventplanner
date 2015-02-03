@@ -2,7 +2,7 @@
 	<?php if(isset($this->msg)){ ?>
 	<div class="msg"><?php echo $this->msg; ?></div>
 	<?php } ?>
-	<form name="frm" id="frm" method="post" action="index.php?route=<?php echo $_GET['route'] ?>&token=<?php echo $_GET['token'] ?>" enctype="multipart/form-data">
+	<form name="rights_frm" id="rights_frm" method="post" action="index.php?route=user/group&token=<?php echo $_GET['token']; ?>" enctype="multipart/form-data">
 	<table class="list">
 		<thead>
 			<tr>
@@ -10,31 +10,47 @@
 				<td>Module</td>
 				<td>Edit</td>
 				<td>View</td>
-				<td>X</td>
+				<td align="center">Delete</td>
 			</tr>
 		</thead>
-		<?php foreach($this->groups as $group){ ?>
-<?php //echo '<pre>';var_dump($group);echo '</pre>'; ?>
+		
+		<?php if($this->grouprights){foreach($this->grouprights as $groupright){ ?>
 			<tr>
-				<td><?php echo $group['name']; ?><small> (<?php echo $group['description']; ?>)</small></td>
-				<td><input type="text" name="group[<?php echo $group['id'] ?>][<?php echo $group['module']; ?>]" value="<?php echo $group['module']; ?>"></td>
-				<td><input name="group[<?php echo $group['id'] ?>][<?php echo $group['module']; ?>][edit]" value="<?php echo $group['edit']; ?>" type="checkbox" <?php echo ($group['edit'] =='1')?'checked="checked"':''; ?>></td>
-				<td><input name="group[<?php echo $group['id'] ?>][<?php echo $group['module']; ?>][view]" value="<?php echo $group['view']; ?>" type="checkbox" <?php echo ($group['view'] =='1')?'checked="checked"':''; ?>></td>
-				<td><a href="index.php?route=user/group_delete&email=<?php echo $group['group_id'] ?>&token=<?php echo $_GET['token'] ?>">Delete</a></td>
+				<td><?php echo $groupright['name']; ?><small> (<?php echo $groupright['description']; ?>)</small></td>
+				<td><input type="text" name="group[<?php echo $groupright['id'] ?>][<?php echo $groupright['module']; ?>]" value="<?php echo $groupright['module']; ?>" readonly></td>
+				<td><input name="group[<?php echo $groupright['id'] ?>][<?php echo $groupright['module']; ?>][edit]" value="<?php echo $groupright['edit']; ?>" type="checkbox" <?php echo ($groupright['edit'] =='1')?'checked="checked"':''; ?>></td>
+				<td><input name="group[<?php echo $groupright['id'] ?>][<?php echo $groupright['module']; ?>][view]" value="<?php echo $groupright['view']; ?>" type="checkbox" <?php echo ($groupright['view'] =='1')?'checked="checked"':''; ?>></td>
+				<td align="center"><a href="index.php?route=user/group_delete&group=<?php echo $groupright['id'] ?>&module=<?php echo $groupright['module']; ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/default/images/remove.png" alt="verwijderen"></a></td>
 			</tr>
-		<?php } ?>
-		<tr><td colspan="5"><input type="button" onclick="validate('frm');" name="btnSubmit" value="Opslaan" /></td></tr>
+		<?php }}else{echo "<div class='msg'>Er zijn nog geen groepsrechten toegekend</div>";} ?>
+		<tr><td colspan="5"><input type="button" onclick="validate('rights_frm');" name="btnSubmit" value="Rechten opslaan" />
+		<input type="hidden" name="opslaan" value="opslaan"></td></tr>
 		
 		<tr><td colspan="5">&nbsp;</td></tr>
-		<tr><td colspan="5"><input type="button" onclick="addGroup();" value="Module toevoegen" />&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="button" onclick="addGroup();" value="Groep toevoegen" /></td></tr>
+		<tr><td colspan="5"><input type="button" onclick="addModule();" value="Module toevoegen" />&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="button" onclick="addGroup();" value="Nieuwe groep" /></td></tr>
 	</table>
 	</form>
+		<p class="module_placeholder">
+		<p onclick="getGroupsnorights();">Klik hier voor groepen zonder rechten</p><div id="group_norights"></div>
+		
+	
 </div>
 
 <script>
 	function addGroup(){
-		document.location.href='index.php?route=user/group_add&token=<?php echo $_GET['token'] ?>';
+		html = '';
+
+		html += '<form id="grp_frm" name="grp_frm" method="post" action="index.php?route=user/group&token=<?php echo $_GET['token']; ?>" enctype="multipart/form-data">';
+		html += '<table><tr>';
+		html += '<td>Groepnaam:<input type="text" name="groep"></td>';
+		html += '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>';
+		html += '<td>Omschrijving:<input type="text" name="omschrijving"></td>';
+		html += '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>';
+		html += '<td><input type="submit" name="Submit" value="Voeg groep toe" /></td>';
+		html += '</tr></table></form>';
+
+		$('.module_placeholder').after(html);
 	}
 
 	function validate(formId){
@@ -48,9 +64,10 @@
     	    {
     	       cb[i].value = 0; // set the value to "off"
     	       cb[i].checked = true; // make sure it submits
-    	    }else{
-      	       //cb[i].value = 1; // set the value to "off"
-    	       //cb[i].checked = true; // make sure it submits
+    	    }else if(cb[i].type=='checkbox' && cb[i].checked)  // if this is a checked checkbox
+    	    {
+    	       cb[i].value = 1; // set the value to "on"
+    	       cb[i].checked = true; // make sure it submits
     	    }
     	}
 		
@@ -59,4 +76,45 @@
 		}
 	}
 	
+	function addModule(){
+		html = '';
+
+		html += '<form id="mod_frm" name="mod_frm" method="post" action="index.php?route=user/group&token=<?php echo $_GET['token']; ?>" enctype="multipart/form-data">';
+		html += '<table><tr>';
+		html += '<td>Groep:<select name="group">';
+		html += '<option value="">-- Selecteer usergroep --</option>';
+		<?php if($this->groups){foreach($this->groups as $groups){ ?>
+		html += '<option value="<?php echo $groups['id']; ?>"><?php echo $groups['name']; ?></option>';
+		<?php } }?>
+		html += '</select></td>';
+		html += '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>';
+		html += '<td>Module:<select name="module">';
+		html += '<option value="">-- Selecteer module --</option>';
+		<?php if($this->dirs){foreach($this->dirs as $key=>$value){ ?>
+		html += '<option value="<?php echo $value; ?>"><?php echo $value; ?></option>';
+		<?php } } ?>
+		html += '</select></td>';
+		html += '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>';
+		html += '<td><input type="submit" name="Submit" value="Voeg toe" /></td>';
+		html += '</tr></table></form>';
+
+		$('.module_placeholder').after(html);
+	}
+    function getGroupsnorights(){
+		$.ajax({
+			url: "index.php?route=user/getEmptyGroups",
+			type: "get",
+			data: "&token=<?php echo $_GET['token']; ?>",
+			dataType: 'json',
+			success: function(json){
+				$.each(json, function(i, v){
+				$('#group_norights').append(v.name+'<br />');
+				});
+			},
+
+			error: function(){
+			}
+		});
+	
+    }
 </script>

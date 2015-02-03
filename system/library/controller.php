@@ -9,6 +9,11 @@ class Controller{
 		echo 'Dit is de index van de parent controller';		
 	}
 	
+	public function getDirs($directory){
+	    $result = array_diff(scandir($directory), array('..', '.', '.DS_Store')); //evt andere dirs of files toevoegen die je niet wilt zien
+	    return $result;
+	}
+	
 	public function addScript($scr){
 		$this->scripts[] = '<script src="'.$scr.'"></script>';
 	}

@@ -6,9 +6,9 @@
 	margin: 0 auto;
 	width: 960px;
 	border: 1px solid #ccc;
-	border-radius: 18px;
+	/*border-radius: 18px;*/
 	padding: 20px;
-	box-shadow: 8px 8px 8px 0px #ccc;
+	/*box-shadow: 8px 8px 8px 0px #ccc;*/
 	margin-bottom: 20px;
 }
 .error{
@@ -52,7 +52,7 @@ ul.menu li{
 }
 /* ============  Begin menu sectie =============== */
 .drop {
-	/* stel menubreedte in */ 
+	/* stel evt. menubreedte in */ 
 	/*width: 1038px; */
 }
 .drop_menu {
