@@ -20,7 +20,7 @@
 	            <?php } ?>
 	        </select>
         </div>
-		<table class="list">
+        <table class="list">
             <thead>
                 <tr>
                     <td>Event</td>
@@ -41,11 +41,10 @@
                 <td><?php echo $perf['date_until']; ?></td>
                 <td><?php echo $perf['confirmed']; ?></td>
                 <td><a href="index.php?route=performance/edit&id=<?php echo $perf['performance_id'] ?>&token=<?php echo $_GET['token'] ?>">Edit</a></td>
-		<!--		<td><a href="index.php?route=event/delete&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>">Delete</a></td> -->
+		<td><a href="index.php?route=performance/delete&id=<?php echo$perf['performance_id'] ?>&token=<?php echo $_GET['token'] ?>">Delete</a></td>
 			</tr>
 		<?php } ?>		
-		<tr><td colspan="6"><input type="button" onclick="addPerformance();" value="Performance toevoegen" /></td></tr>
-		<tr><td colspan="6"><input type="button" onclick="ajaxtest();" value="AJAX TEST" /></td></tr>
+		<tr><td colspan="8"><input type="button" onclick="addPerformance();" value="Performance toevoegen" /></td></tr>
 	</table>
 </div>
 <div id="artist_info"></div>
