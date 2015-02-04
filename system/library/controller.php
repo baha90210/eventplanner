@@ -75,6 +75,7 @@ class Controller{
 		$this->title = APPNAME.$title;
 	}
 	
+	// Set the header_msg to the provided text.
 	public function setHeaderMSG($text){
 	    $this->header_msg = $text;
 	}

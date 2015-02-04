@@ -22,30 +22,9 @@
     </div>
  </div>
 <div class="clear_all"> &nbsp; </div>
-<div id="info"></div>
 
 <script>
 	function addMessage(){
 		document.location.href='index.php?route=message/add&token=<?php echo $_GET['token'] ?> ';
 	}
-	
-    function SelectRows(){
-
-        /* Kortere SelectRows door Alexander */
-
-        // Verberg alles
-        $('.rij').hide();
-
-        artist_id = $('select[name="artist"]').val();
-        event_id = $('select[name="event"]').val();
-
-        // Bepaal welke regels getoond moeten worden
-        selector = '.rij'; // Begin met alles
-        if (event_id) { selector += '.event_'+event_id; } // Voeg event toe als die is ingesteld.
-        if (artist_id) { selector += '.artist_'+artist_id; } // Voeg artist toe als die is ingesteld.
-
-        $(selector).show(); // Toon deze rijen.
-
-    }
-    
 </script>

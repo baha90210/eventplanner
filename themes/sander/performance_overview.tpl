@@ -1,4 +1,5 @@
 <div>
+    <div class="clear_all"> &nbsp; </div>
     <div class="panel panel-info">
         <div class="panel-heading"><?php echo ($this->header_msg); ?></div> 
         <div class="panel-body">
