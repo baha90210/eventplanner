@@ -49,7 +49,6 @@
 			</tr>
 			<?php } ?>
 			<?php } ?>
-			<tr><td colspan="6"><input type="button" onclick="addEvent();" value="Event toevoegen" /></td></tr>
     </table>
 </div>
 
@@ -57,10 +56,6 @@
 	$(document).ready(function(){
 		$('.row').hide();
 	});
-	
-	function addEvent(){
-		document.location.href='index.php?route=event/add&token=<?php echo $_GET['token']; ?>';
-	}
 	
 	function showLocRes(event_id){
 		$('.row').hide();
