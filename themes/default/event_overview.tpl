@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8c123e4eafb4fc38d099ba9bbc93bec8fbbf4961
 <div>
 	<?php if(isset($this->msg)){ ?>
 	<div class="msg"><?php echo $this->msg; ?></div>
@@ -62,5 +65,9 @@
 		$('.location_'+event_id).show();
 		$('.resource_'+event_id).show();
 	}
+<<<<<<< HEAD
 </script>
 
+=======
+</script>
+>>>>>>> 8c123e4eafb4fc38d099ba9bbc93bec8fbbf4961
