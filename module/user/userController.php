@@ -81,18 +81,20 @@ class userController extends Controller{
         //voorbeeld (1, "location", 1, 0)   --voor insert in de database
         $rights="";
         if(isset($_POST['opslaan'])){
-            //echo "<pre>";var_dump($_POST);echo "</pre>"; die;
-            foreach($_POST as $key=>$value){  //waarde van "opslaan" wordt niet meegenomen :)
-                  foreach($value as $k=>$v){
-                    foreach($v as $x=>$y){
-                        $rights .="(".$k;
-                        $rights .=", '".$x."'";
-                        foreach($y as $a=>$b){
-                            $rights.=", ".$b;
+   //         echo "<pre>";var_dump($_POST);echo "</pre>"; die;
+            foreach($_POST as $key=>$value){  //waarde van "opslaan" moet je niet meenemen :)
+                if($key != 'opslaan'){
+                      foreach($value as $k=>$v){
+                        foreach($v as $x=>$y){
+                            $rights .="(".$k;
+                            $rights .=", '".$x."'";
+                            foreach($y as $a=>$b){
+                                $rights.=", ".$b;
+                            }
+                        $rights .="), ";
                         }
-                    $rights .="), ";
-                    }
-                 }
+                     }
+                }
             }
             //achter laatste values de komma weghalen
             $gr_rights = substr($rights,0,strlen($rights)-2);    
@@ -142,7 +144,11 @@ class userController extends Controller{
     
     public function delete(){
         //verwijderen gebruiker
-        echo "module: user; <br />functie: delete";
+        //echo "module: user; <br />functie: delete";
+        $this->loadModel('user');
+        $this->model->deleteUser($_GET['email']);
+        $this->msg="User met ".$_GET['email']." is verwijderd!";
+        $this->overview();
     }
     
     public function group_delete(){
@@ -150,8 +156,7 @@ class userController extends Controller{
         $this->loadModel('user');
         $this->model->deleteGroupModule($_GET['group'], $_GET['module']);
         $this->group();
-        
-    }
+     }
     public function getEmptyGroups(){
         //echo "getEmptyGroups";
         $this->loadModel('user');

@@ -20,6 +20,12 @@ class userModel extends Model{
         
     }
     
+    public function deleteUser($email){
+        $sql  = "DELETE FROM users ";
+        $sql .= "WHERE email='".$email."'";
+        $this->db->query($sql);
+    }
+    
     public function getUser($email){
         $sql  = "SELECT * FROM users ";
         $sql .= "WHERE email = '".$email."'";
