@@ -1,0 +1,14 @@
+
+CREATE TABLE IF NOT EXISTS `message` (
+`id` int(11) NOT NULL,
+  `msg_key` varchar(50) NOT NULL,
+  `text` varchar(255) NOT NULL,
+  `language` varchar(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+ALTER TABLE `message`
+ ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `message`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
