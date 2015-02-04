@@ -17,9 +17,28 @@
 			<td>Website:</td>
 			<td><input type="text" name="url_website" value="<?php echo $this->user['website']; ?>" /></td>
 		</tr>
+		
+		<?php if($this->artist['image']!='') : ?>		
+			<tr>
+				<td style="vertical-align:top;" >Huidige afbeelding:</td>
+				<td><img style="max-width:150px;max-height:150px;" src="images/<?php echo $this->artist['image']; ?>" /></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td><input type="checkbox" value="1" name="remove_image"/> Afbeelding verwijderen</td>
+				<!-- when removing image from database it is not removed from file system yet 				so a solution for this is needed!
+				-->
+			</tr>
+		<?php endif; ?>
+		
 		<tr>
+<<<<<<< HEAD
 			<td>Afbeelding:</td>
 			<td><input type="text" name="img_image" value="<?php echo $this->user['image']; ?>" /></td>
+=======
+			<td>Nieuwe afbeelding:</td>
+			<td><input type="file" id="img_image" name="img_image" /></td>
+>>>>>>> branch 'master' of https://github.com/baha90210/eventplanner.git
 		</tr>
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
 		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=artist/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
@@ -54,19 +73,48 @@
 			error = true;
 		}
 
+
+/* 	//	Need to solve: unchecked checkbox issue
+   
+    	for(var i=0;i<cb.length;i++){ 
+    	    if(cb[i].type=='checkbox' && !cb[i].checked)  // if this is an unchecked checkbox
+    	    {
+    	       cb[i].value = 0; // set the value to "off"
+    	       cb[i].checked = true; // make sure it submits
+    	    }else{
+      	       //cb[i].value = 1; // set the value to "off"
+    	       //cb[i].checked = true; // make sure it submits
+    	    }
+    	}
+*/
+
+
+
+	/* //	Need to check: file extension (just a simple check to help the user, not a real safety measure
+	
+		$('input[name^="img"]').each(function(){	
+			fileName = $(this).val();
+			if (!hasExtension(fileName, ['.jpg', '.gif', '.png'])) {
+				$(this).parent().find('span').append('   Dit type bestand is niet toegestaan !');
+				error = true;
+			}	
+		});
+	*/	
+		
 		if(!error){
 			$('form').submit();
 		}
+
+
 	}
 
+/*	//	function to help check the file extension
+
+		function hasExtension(fileName, exts) {
+    		return (new RegExp('(' + exts.join('|').replace(/\./g, '\\.') + ')$')).test(fileName);
+		}
+*/
 </script>
-
-
-
-
-
-
-
 
 
 

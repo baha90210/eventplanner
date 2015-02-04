@@ -1,0 +1,9 @@
+_assets
+<<<<<<< HEAD
+config.php
+.DS_Store
+*/.DS_Store
+
+=======
+nbproject
+>>>>>>> FETCH_HEAD
