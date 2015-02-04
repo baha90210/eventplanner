@@ -7,4 +7,9 @@
 			echo $script;
 		}
 	?>
+	<?php 
+		foreach($this->styles as $style){
+			echo $style;
+		}
+	?>
 </head>
