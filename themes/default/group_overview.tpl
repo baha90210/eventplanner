@@ -94,7 +94,7 @@
 		html += '<option value="<?php echo $value; ?>"><?php echo $value; ?></option>';
 		<?php } } ?>
 		html += '</select></td>';
-		html += '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>';
+		html += '<td>Edit: <input name="edit" type="checkbox">&nbsp;&nbsp;&nbsp;View: <input name="view" type="checkbox">&nbsp;&nbsp;</td>';
 		html += '<td><input type="submit" name="Submit" value="Voeg toe" /></td>';
 		html += '</tr></table></form>';
 
