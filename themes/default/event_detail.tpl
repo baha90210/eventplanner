@@ -41,7 +41,7 @@
                 <?php //var_dump($this->event_resources); ?>
                 
                  
-		<?php if(is_array($this->event_resource)){
+		<?php if(is_array($this->event_resources)){
                     foreach($this->event_resources as $resource_id){ ?>
                     <tr>
                             <td>Resource:</td>
