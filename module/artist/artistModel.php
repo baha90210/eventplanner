@@ -17,31 +17,43 @@ class artistModel extends Model{
 		return;
 	}
 	
-	public function addArtist($data){
-		if($this->validateArtist($data)){
+	public function addArtist($data, $image){
+		if($this->validateArtist($data) and $this->validateImage($image)){
+			
+			// adding timestamp to image filename or check for duplicate file names needed
 			$sql  = "INSERT INTO artist SET ";
 			$sql .= "name = '".$this->db->escape($data['req_name'])."', ";
 			$sql .= "rate = '".$data['reqnum_rate']."', ";
 			$sql .= "website = '".$this->db->escape($data['url_website'])."', ";
-			$sql .= "image = '".$data['img_image']."'";
+			$sql .= "image = '".$image['img_image']['name']."'";
 		
 			$this->db->query($sql);
+			
+			if($image['img_image']['error']==0) $this->moveUploadedImage($image);			
 		}
-					
+		
+		
+			
 		return;
 	}
 	
-	public function editArtist($data){
-		if($this->validateArtist($data)){
-			//handle core artist data
-			$sql  = "UPDATE artist SET ";
+	public function editArtist($data, $image){
+		if($this->validateArtist($data) and $this->validateImage($image)){
+
+			// adding timestamp to image filename or check for duplicate file names needed
+  			$sql  = "UPDATE artist SET ";
 			$sql .= "name = '".$this->db->escape($data['req_name'])."', ";
 			$sql .= "rate = '".$data['reqnum_rate']."', ";
-			$sql .= "website = '".$this->db->escape($data['url_website'])."', ";
-			$sql .= "image = '".$data['img_image']."' ";
+			$sql .= "website = '".$this->db->escape($data['url_website'])."' ";
+			// careful with comma after field website, only to show if image is changed
+			if($image['img_image']['name']=='' and $data['remove_image']==1) $sql .= ", image = '' ";
+			elseif($image['img_image']['name']!='') $sql .= ", image = '".$image['img_image']['name']."' ";
 			$sql .= "WHERE artist_id = '".$data['id']."'";
 			
 			$this->db->query($sql);	
+
+
+			if($image['img_image']['error']==0) $this->moveUploadedImage($image);			
 		}
 		
 		return;
@@ -54,7 +66,6 @@ class artistModel extends Model{
 		
 		return $result->row;
 	}
-
 
 
 
@@ -75,4 +86,27 @@ class artistModel extends Model{
 		
 		return true;
 	}
+
+
+	private function validateImage($image){
+		if($image['img_image']['error']==0){
+		//	echo '<br /><br />' . print_r($image);
+			$filename = $image['img_image']['tmp_name'];
+			$finfo=new finfo(FILEINFO_MIME_TYPE);
+			$mime= explode('/', $finfo->file($filename));
+			if($mime[0]!='image') return false;
+			}
+			
+		return true;
+		
+		// it seems that getimagesize() would do as well
+	}
+
+
+	private function moveUploadedImage($image){
+			move_uploaded_file ($image['img_image']['tmp_name'], 'images/'.$image['img_image']['name'] );	
+			
+			return;	
+	}
+
 }
