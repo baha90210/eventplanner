@@ -16,7 +16,7 @@
 		<tbody>
 			<?php foreach($this->events as $event){ ?>
 			<tr onclick="showLocRes(<?php echo $event['event_id'] ?>);">
-				<td><?php echo $event['name']; ?></td>
+				<td><?php echo stripslashes($event['name']); ?></td>
 				<td><?php echo $event['start_date']; ?></td>
 				<td><?php echo $event['end_date']; ?></td>
 				<td class="center"><?php echo number_format($event['price'], 2, ',', '.'); ?></td>
@@ -25,7 +25,7 @@
 			</tr>
 			<?php foreach($event['locations'] as $location){ ?>
 			<tr class="row location_<?php echo $event['event_id'] ?>">
-				<td><?php echo $location['name']; ?></td>
+				<td><?php echo stripslashes($location['name']); ?></td>
 				<td><?php echo $location['address']; ?></td>
 				<td><?php echo $location['capacity']; ?></td>
 				<td class="center"><?php echo number_format($location['rate'], 2, ',', '.'); ?></td>
@@ -63,3 +63,4 @@
 		$('.resource_'+event_id).show();
 	}
 
+</script>
