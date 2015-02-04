@@ -34,7 +34,7 @@
 		<tr>
 
 			<td>Afbeelding:</td>
-			<td><input type="text" name="img_image" value="<?php echo $this->user['image']; ?>" /></td>
+			<td><input type="text" name="img_image" value="<?php echo $this->artist['image']; ?>" /></td>
 			<td>Nieuwe afbeelding:</td>
 			<td><input type="file" id="img_image" name="img_image" /></td>
 		</tr>
