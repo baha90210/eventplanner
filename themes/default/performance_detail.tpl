@@ -32,12 +32,12 @@
         </tr>
 	<tr>
             <td>Start:</td>
-            <td><input class="" type="date" name="req_date_from" value="<?php if (isset($this->performance)) echo $this->performance['date_from']; ?>" />
+            <td><input class="datepicker" type="text" name="req_date_from" value="<?php if (isset($this->performance)) echo $this->performance['date_from']; ?>" />
             </div>
         </tr>
 	<tr>
             <td>Tot:</td>
-            <td><input class="" type="date" name="req_date_until" value="<?php if (isset($this->performance)) echo $this->performance['date_until']; ?>" />
+            <td><input class="datepicker" type="text" name="req_date_until" value="<?php if (isset($this->performance)) echo $this->performance['date_until']; ?>" />
             </div>
         </tr>
         <tr>
@@ -58,7 +58,7 @@
 			$(this).after('<span>*</span>');
 		});
 
-		$('input[type="date"]').datepicker({
+		$('input[class="datepicker"]').datepicker({
 			dateFormat: 'yy-mm-dd', 
 		});
 	});
