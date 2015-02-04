@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 8c123e4eafb4fc38d099ba9bbc93bec8fbbf4961
 <div>
 	<?php if(isset($this->msg)){ ?>
 	<div class="msg"><?php echo $this->msg; ?></div>
@@ -47,7 +44,6 @@
 			</tr>
 			<?php } ?>
 			<?php } ?>
-			<tr><td colspan="6"><input type="button" onclick="addEvent();" value="Event toevoegen" /></td></tr>
     </table>
 </div>
 
@@ -56,18 +52,9 @@
 		$('.row').hide();
 	});
 	
-	function addEvent(){
-		document.location.href='index.php?route=event/add&token=<?php echo $_GET['token']; ?>';
-	}
-	
 	function showLocRes(event_id){
 		$('.row').hide();
 		$('.location_'+event_id).show();
 		$('.resource_'+event_id).show();
 	}
-<<<<<<< HEAD
-</script>
 
-=======
-</script>
->>>>>>> 8c123e4eafb4fc38d099ba9bbc93bec8fbbf4961
