@@ -13,12 +13,7 @@ class resourceController extends Controller{
 	public function add(){
 		$this->setTitle('resource toevoegen');
 		
-/*
-		$this->resource['name'] = '';
-		$this->resource['start_date'] = '';
-		$this->resource['end_date'] = '';
-		$this->resource['price'] = '';
-*/
+
 		if($_POST){
 			$this->loadModel('resource');
 
