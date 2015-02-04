@@ -67,11 +67,7 @@ class artistModel extends Model{
 		return $result->row;
 	}
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> FETCH_HEAD
 	private function validateArtist($data){
 		foreach($data as $k => $v){
 			if(substr($k, 0, 3) == 'req'){
