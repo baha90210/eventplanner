@@ -11,8 +11,13 @@ public function __construct(){
     $this->addStyle('//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
 }
 
-public function overview(){		
-    $this->setHeaderMSG('Overzicht performances');
+public function overview(){
+    if (isset($_GET['msg']))
+        // Set Header message according to value of $GET['msg']
+        $this->setHeaderMSG($this->model->getMessageTextByKey($_GET['msg']));
+    else 
+        // Set Header Message to a standard text   
+        $this->setHeaderMSG('Overzicht performances');
     
     $this->loadModel('performance');
     $this->performance = $this->model->getPerformances();
@@ -27,7 +32,7 @@ public function overview(){
 }
 
 public function add(){
-
+    $this->setHeaderMSG('Performance toevoegen');
     $this->loadModel('event');
     $this->events = $this->model->getEvents();
     $this->loadModel('artist');
@@ -47,7 +52,7 @@ public function add(){
 }
 
 public function edit(){
-    $this->setTitle('performance aanpassen');
+    $this->setHeaderMSG('Performance Aanpassen');
     $this->loadModel('event');
     $this->events = $this->model->getEvents();
     $this->loadModel('artist');
@@ -58,7 +63,7 @@ public function edit(){
     {
         if($this->validate($_POST))
             $this->model->editPerformance($_POST);					
-        $this->redirect('performance/overview', $_GET['token']);
+        $this->redirect('performance/overview', $_GET['token'],'msg_PERFADDED');
     }
 
     if(isset($_GET['id']))

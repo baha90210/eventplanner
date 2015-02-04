@@ -45,9 +45,10 @@
             <td><input type="checkbox" name="confirmed" value="1" <?php if( isset($this->performance) && ($this->performance['confirmed'] == 1)) echo('checked'); ?> >
             </td>
         </tr>
-        
-        <table>
-		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
+		<tr><td colspan="2">
+                        <input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" />
+                        <a class="btn btn-danger" href="./index.php?route=performance/overview&token=<?php echo $_GET['token'] ?>" >Cancel</a>
+                </td></tr>
 	</table>
 	</form>
 </div>
