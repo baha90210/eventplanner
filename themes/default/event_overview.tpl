@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <div>
 	<?php if(isset($this->msg)){ ?>
 	<div class="msg"><?php echo $this->msg; ?></div>
@@ -63,3 +65,4 @@
 		$('.resource_'+event_id).show();
 	}
 </script>
+>>>>>>> FETCH_HEAD

@@ -36,7 +36,7 @@ class artistController extends Controller{
 		if($_POST){
 			$this->loadModel('artist');
 
-			$this->model->addArtist($_POST);
+			$this->model->addArtist($_POST, $_FILES);
 			
 			$this->msg = 'artist '.$_POST['req_name'].' werd toegevoegd.';
 			
@@ -64,7 +64,7 @@ class artistController extends Controller{
 
 		if($_POST){
 			if($this->validate($_POST)){
-				$this->model->editArtist($_POST);
+				$this->model->editArtist($_POST, $_FILES);
 
 				$this->msg = 'artist '.$_POST['req_name'].' werd aangepast.';
 			}						

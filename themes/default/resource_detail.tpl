@@ -6,7 +6,7 @@
 	<input type="hidden" name="id" value="<?php echo (isset($_GET['id']))?$_GET['id']:''; ?>" />
 	<table class="list">
 		<tr>
-			<td>Naam event:</td>
+			<td>Naam Resource:</td>
 			<td><input class="required" type="text" name="req_name" value="<?php echo $this->resource['name']; ?>" /></td>
 		</tr>
 		<tr>
@@ -41,8 +41,8 @@
 		});
 		
 		if(isNaN($('input[name^="reqnum"]').val())){
-			$('input[name="reqnum_price"]').css('border', '1px solid #f00');
-			$('input[name="reqnum_price"]').parent().find('span').append('   Dit moet een getal zijn!');
+			$('input[name="reqnum_rate"]').css('border', '1px solid #f00');
+			$('input[name="reqnum_rate"]').parent().find('span').append('   Dit moet een getal zijn!');
 			error = true;
 		}
 
