@@ -14,11 +14,11 @@
 		</tr>
 		<tr>
 			<td>Laatste login:</td>
-			<td><input type="text" name="date_lli" value="<?php echo $this->user['date_last_logged_in']; ?>" readonly /></td>
+			<td><?php echo $this->user['date_last_logged_in']; ?></td>
 		</tr>
 		<tr>
 			<td>Token:</td>
-			<td><input type="text" name="token" value="<?php echo $this->user['token']; ?>" readonly/></td>
+			<td><?php echo $this->user['token']; ?></td>
 		</tr>
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
 		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=user/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
