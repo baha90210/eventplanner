@@ -107,6 +107,7 @@
 			data: "&token=<?php echo $_GET['token']; ?>",
 			dataType: 'json',
 			success: function(json){
+				$('#group_norights').html("");
 				$.each(json, function(i, v){
 				$('#group_norights').append(v.name+'<br />');
 				});

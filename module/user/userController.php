@@ -53,30 +53,35 @@ class userController extends Controller{
         if(isset($_POST['Submit'])){
             //groepen en modules opslaan 
             $this->loadModel('user');
-            if($_POST['group']!="" && $_POST['module']!=""){
-                if($_POST['edit']==""){
-                    $edit=0;
-                }else{
-                    $edit=1;
+            if(isset($_POST['group'])){
+                if($_POST['group']!="" && $_POST['module']!=""){
+                    if($_POST['edit']==""){
+                        $edit=0;
+                    }else{
+                        $edit=1;
+                    }
+                    if($_POST['view']==""){
+                        $view=0;
+                    }else{
+                        $view=1;
+                    }
+                    
+                    $this->model->addGroupModule($_POST['group'],$_POST['module'], $edit, $view);
                 }
-                if($_POST['view']==""){
-                    $view=0;
-                }else{
-                    $view=1;
+            }
+            if(isset($_POST['groep'])){
+                if($_POST['groep']!="" && $_POST['omschrijving']!=""){
+                    $this->model->addGroup($_POST['groep'],$_POST['omschrijving']);
                 }
-                
-                $this->model->addGroupModule($_POST['group'],$_POST['module'], $edit, $view);
-            }
-            if($_POST['groep']!="" && $_POST['omschrijving']!=""){
-                $this->model->addGroup($_POST['groep'],$_POST['omschrijving']);
-            }
             //echo "<pre>";var_dump($_POST);echo "</pre>";
             //die;
+            }
         }
-
         //Als er op "opslaan" is geklikt: creëer een rij getallen met groupid, module, edit en view ; 
         //voorbeeld (1, "location", 1, 0)   --voor insert in de database
+        $rights="";
         if(isset($_POST['opslaan'])){
+            //echo "<pre>";var_dump($_POST);echo "</pre>"; die;
             foreach($_POST as $key=>$value){  //waarde van "opslaan" wordt niet meegenomen :)
                   foreach($value as $k=>$v){
                     foreach($v as $x=>$y){
