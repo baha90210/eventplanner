@@ -26,8 +26,8 @@
             </div>
             <table class="table table-hover">
             <thead><tr>
-                <td>Event</td><td>Titel</td><td>Artiest</td><td>Start datum</td><td>Eind datum</td>
-                <td>Confirmed</td><td colspan="2">Bewerking</td>
+                <th>Event</th><th>Titel</th><th>Artiest</th><th>Start datum</th><th>Eind datum</th>
+                <th>Confirmed</th><th colspan="2">Bewerking</th>
             </tr></thead>
             <?php foreach($this->performance as $perf){ ?>
             <tr class="rij artist_<?php echo $perf['artist_id'] ?> event_<?php echo $perf['event_id'] ?>" onclick="getArtistInfo(<?php echo $perf['artist_id'] ?>);">
