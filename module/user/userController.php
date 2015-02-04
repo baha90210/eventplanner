@@ -54,7 +54,18 @@ class userController extends Controller{
             //groepen en modules opslaan 
             $this->loadModel('user');
             if($_POST['group']!="" && $_POST['module']!=""){
-                $this->model->addGroupModule($_POST['group'],$_POST['module']);
+                if($_POST['edit']==""){
+                    $edit=0;
+                }else{
+                    $edit=1;
+                }
+                if($_POST['view']==""){
+                    $view=0;
+                }else{
+                    $view=1;
+                }
+                
+                $this->model->addGroupModule($_POST['group'],$_POST['module'], $edit, $view);
             }
             if($_POST['groep']!="" && $_POST['omschrijving']!=""){
                 $this->model->addGroup($_POST['groep'],$_POST['omschrijving']);
