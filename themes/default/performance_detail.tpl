@@ -57,6 +57,10 @@
 		$('input[name^="req"]').each(function(){
 			$(this).after('<span>*</span>');
 		});
+
+		$('input[type="date"]').datepicker({
+			dateFormat: 'yy-mm-dd', 
+		});
 	});
 	
 	function validate(){

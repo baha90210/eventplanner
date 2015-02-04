@@ -5,7 +5,10 @@ public function __construct(){
 
     $this->authorize();
     $this->addScript('//code.jquery.com/jquery-1.11.2.min.js');
+    $this->addScript('//code.jquery.com/ui/1.11.2/jquery-ui.js');
     $this->addScript('./themes/sander/bootstrap-3.3.2-dist/js/bootstrap.min.js');
+    
+    $this->addStyle('//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
 }
 
 public function overview(){		

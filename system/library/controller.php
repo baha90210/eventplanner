@@ -5,6 +5,7 @@ class Controller{
 	protected $error_msg = '';
 	private $header_msg = '';
 	public $scripts = array();
+	public $styles = array();
 	
 	public function index(){
 		echo 'Dit is de index van de parent controller';		
@@ -17,6 +18,10 @@ class Controller{
 	
 	public function addScript($scr){
 		$this->scripts[] = '<script src="'.$scr.'"></script>';
+	}
+	
+	public function addStyle($style){
+		$this->styles[] = '<link rel="stylesheet" href="'.$style.'">';
 	}
 	
 	public function loadModel($module){
