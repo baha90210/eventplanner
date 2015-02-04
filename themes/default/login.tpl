@@ -6,17 +6,22 @@
 		<table>
 			<tr>
 				<td>Email:</td>
-				<td><input type="text" name="username" value="" /></td>
+				<td><input type="text" name="username" 
+				value = "<?php if( isset($_COOKIE['RememberMe']) && $_COOKIE['RememberMe']!='') echo ($_COOKIE['RememberMe']); ?>"
+				required></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><input type="password" name="password" value="" /></td>
+				<td><input type="password" name="password" value="" required></td>
 			</tr>
+            <tr>
+				<td colspan="2"><input type="checkbox" name="remember"> Remember Me</td>
+			</tr>	
 			<tr>
 				<td colspan="2">
 					<input type="submit" name="submit" value="Inloggen" />
 				</td>
-			</tr>
+			</tr>		
 		</table>
 	</form>
 </div>

@@ -32,7 +32,19 @@ class eventModel extends Model{
 					$sql = "INSERT IGNORE INTO event_location SET ";
 					$sql .= "event_id = '".$data['id']."', ";
 					$sql .= "location_id = '".$v."'";
-					echo $sql;
+
+					$this->db->query($sql);
+				}
+			}
+		}
+		//handle event resources
+		if(isset($data['resource'])){
+			foreach($data['resource'] as $k=>$v){
+				if($v != ''){
+					$sql = "INSERT IGNORE INTO event_resource SET ";
+					$sql .= "event_id = '".$data['id']."', ";
+					$sql .= "resource_id = '".$v."'";
+
 					$this->db->query($sql);
 				}
 			}
@@ -64,6 +76,21 @@ class eventModel extends Model{
 						$sql = "INSERT IGNORE INTO event_location SET ";
 						$sql .= "event_id = '".$data['id']."', ";
 						$sql .= "location_id = '".$v."'";
+						
+						$this->db->query($sql);
+					}
+				}
+			}
+			//handle event resources
+			$sql = "DELETE FROM event_resource WHERE event_id = '".$data['id']."'";
+			$this->db->query($sql);
+			
+			if(isset($data['resource'])){
+				foreach($data['resource'] as $k=>$v){
+					if($v != ''){
+						$sql = "INSERT IGNORE INTO event_resource SET ";
+						$sql .= "event_id = '".$data['id']."', ";
+						$sql .= "resource_id = '".$v."'";
 						
 						$this->db->query($sql);
 					}

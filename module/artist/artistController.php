@@ -116,4 +116,12 @@ class artistController extends Controller{
 		
 		return true;
 	}
+	
+	public function getInfo(){
+		$this->loadModel('artist');
+		
+		$result = $this->model->getArtist($_GET['artist_id']);
+		
+		echo json_encode($result);
+	}
 }
