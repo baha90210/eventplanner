@@ -6,31 +6,31 @@
 		
 		<tr>
 			<td>&nbsp;</td>
-			<td><h1><?php echo $this->user['name']; ?></h1></td>
+			<td><h1><?php echo $this->artist['name']; ?></h1></td>
 		</tr>
 		
 		<tr>
 			<td>Prijs:</td>
-			<td><?php echo $this->user['rate']; ?></td>
+			<td><?php echo $this->artist['rate']; ?></td>
 		</tr>
 		
-		<?php if(isset($this->user['website']) and $this->user['website'] != '') : ?>
+		<?php if(isset($this->artist['website']) and $this->artist['website'] != '') : ?>
 		<tr>
 			<td>Website:</td>
 			<td>
-					<a target=_blank href="http://<?php echo $this->user['website']; ?>">
-						<?php echo $this->user['website']; ?>
+					<a target=_blank href="http://<?php echo $this->artist['website']; ?>">
+						<?php echo $this->artist['website']; ?>
 					</a>
 				
 			</td>
 		</tr>
 		<?php endif; ?>
 		
-		<?php if(isset($this->user['image']) and $this->user['image'] != '') : ?>
+		<?php if(isset($this->artist['image']) and $this->artist['image'] != '') : ?>
 		<tr>
 			<td>&nbsp;</td>
 			<td>
-					<img style="max-width:380px" src="images/<?php echo $this->user['image']; ?>" />
+					<img style="max-width:380px" src="images/<?php echo $this->artist['image']; ?>" />
 			</td>
 		</tr>
 		<?php endif; ?>
