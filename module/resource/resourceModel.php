@@ -24,7 +24,7 @@ class resourceModel extends Model{
 		
 		
 		$this->db->query($sql);
-echo $this->db->getLastId();		
+//echo $this->db->getLastId();		
 		
 		return;
 	}
