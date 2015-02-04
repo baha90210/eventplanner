@@ -85,16 +85,21 @@
 
 
 
-	/* //	Need to check: file extension (just a simple check to help the user, not a real safety measure
+	 //	Need to check: file extension (just a simple check to help the user, not a real safety measure
 	
-		$('input[name^="img"]').each(function(){	
-			fileName = $(this).val();
+		$('input[name^="img"]').each(function(){
+			$this->addScript('./themes/default/javascript/jquery/ajaxupload.js');
+			val ext = getExt(fileName = $(this).val());
+		/*	alert(ext);
+			ext = getExt(filename);
+			
 			if (!hasExtension(fileName, ['.jpg', '.gif', '.png'])) {
 				$(this).parent().find('span').append('   Dit type bestand is niet toegestaan !');
 				error = true;
-			}	
+	}	
+		*/
 		});
-	*/	
+		
 		
 		if(!error){
 			$('form').submit();
