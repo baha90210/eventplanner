@@ -125,21 +125,21 @@ class userController extends Controller{
     public function edit(){
         if(isset($_POST['req_email']) && isset($_POST['req_password'])){
             //code voor opslaan in db
-            if($_POST['token']!=""){
-                //user bestaat al
-                //var_dump($_POST);die;
-                $this->loadModel('user');
-                $this->model->updateUser($_POST['req_email'], $_POST['req_password']);
+                    if(isset($_POST['token'])){
+                        //user bestaat al
+                        //var_dump($_POST);die;
+                        $this->loadModel('user');
+                        $this->model->updateUser($_POST['req_email'], $_POST['req_password']);
+                    }else{
+                        //nieuwe user"
+                        //echo 'new';
+                        $this->loadModel('user');
+                        $this->model->addUser($_POST['req_email'], $_POST['req_password']);
+                    }
+                    $this->overview();
             }else{
-                //nieuwe user"
-                //echo 'new';
-                $this->loadModel('user');
-                $this->model->addUser($_POST['req_email'], $_POST['req_password']);
+                $this->add();
             }
-            $this->overview();
-        }else{
-            $this->add();
-        }
     }
     
     public function delete(){
