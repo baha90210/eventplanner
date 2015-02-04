@@ -7,15 +7,15 @@
 	<table class="list">
 		<tr>
 			<td>Naam artist:</td>
-			<td><input class="required" type="text" name="req_name" value="<?php echo $this->user['name']; ?>" /></td>
+			<td><input class="required" type="text" name="req_name" value="<?php echo $this->artist['name']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Prijs:</td>
-			<td><input class="required" type="text" name="reqnum_rate" value="<?php echo $this->user['rate']; ?>" /></td>
+			<td><input class="required" type="text" name="reqnum_rate" value="<?php echo $this->artist['rate']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Website:</td>
-			<td><input type="text" name="url_website" value="<?php echo $this->user['website']; ?>" /></td>
+			<td><input type="text" name="url_website" value="<?php echo $this->artist['website']; ?>" /></td>
 		</tr>
 		
 		<?php if($this->artist['image']!='') : ?>		
@@ -32,13 +32,8 @@
 		<?php endif; ?>
 		
 		<tr>
-<<<<<<< HEAD
-			<td>Afbeelding:</td>
-			<td><input type="text" name="img_image" value="<?php echo $this->user['image']; ?>" /></td>
-=======
 			<td>Nieuwe afbeelding:</td>
 			<td><input type="file" id="img_image" name="img_image" /></td>
->>>>>>> branch 'master' of https://github.com/baha90210/eventplanner.git
 		</tr>
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
 		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=artist/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
