@@ -100,6 +100,14 @@ class eventController extends Controller{
 			$this->loadModel('location');
 			
 			$this->locations = $this->model->getLocations();
+                        
+                        $this->loadModel('event');
+                        
+			$this->event_resources = $this->model->getEventResources($id);
+			
+			$this->loadModel('resource');
+			
+			$this->resources = $this->model->getResources();
 			
 			$this->render('event_detail.tpl');		
 		}
