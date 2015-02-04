@@ -5,5 +5,6 @@ define('APPNAME', 'Eventplanner - ');
 define('DB_HOST', 'localhost');
 define('DB_DB', 'eventplanner');	
 define('DB_USER', 'root');	
-define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', '');
 
+// password aangepast door Frits 

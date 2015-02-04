@@ -19,7 +19,7 @@ class Controller{
 	public function addScript($scr){
 		$this->scripts[] = '<script src="'.$scr.'"></script>';
 	}
-	
+
 	public function addStyle($style){
 		$this->styles[] = '<link rel="stylesheet" href="'.$style.'">';
 	}

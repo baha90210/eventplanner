@@ -18,8 +18,13 @@
                 <li role="presentation">
                     <a href="index.php?route=performance/overview&event=&token=<?php echo $_GET['token'] ?>">Performances</a>
                 </li>
-                <li role="presentation">
-                    <a href="index.php?route=user/overview&event=&token=<?php echo $_GET['token'] ?>">Users</a>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                        Users <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="presentation"><a href='index.php?route=user/user&token=<?php echo $_GET['token']; ?>'>Beheer Users</a></li>
+			<li role="presentation"><a href='index.php?route=user/group&token=<?php echo $_GET['token']; ?>'>Beheer Groepen</a></li>
+                    </ul>              
                 </li>
                 <li role="presentation">
                     <a href="index.php?route=message/overview&event=&token=<?php echo $_GET['token'] ?>">Messages</a>
@@ -31,4 +36,3 @@
             <?php endif; ?>
         </div>
         <div>
-			
