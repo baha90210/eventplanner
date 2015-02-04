@@ -41,8 +41,8 @@
 		});
 		
 		if(isNaN($('input[name^="reqnum"]').val())){
-			$('input[name="reqnum_price"]').css('border', '1px solid #f00');
-			$('input[name="reqnum_price"]').parent().find('span').append('   Dit moet een getal zijn!');
+			$('input[name="reqnum_rate"]').css('border', '1px solid #f00');
+			$('input[name="reqnum_rate"]').parent().find('span').append('   Dit moet een getal zijn!');
 			error = true;
 		}
 
