@@ -18,6 +18,11 @@ class Controller{
 	public function addScript($scr){
 		$this->scripts[] = '<script src="'.$scr.'"></script>';
 	}
+
+
+	public function addStyle($scr){
+		$this->scripts[] = '<script src="'.$scr.'"></script>';
+	}
 	
 	public function loadModel($module){
 		if(file_exists('./module/'.strtolower($module).'/'.strtolower($module).'Model.php')){

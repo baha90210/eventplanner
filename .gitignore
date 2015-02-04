@@ -1,7 +1,5 @@
 _assets
-
 config.php
 .DS_Store
 */.DS_Store
-
 nbproject
