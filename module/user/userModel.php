@@ -84,10 +84,10 @@ class userModel extends Model{
         
     }
     
-    public function addGroupModule($groupid, $module){
+    public function addGroupModule($groupid, $module, $edit, $view){
         $sql  = "INSERT INTO group_rights ";
         $sql .= "(group_id, module, edit, view) ";
-        $sql .= "VALUES (".$this->db->escape($groupid).", '".$this->db->escape($module)."', 0, 0)";
+        $sql .= "VALUES (".$this->db->escape($groupid).", '".$this->db->escape($module)."', $edit, $view)";
         //echo $sql;die;
         $this->db->query($sql);
         return;
