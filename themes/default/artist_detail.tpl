@@ -7,19 +7,19 @@
 	<table class="list">
 		<tr>
 			<td>Naam artist:</td>
-			<td><input class="required" type="text" name="req_name" value="<?php echo $this->artist['name']; ?>" /></td>
+			<td><input class="required" type="text" name="req_name" value="<?php echo $this->user['name']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Prijs:</td>
-			<td><input class="required" type="text" name="reqnum_rate" value="<?php echo $this->artist['rate']; ?>" /></td>
+			<td><input class="required" type="text" name="reqnum_rate" value="<?php echo $this->user['rate']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Website:</td>
-			<td><input type="text" name="url_website" value="<?php echo $this->artist['website']; ?>" /></td>
+			<td><input type="text" name="url_website" value="<?php echo $this->user['website']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Afbeelding:</td>
-			<td><input type="text" name="img_image" value="<?php echo $this->artist['image']; ?>" /></td>
+			<td><input type="text" name="img_image" value="<?php echo $this->user['image']; ?>" /></td>
 		</tr>
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
 		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=artist/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
