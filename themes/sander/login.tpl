@@ -8,7 +8,7 @@
     	<div class="form-group">
     		<label for="emailField">Email address</label>
 			<input type="email" class="form-control" id="emailField" name="username" placeholder="Enter email" 
-			value = "<?php if( isset($_COOKIE['RememberMe']) && $_COOKIE['RememberMe']!='') echo ($_COOKIE['RememberMe']); ?>"
+			value = "<?php if( isset($_COOKIE['RememberMe']) && $_COOKIE['RememberMe']!='') echo ($_COOKIE['Username']); ?>"
 			required>
     	</div>
 
