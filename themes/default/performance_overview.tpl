@@ -19,6 +19,7 @@
 	                </option>
 	            <?php } ?>
 	        </select>
+                <input type="button" onclick="addPerformance();" value="Performance toevoegen" />
         </div>
         <table class="list">
             <thead>

@@ -2,7 +2,7 @@
 	<?php if(isset($this->msg)){ ?>
 	<div class="msg"><?php echo $this->msg; ?></div>
 	<?php } ?>
-	<form name="frm" method="post" action="index.php?route=<?php echo $_GET['route'] ?>" enctype="multipart/form-data">
+	<form name="frm" method="post" action="index.php?route=<?php echo $_GET['route'] ?>&token=<?php echo $_GET['token'] ?>" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="<?php echo (isset($_GET['id']))?$_GET['id']:''; ?>" />
 	<table class="list">
 		<tr>

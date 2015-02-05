@@ -4,7 +4,7 @@
         <div class="panel-heading"><?php echo ($this->header_msg); ?></div>
         <div class="panel-body">
             <div class="row form-group form-horizontal" >
-                <div class="col-xs-3">
+                <div class="col-sm-3">
                  <select name="event" class="form-control" onchange="SelectRows()">
                     <option value="">Alle Events</option>
                     <?php foreach($this->events as $events){ ?>
@@ -12,13 +12,16 @@
                     <?php } ?>
                 </select>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-sm-3">
                 <select name="artist" class="form-control" onchange="SelectRows()">
                     <option value="">Alle Artiesten</option>
                     <?php foreach($this->artists as $artists){ ?>
                     <option value="<?php echo ($artists['artist_id'] . '">' . $artists['name']); ?> </option>
                     <?php } ?>
                 </select>
+                </div>
+                <div class="col-sm-3-3">
+                    <button type="button" class="btn btn-info" onclick="addPerformance();">Performance toevoegen</button>
                 </div>
             </div>
             <table class="table table-hover">
@@ -39,7 +42,7 @@
             </tr>
             <?php } ?>
             </table>
-            <button type="button" class="btn btn-default" onclick="addPerformance();">Performance toevoegen</button>
+            <button type="button" class="btn btn-info" onclick="addPerformance();">Performance toevoegen</button>
         </div>
     </div>
 </div>
