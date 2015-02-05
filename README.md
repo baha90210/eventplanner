@@ -1,11 +1,7 @@
 eventplanner
 ============
-<<<<<<< HEAD
-
-eventplanner
-============
-Loginmodule: rememberme vinkje werkt nu.
-
+5-2: Loginmodule: rememberme vinkje werkt nu. (Joan)
+----------------
 Mensen het belangrijkst van git is dat na het clonen van de "master"....
 
 !!!!!ELKE keer VOOR je begint met programmeren!!!!!!
