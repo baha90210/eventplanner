@@ -100,7 +100,7 @@ class userModel extends Model{
     }
     
     public function getGroupsNoRights(){
-        $sql  = "SELECT g.name ";
+        $sql  = "SELECT g.id, g.name ";
         $sql .= "FROM groups g ";
         $sql .= "LEFT JOIN group_rights gr ON gr.group_id = g.id ";
         $sql .= "WHERE gr.group_id IS NULL";
