@@ -11,11 +11,11 @@
 		</tr>
 		<tr>
 			<td>Startdatum:</td>
-			<td><input class="required datepicker hasDatepicker" type="text" name="req_start_date" value="<?php echo $this->event['start_date']; ?>" /></td>
+			<td><input class="datepicker hasDatepicker" type="text" name="req_start_date" value="<?php echo $this->event['start_date']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Einddatum:</td>
-			<td><input class="required datepicker hasDatepicker" type="text" name="req_end_date" value="<?php echo $this->event['end_date']; ?>" /></td>
+			<td><input class="datepicker hasDatepicker" type="text" name="req_end_date" value="<?php echo $this->event['end_date']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Toegangsprijs:</td>
