@@ -162,8 +162,6 @@
 
 		$('.location_placeholder').before(html);
 	}
-        // werkt niet omdat resources leeg blijft dit it hem in de resource module
-        //foreach is geen array
 	function addResource(){
 		html = '';
 		
