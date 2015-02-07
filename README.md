@@ -2,6 +2,13 @@ eventplanner
 ============
 5-2: Loginmodule: rememberme vinkje werkt nu. (Joan)
 ----------------
+
+7-2 : performance toevoegen aan event werkt nu! 
+
+TODO:
+Er zit nog een vette fout in de artist module...image upload finfo class not found...in system/library/
+
+
 Mensen het belangrijkst van git is dat na het clonen van de "master"....
 
 !!!!!ELKE keer VOOR je begint met programmeren!!!!!!
