@@ -1,14 +1,14 @@
 *{
 	font-family: arial, verdana, tahoma, sans-serif;
-	color: #999;
+	color: #247;
 }
 #container{
 	margin: 0 auto;
 	width: 960px;
-	border: 1px solid #ccc;
-	/*border-radius: 18px;*/
+	border: 1px solid #448;
+	border-radius: 4px;
 	padding: 20px;
-	/*box-shadow: 8px 8px 8px 0px #ccc;*/
+  /*box-shadow: 8px 8px 8px 0px #ccc;*/
 	margin-bottom: 20px;
 }
 .error{
@@ -19,6 +19,28 @@
 	padding: 8px;
 	margin-bottom: 20px;
 }
+
+/* ========================eerdere css================= */
+table{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table.arceren td{
+	border: 1px solid #AAA;
+}
+
+table.arceren tr:nth-child(2n) {
+	background-color: #eee;
+}
+
+/* klasse voor eerste rij van tabel */
+.theader{
+	font-weight: bold;	
+	text-transform: uppercase;
+	border-bottom: 1px dashed #247;
+}
+/* =================einde eerdere css ================*/
 thead{
 	font-weight: bold;
 }
@@ -50,16 +72,17 @@ ul.menu li{
 .gray{
     background-color:lightgray;
 }
+
 /* ============  Begin menu sectie =============== */
 .drop {
 	/* stel evt. menubreedte in */ 
-	/*width: 1038px; */
+	/* width: 1038px; */
 }
 .drop_menu {
 	/* menu achtergrond en hoogte vd balk */
 	background:#224477;
 	padding:2px;
-	margin:0 auto;
+	margin: 0 auto;
 	list-style-type:none;
 	height:30px;
 }
@@ -83,7 +106,7 @@ ul.menu li{
 	color: blue;
 }
 
-/* Submenu */
+/* =========== Submenu =============== */
 .drop_menu ul {
 	position:absolute;
 	left:-9999px;

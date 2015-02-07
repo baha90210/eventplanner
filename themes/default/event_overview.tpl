@@ -83,5 +83,4 @@
 		$('.performance_'+event_id).show();
 		$('.resource_'+event_id).show();
 	}
-
 </script>

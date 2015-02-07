@@ -1,10 +1,8 @@
 <?php
-define('THEME', 'sander');
+define('THEME', 'default');
 define('APPNAME', 'Eventplanner - ');
 
 define('DB_HOST', 'localhost');
 define('DB_DB', 'eventplanner');	
-define('DB_USER', 'sander');	
-define('DB_PASSWORD', 'sander');
-
-// password aangepast door Frits 
+define('DB_USER', 'root');	
+define('DB_PASSWORD', 'root');

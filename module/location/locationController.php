@@ -1,5 +1,12 @@
 <?php
 class locationController extends Controller{
+	public function __construct(){
+		//parent::__construct();
+		
+		$this->authorize();
+	}
+
+    
 	public function overview(){
 		$this->setTitle('Overzicht locaties');
 		

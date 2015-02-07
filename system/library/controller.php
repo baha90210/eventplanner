@@ -51,6 +51,7 @@ class Controller{
         header($str);
 	}
 	
+	//functie checkt alleen of gebruiker inlogt met juiste username en password
 	public function authorize(){
 		if(!isset($_GET['token'])){
 			$this->redirect('login', '');
@@ -59,13 +60,64 @@ class Controller{
 			$result = $this->model->authorize($_GET['token']);
 			
 			if($result){
-				return true;
+			    //als je ingelogd bent ga je door naar de opgevraagde pagina
+			    //hier extra check inbouwen op autorisatie voor die pagina!!
+    			if($this->IsAuthorized($_GET['token'])){;
+    			    return true;
+    			}else{
+    		        echo "U bent niet geautoriseerd voor deze pagina!!!"; //opvangpagina voor maken??
+    			}
 			}else{
-				$this->redirect('login', '');
+			    //user is niet ingelogd en wordt teruggestuurd naar loginpagina
+			    $this->redirect('login', '', '');
 			}
 		}
 	}
 	
+	public function IsAuthorized($token){
+	    //check op module en functie
+        if(isset($_GET['route']) && $_GET['route'] != ''){
+    	   $route = explode('/', $_GET['route']);
+    	   
+	       if(isset($route[0]) && isset($route[1])){
+		      $this->loadModel('login');
+		      $result = $this->model->getAuthorization($route[0], $token);
+
+              //check of module is toegestaan; zoniet meteen false geven; zoja volgende check doen
+		      if($result){
+		          //als er resultaat is, is de user geautoriseerd voor deze module; nu nog functie checken
+		          $this->msg = "module ".$result['module']." is toegestaan...<br />";
+                  
+		          //check of functie is toegestaan; zoniet ook false; zoja: true
+                  // edit en view array vullen met functies
+                  $edit = array("add", "edit", "delete");
+                  $view = array("overview", "details");
+
+                  if(in_array($route[1], $edit)){       //pagina valt onder 'edit'
+                      if($result["edit"]==1){
+                          $this->msg .= "edit toegestaan <br />";       //no problems
+                      }elseif($result['edit']==0){
+                          $this->msg .= "edit NIET toegestaan <br />";  //problem
+                      }
+                  }
+                  if(in_array($route[1], $view)){       //pagina valt in categorie 'view'
+                      if($result['edit']==1){           //editrechten mag ook viewen
+                          $this->msg .= "edit/view toegestaan <br />";      //no problem
+                      }elseif($result['view']==1){
+                          $this->msg .= "view toegestaan <br />"; //no problem
+                      }else{
+                          $this->msg .= "view toegestaan <br />"; //problem
+                      }
+                  }
+	       }else{
+		          $this->msg = "module niet toegestaan";
+		          return false;
+		      }
+              return true;
+    	   }
+	    }
+	}
+    	
 	public function loadFile($file){
 		if(file_exists('./themes/'.THEME.'/'.$file)){
 			include('./themes/'.THEME.'/'.$file);
