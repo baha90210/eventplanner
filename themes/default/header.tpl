@@ -23,6 +23,9 @@
 			</li>
 			<li><a href="index.php?route=login/logout&token=<?php echo $_GET['token'] ?>">Log Out</a>
 			</li>
+                        <li class="Trans-how-are-u">
+                            Hello, how are u?
+                            </li>
 				
 		</ul>
 	</div>
