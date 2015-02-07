@@ -117,12 +117,12 @@ class eventModel extends Model{
 		return $result->rows;
 	}
 	
-        public function getEventResources($id){
-		$sql = "SELECT resource_id FROM event_resource WHERE event_id = '".$id."'";
-		
-		$result = $this->db->query($sql);
-		
-		return $result->rows;
+    public function getEventResources($id){
+	$sql = "SELECT resource_id FROM event_resource WHERE event_id = '".$id."'";
+	
+	$result = $this->db->query($sql);
+	
+	return $result->rows;
 	}
 
 	private function validateEvent($data){
