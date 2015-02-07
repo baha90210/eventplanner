@@ -1,6 +1,8 @@
 <?php 
 require_once('./config.php');
 
+date_default_timezone_set('Europe/Amsterdam');
+
 if(isset($_GET['route']) && $_GET['route'] != ''){
 	//correcte class instantiëren
 	$route = explode('/', $_GET['route']);

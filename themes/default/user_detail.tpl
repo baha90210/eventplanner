@@ -6,11 +6,11 @@
 	<table class="list">
 		<tr>
 			<td>E-mail gebruiker:</td>
-			<td><input class="required" type="text" name="req_email" value="<?php echo $this->user['email']; ?>" <?php echo $this->readonly; ?>/></td>
+			<td><input class="required" type="text" name="req_email" onclick="this.select()" value="<?php echo $this->user['email']; ?>" <?php echo $this->readonly; ?>/></td>
 		</tr>
 		<tr>
 			<td>Password:</td>
-			<td><input class="required" type="password" name="req_password" value="<?php echo $this->user['password']; ?>" /></td>
+			<td><input class="required" type="password" name="req_password" onclick="this.select()" value="<?php echo $this->user['password']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Laatste login:</td>
