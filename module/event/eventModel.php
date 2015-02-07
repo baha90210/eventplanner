@@ -49,6 +49,19 @@ class eventModel extends Model{
 				}
 			}
 		}
+                
+		//handle event performances
+		if(isset($data['performance'])){
+			foreach($data['performance'] as $k=>$v){
+				if($v != ''){
+					$sql = "INSERT IGNORE INTO event_performance SET ";
+					$sql .= "event_id = '".$data['id']."', ";
+					$sql .= "performance_id = '".$v."'";
+
+					$this->db->query($sql);
+				}
+			}
+		}
 		
 		return;
 	}
@@ -96,6 +109,22 @@ class eventModel extends Model{
 					}
 				}
 			}
+                        
+			//handle event performances
+			$sql = "DELETE FROM event_performance WHERE event_id = '".$data['id']."'";
+			$this->db->query($sql);
+			
+			if(isset($data['performance'])){
+				foreach($data['performance'] as $k=>$v){
+					if($v != ''){
+						$sql = "INSERT IGNORE INTO event_performance SET ";
+						$sql .= "event_id = '".$data['id']."', ";
+						$sql .= "performance_id = '".$v."'";
+						
+						$this->db->query($sql);
+					}
+				}
+			}
 		}
 		
 		return;
@@ -119,6 +148,14 @@ class eventModel extends Model{
 	
         public function getEventResources($id){
 		$sql = "SELECT resource_id FROM event_resource WHERE event_id = '".$id."'";
+		
+		$result = $this->db->query($sql);
+		
+		return $result->rows;
+	}
+        
+        public function getEventPerformances($id){
+		$sql = "SELECT performance_id FROM event_performance WHERE event_id = '".$id."'";
 		
 		$result = $this->db->query($sql);
 		
@@ -159,6 +196,17 @@ class eventModel extends Model{
 		$sql .= "LEFT JOIN resource_type rt ON rt.resource_type_id = r.type ";
 		$sql .= "WHERE event_id = '".$event_id."'";
 
+		$result = $this->db->query($sql);
+		
+		return $result->rows;
+	}
+        
+	public function baha_getEventPerformances($event_id){
+		$sql  = "SELECT r.*, rt.name type_name FROM event_performance er ";
+		$sql .= "LEFT JOIN performance r ON er.performance_id = r.performance_id ";
+		$sql .= "LEFT JOIN performance_type rt ON rt.performance_type_id = r.type ";
+		$sql .= "WHERE er.event_id = '".$event_id."'";
+//echo $sql;
 		$result = $this->db->query($sql);
 		
 		return $result->rows;

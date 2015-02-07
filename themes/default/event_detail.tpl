@@ -11,11 +11,11 @@
 		</tr>
 		<tr>
 			<td>Startdatum:</td>
-			<td><input class="required" type="text" name="req_start_date" value="<?php echo $this->event['start_date']; ?>" /></td>
+			<td><input class="required datepicker hasDatepicker" type="text" name="req_start_date" value="<?php echo $this->event['start_date']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Einddatum:</td>
-			<td><input class="required" type="text" name="req_end_date" value="<?php echo $this->event['end_date']; ?>" /></td>
+			<td><input class="required datepicker hasDatepicker" type="text" name="req_end_date" value="<?php echo $this->event['end_date']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Toegangsprijs:</td>
@@ -36,6 +36,22 @@
 		<?php } ?>
 		<tr class="location_placeholder">
 			<td colspan="2"><input type="button" name="addLocationhtml" value="Add location" onclick="addLocation();" /></td>
+		</tr>
+		<?php foreach($this->event_performances as $performance_id){ ?>
+		<tr>
+			<td>Performance:</td>
+			<td>
+				<select name="performance[]">
+					<option value="">-- Selecteer een locatie --</option>
+					<?php foreach($this->performances as $performance){  ?>
+					<option value="<?php echo $performance['performance_id'] ?>" <?php echo ($performance['performance_id'] == $performance_id['performance_id'])?'selected="selected"':''; ?>><?php echo $performance['performance_title']; ?></option>
+					<?php } ?>
+				</select> <img src="./themes/<?php echo THEME ?>/images/remove.png" onclick="deletePerformance(this);" />
+			</td>
+		</tr>
+		<?php } ?>
+		<tr class="performance_placeholder">
+			<td colspan="2"><input type="button" name="addPerformancehtml" value="Add performance" onclick="addPerformance();" /></td>
 		</tr>
                 
                 <?php //var_dump($this->event_resources); ?>
@@ -111,6 +127,17 @@
 				resource_array.push($(this).val());
 			}
 		});
+                
+		performance_array = [];
+		
+		$('select[name="performance[]"]').each(function(){
+			if($.inArray($(this).val(), performance_array) != -1){
+				error = true;
+				$(this).css('border', '1px solid #f00');
+			}else{
+				performance_array.push($(this).val());
+			}
+		});
 
 		if(!error){
 			$('form').submit();
@@ -155,12 +182,33 @@
 
 		$('.resource_placeholder').before(html);
 	}
+	function addPerformance(){
+		html = '';
+		
+		html += '<tr>';
+		html += '<td>Performance:</td>';
+		html += '<td>';
+		html += '<select name="performance[]">';
+		html += '<option value="">-- Selecteer een performance --</option>';
+		<?php foreach($this->performances as $performance){ ?>
+		html += '<option value="<?php echo $performance['performance_id'] ?>"><?php echo $performance['performance_title'] ?></option>';
+		<?php } ?>
+		html += '</select>';
+		html += '  <img src="./themes/<?php echo THEME ?>/images/remove.png" onclick="deletePerformance(this);" />';
+		html += '</td>';
+		html += '</tr>';
+
+		$('.performance_placeholder').before(html);
+	}
 
 	function deleteLocation(location){
 		$(location).parent().parent().remove();
 	}	
 	function deleteResource(resource){
 		$(resource).parent().parent().remove();
+	}	
+	function deletePerformance(performance){
+		$(performance).parent().parent().remove();
 	}	
 </script>
 
