@@ -23,6 +23,9 @@
 				<td><a href="index.php?route=event/edit&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME ?>/images/edit.png"  /></a></td>
 				<td><a href="index.php?route=event/delete&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME ?>/images/remove.png"  /></a></td>
 			</tr>
+                        <?php if($event['locations'] !=''){ ?>
+                            <tr class="gray row location_<?php echo $event['event_id'] ?>"><td colspan="6">Locations</td></tr>
+                        <?php } ?>                        
 			<?php foreach($event['locations'] as $location){ ?>
 			<tr class="row location_<?php echo $event['event_id'] ?>">
 				<td><?php echo stripslashes($location['name']); ?></td>
@@ -33,12 +36,29 @@
 				<td>&nbsp;</td>
 			</tr>
 			<?php } ?>
+                        <?php if($event['resources'] !=''){ ?>
+                            <tr class="gray row resource_<?php echo $event['event_id'] ?>"><td colspan="6">Resources</td></tr>
+                        <?php } ?>                        
 			<?php foreach($event['resources'] as $resource){ ?>
 			<tr class="row resource_<?php echo $event['event_id'] ?>">
 				<td><?php echo $resource['name']; ?></td>
 				<td><?php echo $resource['description']; ?></td>
 				<td><?php echo $resource['type_name']; ?></td>
 				<td class="center"><?php echo number_format($resource['rate'], 2, ',', '.'); ?></td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<?php } ?>
+                        <?php if($event['performances'] !=''){ ?>
+                            <tr class="gray row performance_<?php echo $event['event_id'] ?>"><td colspan="6">Performances</td></tr>
+                        <?php } ?>
+                        <?php //var_dump($event['performances']); ?>
+			<?php foreach($event['performances'] as $performance){ ?>
+			<tr class="row performance_<?php echo $event['event_id'] ?>">
+				<td><?php echo $performance['performance_title']; ?></td>
+				<td><?php echo $performance['date_from']; ?></td>
+				<td><?php echo $performance['date_until']; ?></td>
+				<td class="center"><?php echo number_format($performance['rate'], 2, ',', '.'); ?></td>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 			</tr>
@@ -60,6 +80,7 @@
 	function showLocRes(event_id){
 		$('.row').hide();
 		$('.location_'+event_id).show();
+		$('.performance_'+event_id).show();
 		$('.resource_'+event_id).show();
 	}
 </script>

@@ -31,7 +31,7 @@ class loginController extends Controller{
 		}
     		
     }
-    	
+            
     public function logout(){
     		$this->loadModel('login');
     		
