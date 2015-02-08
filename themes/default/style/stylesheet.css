@@ -145,3 +145,8 @@ ul.menu li{
 }
 
 /* ============  Einde menu sectie =============== */
+
+/*===============Translation styles============*/
+.Trans-how-are-u{
+    float:right !important;
+}
