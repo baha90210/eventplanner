@@ -7,6 +7,9 @@
 			<tr>
 				<td>Naam van locatie</td>
 				<td>Adres</td>
+				<td>Postcode</td>
+				<td>Plaats</td>
+				<td>Land</td>
 				<td class="right">Huur</td>
 				<td class="right">Capaciteit</td>
 				<td colspan="2">&nbsp;</td>
@@ -16,6 +19,9 @@
 			<tr>
 				<td><?php echo $location['name']; ?></td>
 				<td><?php echo $location['address']; ?></td>
+				<td><?php echo $location['postcode']; ?></td>
+				<td><?php echo $location['plaats']; ?></td>
+				<td><?php echo $location['land']; ?></td>
 				<td class="right"><?php echo number_format($location['rate'], 2, ',', '.'); ?></td>
 				<td class="right"><?php echo number_format($location['capacity'], 0, ',', '.'); ?></td>
 				<td><a href="index.php?route=location/edit&id=<?php echo $location['location_id'] ?>&token=<?php echo $_GET['token'] ?>">Edit</a></td>
