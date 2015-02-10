@@ -13,7 +13,7 @@
 			</li>
 			<li><a href="index.php?route=performance/overview&event=&token=<?php echo $_GET['token'] ?>">Performances</a>
 			</li>
-			<li><a href='index.php?route=user/overview&token=<?php echo $_GET['token']; ?>'>Userbeheer</a>
+			<li><a href='index.php?route=user/overview&token=<?php echo $_GET['token']; ?>'>Users</a>
 				<ul>
 				<li><a href='index.php?route=user/user&token=<?php echo $_GET['token']; ?>'>Beheer Users</a></li>
 				<li><a href='index.php?route=user/group&token=<?php echo $_GET['token']; ?>'>Beheer Groepen</a></li>
@@ -23,6 +23,9 @@
 			</li>
 			<li><a href="index.php?route=login/logout&token=<?php echo $_GET['token'] ?>">Log Out</a>
 			</li>
+                        <li class="Trans-how-are-u">
+                            Hello, how are u?
+                            </li>
 				
 		</ul>
 	</div>

@@ -20,8 +20,8 @@
                     <?php } ?>
                 </select>
                 </div>
-                <div class="col-sm-3-3">
-                    <button type="button" class="btn btn-info" onclick="addPerformance();">Performance toevoegen</button>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-info pull-right" onclick="addPerformance();">Performance toevoegen</button>
                 </div>
             </div>
             <table class="table table-hover">
@@ -60,12 +60,14 @@ function SelectRows(){
     $('.rij').hide();
     artist_id = $('select[name="artist"]').val();
     event_id = $('select[name="event"]').val();
+    
     // Bepaal welke regels getoond moeten worden
     selector = '.rij'; // Begin met alles
     if (event_id) { selector += '.event_'+event_id; } // Voeg event toe als die is ingesteld.
     if (artist_id) { selector += '.artist_'+artist_id; } // Voeg artist toe als die is ingesteld.
     $(selector).show(); // Toon deze rijen.
 }
+
 function getArtistInfo(artist_id){
     $.ajax({
         url: "index.php?route=artist/getInfo",

@@ -13,6 +13,18 @@
 			<td>Adres:</td>
 			<td><input class="required" type="text" name="req_address" value="<?php echo $this->location['address']; ?>" /></td>
 		</tr>
+				<tr>
+			<td>postcode:</td>
+			<td><input class="required" type="text" name="req_postcode" value="<?php echo $this->location['postcode']; ?>" /></td>
+		</tr>
+				<tr>
+			<td>Plaats:</td>
+			<td><input class="required" type="text" name="req_plaats" value="<?php echo $this->location['plaats']; ?>" /></td>
+		</tr>
+				<tr>
+			<td>Land:</td>
+			<td><input class="required" type="text" name="req_land" value="<?php echo $this->location['land']; ?>" /></td>
+		</tr>
 		<tr>
 			<td>Tarief:</td>
 			<td><input class="required" type="text" name="reqnum_rate" value="<?php echo $this->location['rate']; ?>" /></td>

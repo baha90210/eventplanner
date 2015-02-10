@@ -60,7 +60,6 @@
                     <button type="submit" class="btn btn-success">Save</button>
                     <a class="btn btn-danger" href="./index.php?route=performance/overview&token=<?php echo $_GET['token'] ?>" >Cancel</a>
                     </div>
-
                 </div>
             </form>
         </div>

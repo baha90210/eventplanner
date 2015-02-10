@@ -5,6 +5,7 @@ function my_autoload ($className) {
 
 spl_autoload_register('my_autoload');	
 
+date_default_timezone_set("Europe/Amsterdam"); 
 	
 //	require_once('./system/library/controller.php');
 //	require_once('./system/library/model.php');

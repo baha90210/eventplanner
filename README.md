@@ -1,5 +1,11 @@
 eventplanner
 ============
+
+8-2: locations table uitgebreid met postcode, plaats en land coor extra adres gegevens die nodig zijn voor kaartjes.
+
+ALTER TABLE `location` ADD `postcode` VARCHAR(6) NOT NULL AFTER `address`, ADD `plaats` VARCHAR(50) NOT NULL AFTER `postcode`;
+ALTER TABLE `location` ADD `land` VARCHAR(50) NOT NULL AFTER `plaats`;
+
 5-2: Loginmodule: rememberme vinkje werkt nu. (Joan)
 ----------------
 

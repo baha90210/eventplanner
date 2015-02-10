@@ -15,7 +15,7 @@
               $search=array("@","."); //key is emailadres maar javascript accepteert geen @ en . in een variabele; vandaar str_replace
 		foreach($this->users as $user){
 		    if($helpuser != $user['email']){ ?>
-      			<tr onclick="showGroups('<?php echo str_replace($search, "", $user['email']); ?>');">
+      			<tr onclick="showGroups('<?php echo str_replace($search, '', $user['email']); ?>');">
     				<td><?php echo $user['email']; ?></td>
     				<td>&nbsp;</td>
     				<td><?php echo $user['date_last_logged_in']; ?></td>
@@ -25,7 +25,7 @@
 		<?php   $helpuser = $user['email'];
 		    }
                 if($user['name'] !=""){ ?>
-                    <tr class="row group_<?php echo str_replace($search, "", $user['email']); ?>">
+                    <tr class="row group_<?php echo str_replace($search, '', $user['email']); ?>">
         				<td align="right">&#10162; &nbsp;</td>
                         <td><?php echo $user['name']; ?></td>
                         <td colspan="3">&nbsp;</td>

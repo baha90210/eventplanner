@@ -75,15 +75,26 @@ class Controller{
 	}
 	
 	public function IsAuthorized($token){
+        $this->loadModel('login');
+        
+        //eerst check op 'admin' die mag altijd alles ;-)
+        $admin = $this->model->IsAdmin($token);
+        if($admin){
+            $this->msg = "Welkom admin!";
+            return true;
+        }
+	    
+	    //controle autorisaties overige groepen bij user
 	    //check op module en functie
+        
         if(isset($_GET['route']) && $_GET['route'] != ''){
     	   $route = explode('/', $_GET['route']);
     	   
 	       if(isset($route[0]) && isset($route[1])){
-		      $this->loadModel('login');
 		      $result = $this->model->getAuthorization($route[0], $token);
-
-              //check of module is toegestaan; zoniet meteen false geven; zoja volgende check doen
+		      //echo '<pre>'.var_dump($result).'</pre>'; die;
+		      
+              //check of module is toegestaan; zoniet: meteen false geven; zoja: volgende check doen
 		      if($result){
 		          //als er resultaat is, is de user geautoriseerd voor deze module; nu nog functie checken
 		          $this->msg = "module ".$result['module']." is toegestaan...<br />";
@@ -109,7 +120,7 @@ class Controller{
                           $this->msg .= "view toegestaan <br />"; //problem
                       }
                   }
-	       }else{
+	           }else{
 		          $this->msg = "module niet toegestaan";
 		          return false;
 		      }
