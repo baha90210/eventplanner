@@ -102,7 +102,7 @@ class Controller{
                   }
                   if(in_array($route[1], $view)){       //pagina valt in categorie 'view'
                       if($result['edit']==1){           //editrechten mag ook viewen
-                          $this->msg .= "edit/view toegestaan <br />";      //no problem
+                          $this->msg .= "edit/view toegestaan <br />";  //no problem
                       }elseif($result['view']==1){
                           $this->msg .= "view toegestaan <br />"; //no problem
                       }else{
