@@ -59,10 +59,18 @@ public function checkUser($username, $password){
 	    $result = $this->db->query($sql);
 	    return $result->row;
 	}
-	//SELECT users.token, group_rights.module, group_rights.edit, group_rights.view
-    //FROM group_rights INNER JOIN (groups INNER JOIN (user_group INNER JOIN users ON user_group.email = users.email) ON groups.Id = user_group.group_id) ON group_rights.group_id = groups.Id
-    //WHERE (((users.token)=493758333));
-	
+
+	public function IsAdmin($token){
+	    //check op user 'admin' ->voor autorisatiemodule
+	    $sql  = "SELECT g.name ";
+	    $sql .= "FROM users AS u INNER JOIN (groups AS g INNER JOIN ";
+	    $sql .= "user_group AS ug ON g.id = ug.group_id) ON ";
+	    $sql .= "u.email = ug.user_email ";
+	    $sql .= "WHERE g.name = 'admin' AND u.token= '".$token."'";
+	    //echo $sql;
+	    $resultadmin = $this->db->query($sql);
+	    return $resultadmin->row;
+	}
 	
 	
 	//class einde
