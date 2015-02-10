@@ -43,10 +43,11 @@ class Controller{
 		$this->loadFile('footer.tpl');
 	}
 	
-	public function redirect($route, $token = '', $msg = ''){
+	public function redirect($route, $token = '', $msg = '', $lang = ''){
 	    $str='Location: index.php?route='.$route;
 		if($token != '') $str .= '&token='.$token;
 		if($msg != '') $str .= '&msg='.$msg;
+		if($lang == '') {$str .= '&lang=english';}else{$str .= '&lang='.$lang;}
 		// Redirect browser, $str contains location data
         header($str);
 	}
