@@ -26,7 +26,7 @@
 				<td><a target=_blank href="index.php?route=event/event_pdf&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME ?>/images/pdf.png"  /></a></td>		
 			</tr>
                         <?php if($event['locations'] !=''){ ?>
-                            <tr class="gray row location_<?php echo $event['event_id'] ?>"><td colspan="6">Locations</td></tr>
+                            <tr class="gray row location_<?php echo $event['event_id'] ?>"><td colspan="7">Locations</td></tr>
                         <?php } ?>                        
 			<?php foreach($event['locations'] as $location){ ?>
 			<tr class="row items location_<?php echo $event['event_id'] ?>">
@@ -36,10 +36,11 @@
 				<td class="center"><?php echo number_format($location['rate'], 2, ',', '.'); ?></td>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr>
 			<?php } ?>
                         <?php if($event['resources'] !=''){ ?>
-                            <tr class="gray row resource_<?php echo $event['event_id'] ?>"><td colspan="6">Resources</td></tr>
+                            <tr class="gray row resource_<?php echo $event['event_id'] ?>"><td colspan="7">Resources</td></tr>
                         <?php } ?>                        
 			<?php foreach($event['resources'] as $resource){ ?>
 			<tr class="row items resource_<?php echo $event['event_id'] ?>">
@@ -47,6 +48,7 @@
 				<td><?php echo $resource['description']; ?></td>
 				<td><?php echo $resource['type_name']; ?></td>
 				<td class="center"><?php echo number_format($resource['rate'], 2, ',', '.'); ?></td>
+				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 			</tr>

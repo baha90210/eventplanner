@@ -1,4 +1,5 @@
 <?xml version="1.0" ?>
 <translation>
-	<welcome>Hallo, welkom</welcome>
+	<welcome>Hello, welcome</welcome>
+	<all_events>Alle Events</all_events>
 </translation>

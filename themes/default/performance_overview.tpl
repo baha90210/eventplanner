@@ -1,10 +1,11 @@
 <div>
+<?php echo $this->welcome; ?>
 	<?php if(isset($this->msg)){ ?>
 	<div class="msg"><?php echo $this->msg; ?></div>
 	<?php } ?>
         <div>
 	        <select id="event" name="event" onchange="SelectRows()">
-	            <option value="">Alle Events</option>   
+	            <option value=""><?php echo $this->all_events; ?></option>   
 	            <?php foreach($this->events as $events){ ?>
 	                <option value="<?php echo $events['event_id']; ?>"  <?php echo(isset($_GET['event']) && $events['event_id']==$_GET['event'])?'selected':'' ?> >
 	                <?php echo $events['name']; ?>
