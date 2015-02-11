@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<translation>
+	<label_artist_overview>Overzicht artiesten</label_artist_overview>
+	<label_artist>Artiest</label_artist>
+	<label_artist_name>Naam artiest</label_artist_name>
+
+	<label_artist_profile>Artiestenprofiel</label_artist_profile>
+	<label_artist_view_profile>Artiestenprofiel bekijken</label_artist_view_profile>
+	<label_artist_rate>Prijs</label_artist_rate>
+	<label_artist_website>Website</label_artist_website>
+
+	<label_add_artist>Artiest toevoegen</label_add_artist>
+	<label_edit_artist>Artiest wijzigen</label_edit_artist>
+	<label_delete_artist>Artiest verwijderen</label_delete_artist>
+	<label_artist_not_found>Artiest niet gevonden</label_artist_not_found>
+	<label_artist_added>toegevoegd</label_artist_added>
+	<label_artist_edited>gewijzigd</label_artist_edited>
+	<label_artist_deleted>verwijderd</label_artist_deleted>
+
+	<label_artist_submit>Opslaan</label_artist_submit>
+	<label_edit>Bewerken</label_edit>
+	<label_delete>Verwijderen</label_delete>
+	<label_cancel>Annuleren</label_cancel>
+	<label_back_to_overview>Terug naar overzicht</label_back_to_overview>
+
+	<label_artist_new_image>Nieuwe afbeelding</label_artist_new_image>
+	<label_artist_remove_image>Afbeelding verwijderen</label_artist_remove_image>
+	<label_artist_current_image>Huidige afbeelding</label_artist_current_image>	
+
+
+
+</translation>
