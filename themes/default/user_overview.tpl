@@ -16,7 +16,7 @@
 		foreach($this->users as $user){
 		    if($helpuser != $user['email']){ ?>
       			<tr onclick="showGroups('<?php echo str_replace($search, '', $user['email']); ?>');">
-    				<td><?php echo $user['email']; ?></td>
+    				<td><?php echo $user['email']; if($user['token']==$_GET['token']){echo " *";} ?></td>
     				<td>&nbsp;</td>
     				<td><?php echo $user['date_last_logged_in']; ?></td>
     				<td><a href="index.php?route=user/edit&email=<?php echo $user['email'] ?>&token=<?php echo $_GET['token'] ?>">Edit</a></td>
@@ -34,7 +34,9 @@
         } ?>
 		<tr><td class="test" colspan="5">&nbsp;</td></tr>
         <tr><td colspan="5"><input type="button" onclick="addUser();" value="User toevoegen" /></td></tr>
-	</table>
+		<tr><td class="test" colspan="5">&nbsp;</td></tr>
+        <tr><td class="test" colspan="5">*<small> = ingelogd</small></td></tr>
+        </table>
 </div>
 
 <script>

@@ -73,7 +73,7 @@ class Controller{
     			}else{
     		        $this->error_msg = "U bent niet geautoriseerd voor deze pagina!!<br />";
     		        $this->error_msg .= "Maak een geldige keuze uit het menu.";
-    		        $this->render("error_page.tpl");
+    		        $this->render("error_page.tpl"); die;
     		        //echo "U bent niet geautoriseerd voor deze pagina!!!"; //opvangpagina voor maken??
     			}
 			}else{
@@ -83,7 +83,7 @@ class Controller{
 		}
 	}
 	
-	public function IsAuthorized($token){
+	public function IsAuthorized($token, $module=''){
         $this->loadModel('login');
         
         //eerst check op 'admin' die mag altijd alles ;-)
@@ -126,7 +126,7 @@ class Controller{
                       }elseif($result['view']==1){
                           $this->msg .= "view toegestaan <br />"; //no problem
                       }else{
-                          $this->msg .= "view toegestaan <br />"; //problem
+                          $this->msg .= "view NIET toegestaan <br />"; //problem
                       }
                   }
 	           }else{
