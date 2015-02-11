@@ -36,7 +36,9 @@ public function add(){
     $this->events = $this->model->getEvents();
     $this->loadModel('artist');
     $this->artists = $this->model->getArtists();
-
+    $this->loadModel('location');
+    $this->locations = $this->model->getLocations();
+    
     if($_POST)
     {
         $this->loadModel('performance');
@@ -56,6 +58,8 @@ public function edit(){
     $this->events = $this->model->getEvents();
     $this->loadModel('artist');
     $this->artists = $this->model->getArtists();
+    $this->loadModel('location');
+    $this->locations = $this->model->getLocations();
     $this->loadModel('performance');
 
     if($_POST)

@@ -20,6 +20,16 @@
 	        </select> 
             </td>
         </tr>
+        <tr>
+            <td>location</td>
+            <td>
+	        <select name="req_location">
+	            <?php foreach($this->locations as $location){ ?>
+                    <option value="<?php echo $location['location_id']; ?>" <?php echo(isset($_GET['id']) && $this->performance['location_id']==$location['location_id'])?'selected>':'>'; echo $location['name']; ?></option>
+	            <?php } ?>
+	        </select> 
+            </td>
+        </tr>
 	<tr>
             <td>Artist</td>
             <td>
