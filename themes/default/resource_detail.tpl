@@ -15,7 +15,7 @@
 		</tr>
 		<tr>
 			<td>omschrijving:</td>
-			<td><input class="required" type="text" name="req_description" value="<?php echo $this->resource['description']; ?>" /></td>
+			<td><input class="required" type="text" name="description" value="<?php echo $this->resource['description']; ?>" /></td>
 		</tr>
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
 	</table>
