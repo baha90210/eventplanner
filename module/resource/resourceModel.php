@@ -21,7 +21,7 @@ class resourceModel extends Model{
 		$sql  = "INSERT INTO resource SET ";
 		$sql .= "name = '".$this->db->escape($data['req_name'])."', ";
 		$sql .= "rate = '".$this->db->escape($data['reqnum_rate'])."', ";
-		$sql .= "description = '".$this->db->escape($data['req_description'])."' ";
+		$sql .= "description = '".$this->db->escape($data['description'])."' ";
 		
 		$this->db->query($sql);
 //echo $this->db->getLastId();		
