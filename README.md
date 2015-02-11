@@ -13,7 +13,6 @@ INSERT INTO `location` (`location_id`, `name`, `address`, `postcode`, `plaats`, 
 (10, 'Ahoy Plein', 'Ahoy-weg 10', '3084BA', 'Rotterdam', 'Nederland', 0.00, 30000),
 (11, 'Strijp S', 'Torenallee 1', '', 'Eindhoven', 'Nederland', 0.00, 30000);
 
-
 8-2: locations table uitgebreid met postcode, plaats en land coor extra adres gegevens die nodig zijn voor kaartjes.
 
 ALTER TABLE `location` ADD `postcode` VARCHAR(6) NOT NULL AFTER `address`, ADD `plaats` VARCHAR(50) NOT NULL AFTER `postcode`;
