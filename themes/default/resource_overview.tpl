@@ -16,7 +16,7 @@
 				
 				<td><?php echo ucfirst($resource['name']); ?></td>
 				<td class="right"><?php echo number_format($resource['rate'], 2, ',', '.'); ?></td>
-				<td><?php echo $resource['description']; ?></td>
+				<td class="right"><?php echo $resource['description']; ?></td>
 				<td><a href="index.php?route=resource/edit&id=<?php echo $resource['resource_id'] ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME ?>/images/edit.png"  /></a></td>
 				<td><a href="index.php?route=resource/delete&id=<?php echo $resource['resource_id'] ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME ?>/images/remove.png"  /></a></td>
 			</tr>

@@ -53,6 +53,22 @@
 				<td>&nbsp;</td>
 			</tr>
 			<?php } ?>
+                        <?php if($event['performances'] !=''){ ?>
+                            <tr class="gray row performance_<?php echo $event['event_id'] ?>"><td colspan="6">Performances</td></tr>
+                        <?php } ?>
+                        <?php //echo "<pre>";var_dump($event['performances']); echo "</pre>";?>
+			<?php foreach($event['performances'] as $performance){ ?>
+			<tr class="row items performance_<?php echo $event['event_id'] ?>">
+				<td><?php echo $performance['performance_title']; ?></td>
+				<td><?php echo $performance["name"]; ?></td>
+				<td><?php echo $performance["artist_name"]; ?></td>
+				<td><?php echo $performance["date_from"]; ?></td>
+				<td><?php echo $performance["date_until"]; ?></td>
+				<td class="center"><?php echo number_format($performance['rate'], 2, ',', '.'); ?></td>
+				
+				
+			</tr>
+			<?php } ?>
 
 			<?php } ?>
                         
@@ -66,12 +82,13 @@
 	});
 	
 	function addEvent(){
-		document.location.href='index.php?route=event/add&token=<?php echo $_GET['token']; ?>';
+		document.location.href='index.php?route=event/add&token=<?php echo $_GET['token']; ?>&lang=<?php echo $_GET['lang']; ?>';
 	}
 	
 	function showLocRes(event_id){
 		$('.row').hide();
 		$('.location_'+event_id).show();
 		$('.resource_'+event_id).show();
+		$('.performance_'+event_id).show();
 	}
 </script>
