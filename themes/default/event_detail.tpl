@@ -2,7 +2,7 @@
 	<?php if(isset($this->msg)){ ?>
 	<div class="msg"><?php echo $this->msg; ?></div>
 	<?php } ?>
-	<form name="frm" method="post" action="index.php?route=<?php echo $_GET['route'] ?>&token=<?php echo $_GET['token'] ?>&lang=<?php echo $_GET['lang']; ?>" enctype="multipart/form-data">
+	<form name="frm" method="post" action="index.php?route=<?php echo $_GET['route'] ?>&token=<?php echo $_GET['token'] ?>" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="<?php echo (isset($_GET['id']))?$_GET['id']:''; ?>" />
 	<table class="list">
 		<tr>
@@ -61,7 +61,7 @@
 			<td colspan="2"><input type="button" name="addResourcehtml" value="Add resource" onclick="addResource();" /></td>
 		</tr>
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
-		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=event/overview&token=<?php echo $_GET['token']; ?>&lang=<?php echo $_GET['lang']; ?>'" /></td></tr>
+		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=event/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
 	</table>
 	</form>
 </div>

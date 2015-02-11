@@ -5,4 +5,4 @@ define('APPNAME', 'Eventplanner - ');
 define('DB_HOST', 'localhost');
 define('DB_DB', 'eventplanner');	
 define('DB_USER', 'root');	
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'root');
