@@ -21,7 +21,7 @@
             </td>
         </tr>
         <tr>
-            <td>location</td>
+            <td>Location</td>
             <td>
 	        <select name="req_location">
 	            <?php foreach($this->locations as $location){ ?>

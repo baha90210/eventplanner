@@ -35,6 +35,16 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-2 control-label" for="req_location">Location</label>
+                    <div class="col-sm-4">
+                    <select name="req_location" class="form-control">
+                    <?php foreach($this->locations as $location){ ?>
+                    <option value="<?php echo $location['location_id']; ?>" <?php echo(isset($_GET['id']) && $this->performance['location_id']==$location['location_id'])?'selected':'' ?> ><?php echo $location['name']; ?></option>
+                    <?php } ?>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="req_date_from">Start datum:</label>
                     <div class="col-sm-4">
                     <input class="form-control" type="date" name="req_date_from" value="<?php if (isset($this->performance)) echo ($this->performance['date_from']); ?>" required>
