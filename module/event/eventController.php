@@ -128,11 +128,11 @@ class eventController extends Controller{
                         
                         $this->loadModel('event');
                         
-			$this->event_performances = $this->model->getEventPerformances($id);
+			//$this->event_performances = $this->model->getEventPerformances($id);
 			
-			$this->loadModel('performance');
+			//$this->loadModel('performance');
 			
-			$this->performances = $this->model->getPerformances();
+			//$this->performances = $this->model->getPerformances();
                        
 			
 			$this->render('event_detail.tpl');		

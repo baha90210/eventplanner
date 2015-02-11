@@ -66,7 +66,7 @@ class Controller{
     			if($this->IsAuthorized($_GET['token'])){;
     			    return true;
     			}else{
-    		        echo "U bent niet geautoriseerd voor deze pagina!!!"; //opvangpagina voor maken??
+    		        //echo "U bent niet geautoriseerd voor deze pagina!!!"; //opvangpagina voor maken??
     			}
 			}else{
 			    //user is niet ingelogd en wordt teruggestuurd naar loginpagina
@@ -122,7 +122,7 @@ class Controller{
                       }
                   }
 	           }else{
-		          $this->msg = "module niet toegestaan";
+		          //$this->msg = "module niet toegestaan";
 		          return false;
 		      }
               return true;
