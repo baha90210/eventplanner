@@ -10,13 +10,13 @@
 		</tr>
 		
 		<tr>
-			<td>Prijs:</td>
+			<td><?php echo $this->label_artist_rate; ?></td>
 			<td><?php echo $this->artist['rate']; ?></td>
 		</tr>
 		
 		<?php if(isset($this->artist['website']) and $this->artist['website'] != '') : ?>
 		<tr>
-			<td>Website:</td>
+			<td><?php echo $this->label_artist_website; ?></td>
 			<td>
 					<a target=_blank href="http://<?php echo $this->artist['website']; ?>">
 						<?php echo $this->artist['website']; ?>
@@ -35,7 +35,7 @@
 		</tr>
 		<?php endif; ?>
 
-		<tr><td colspan="2"><input type="button" name="btnBack" value="Terug naar overzicht" onclick="document.location.href='index.php?route=artist/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
+		<tr><td colspan="2"><input type="button" name="btnBack" value="<?php echo $this->label_back_to_overview; ?>" onclick="document.location.href='index.php?route=artist/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
 	</table>
 
 </div>
