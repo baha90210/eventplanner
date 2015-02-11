@@ -33,7 +33,7 @@ class resourceModel extends Model{
 		$sql  = "UPDATE resource SET ";
 		$sql .= "name = '".$this->db->escape($data['req_name'])."', ";
 		$sql .= "rate = '".$this->db->escape($data['reqnum_rate'])."', ";
-		$sql .= "description = '".$this->db->escape($data['req_description'])."' ";
+		$sql .= "description = '".$this->db->escape($data['description'])."' ";
 		$sql .= "WHERE resource_id = '".$data['id']."'";
 		
 		$this->db->query($sql);
