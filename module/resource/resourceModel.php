@@ -20,8 +20,8 @@ class resourceModel extends Model{
 	public function addresource($data){
 		$sql  = "INSERT INTO resource SET ";
 		$sql .= "name = '".$this->db->escape($data['req_name'])."', ";
-		$sql .= "rate = '".$this->db->escape($data['reqnum_rate'])."'";
-		
+		$sql .= "rate = '".$this->db->escape($data['reqnum_rate'])."', ";
+		$sql .= "description = '".$this->db->escape($data['description'])."' ";
 		
 		$this->db->query($sql);
 //echo $this->db->getLastId();		
@@ -32,7 +32,8 @@ class resourceModel extends Model{
 	public function editresource($data){
 		$sql  = "UPDATE resource SET ";
 		$sql .= "name = '".$this->db->escape($data['req_name'])."', ";
-		$sql .= "rate = '".$this->db->escape($data['reqnum_rate'])."'";
+		$sql .= "rate = '".$this->db->escape($data['reqnum_rate'])."', ";
+		$sql .= "description = '".$this->db->escape($data['description'])."' ";
 		$sql .= "WHERE resource_id = '".$data['id']."'";
 		
 		$this->db->query($sql);

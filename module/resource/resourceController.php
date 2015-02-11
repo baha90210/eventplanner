@@ -34,7 +34,8 @@ class resourceController extends Controller{
 
 			$this->resource = array(
 				'name'			=> '',
-				'rate'			=> ''
+				'rate'			=> '',
+				'description'			=> '',
 			);
 	
 			$this->render('resource_detail.tpl');		

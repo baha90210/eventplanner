@@ -13,6 +13,10 @@
 			<td>prijs:</td>
 			<td><input class="required" type="text" name="reqnum_rate" value="<?php echo $this->resource['rate']; ?>" /></td>
 		</tr>
+		<tr>
+			<td>omschrijving:</td>
+			<td><input class="required" type="text" name="description" value="<?php echo $this->resource['description']; ?>" /></td>
+		</tr>
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
 	</table>
 	</form>

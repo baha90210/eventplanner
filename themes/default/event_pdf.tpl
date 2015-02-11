@@ -96,6 +96,26 @@
 				</tr>
 			<?php endforeach; ?>
 		<?php endif; ?>	
+                
+		<?php if(isset($event['performances']) and $event['performances'] !='') : ?>	
+			<tr>
+				<td colspan="3">&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+
+			<?php foreach($event['performances'] as $performance) : ?>
+				<tr>
+		             <td>
+		             	Performance</td>
+		             <td>
+		             	<?php echo $performance['performance_title']; ?></td>
+		             <td>
+		             	<?php echo $performance['artist_name']; ?></td>
+		             <td style="text-align:right;">
+		             	<?php echo $performance['name']; ?></td>
+				</tr>
+			<?php endforeach; ?>
+		<?php endif; ?>	
 
 
 
