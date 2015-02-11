@@ -36,6 +36,9 @@
 				<td>&nbsp;</td>
 			</tr>
 			<?php } ?>
+                        <?php echo "<pre>"; ?>
+                        <?php var_dump($event); ?>
+                        <?php echo "</pre>"; ?>
                         <?php if($event['resources'] !=''){ ?>
                             <tr class="gray row resource_<?php echo $event['event_id'] ?>"><td colspan="6">Resources</td></tr>
                         <?php } ?>                        
