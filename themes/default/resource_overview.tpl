@@ -5,7 +5,7 @@
 	<table class="list">
 		<thead>
 			<tr>
-				<td>resource</td>
+				<td>Resource</td>
 				<td class="right">Prijs</td>
 				<td class="right">Omschrijving</td>
 				<td colspan="2">&nbsp;</td>
@@ -16,7 +16,7 @@
 				
 				<td><?php echo ucfirst($resource['name']); ?></td>
 				<td class="right"><?php echo number_format($resource['rate'], 2, ',', '.'); ?></td>
-				<td class="right"><?php echo $resource['description']; ?></td>
+				<td class="right"><?php echo ucfirst($resource['description']); ?></td>
 				<td>&nbsp</td>
 				<td><a href="index.php?route=resource/edit&id=<?php echo $resource['resource_id'] ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME ?>/images/edit.png"  /></a>
 				<a href="index.php?route=resource/delete&id=<?php echo $resource['resource_id'] ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME ?>/images/remove.png"  /></a></td>
