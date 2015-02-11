@@ -35,7 +35,7 @@
 		</tr>
 		<?php endif; ?>
 
-		<tr><td colspan="2"><input type="button" name="btnBack" value="Terun naar overzicht" onclick="document.location.href='index.php?route=artist/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
+		<tr><td colspan="2"><input type="button" name="btnBack" value="Terug naar overzicht" onclick="document.location.href='index.php?route=artist/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
 	</table>
 
 </div>

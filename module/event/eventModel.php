@@ -165,16 +165,31 @@ class eventModel extends Model{
 	}
 
 
+	public function eventPdf($id){
+		$sql = "SELECT ev.name as event_name, 
+						ev.start_date as start_date, 
+						ev.end_date as end_date,
+						GROUP_CONCAT(DISTINCT lo.name, '|Capaciteit: ', lo.capacity, '|', lo.rate, '#') as locations_array,
+						GROUP_CONCAT(DISTINCT ar.name, '|', ar.website, '|', ar.rate, '#') as artists_array,
+						GROUP_CONCAT(DISTINCT re.name, '|', re.description, '|', re.rate, '#') as resources_array
+				FROM event as ev ";
+				
+		$sql.= "LEFT JOIN event_location as el ON el.event_id = ev.event_id ";
+		$sql.= "LEFT JOIN location as lo ON lo.location_id = el.location_id ";
+		
+		$sql.= "LEFT JOIN performance as pe ON pe.event_id = ev.event_id ";
+		$sql.= "LEFT JOIN artist as ar ON ar.artist_id = pe.artist_id ";
 
-
-
-
-
-
-
-
-
-
+		$sql.= "LEFT JOIN event_resource as er ON er.event_id = ev.event_id ";
+		$sql.= "LEFT JOIN resource as re ON re.resource_id = er.resource_id ";
+		
+		$sql.= "WHERE ev.event_id = '".$id."' ";
+		$sql.= "GROUP BY ev.event_id";
+		
+		$result = $this->db->query($sql);
+		
+		return $result->row;
+	}
 
 
 }

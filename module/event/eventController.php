@@ -129,6 +129,49 @@ class eventController extends Controller{
 		$this->overview();
 		//$this->redirect('index.php?route=event/overview');
 	}
+
+
+	public function event_pdf(){
+		if(isset($_GET['id'])){
+			// inladen html2pdf uit Library
+			require_once('system/library/html2pdf.class.php');		
+
+			$id = $_GET['id'];
+			$this->loadModel('event');
+			$this->event = $this->model->eventPdf($id);
+			$this->event['total_rate'] = 0;
+			
+			if($this->event['locations_array'] != '') $this->createArray('locations', $this->event['locations_array']);			
+			if($this->event['artists_array'] != '') $this->createArray('artists', $this->event['artists_array']);
+			if($this->event['resources_array'] != '') $this->createArray('resources', $this->event['resources_array']);
+
+			ob_start();
+			require('themes/'.THEME.'/event_pdf.tpl');
+			$content = ob_get_contents();
+			ob_end_clean();
+			
+			$html2pdf = new HTML2PDF('P','A4','nl');
+  	 		$html2pdf->WriteHTML($content);
+			$html2pdf->Output('event'.$id.'.pdf');
+		}
+	}
+	
+	private function createArray($type, $data){
+		$data = rtrim($data, '#');
+	//	print_r($data);
+		$array1 = explode('#,', $data);
+		$i = 0;
+		foreach($array1 as $item){
+			$array2 = explode('|', $item);
+			$this->event[$type][$i]['name']=$array2[0];
+			$this->event[$type][$i]['desc']=$array2[1];
+			$this->event[$type][$i]['rate']=$array2[2];
+
+			$this->event['total_rate'] += $this->event[$type][$i]['rate'];
+			$i++;
+			}
+		
+		}
 	
 	private function validate($data){
 		foreach($data as $k => $v){

@@ -1,4 +1,5 @@
 <div>
+	<?php $this->addScript('./themes/default/javascript/jquery/ajaxupload.js'); ?>
 	<?php if(isset($this->msg)){ ?>
 	<div class="msg"><?php echo $this->msg; ?></div>
 	<?php } ?>
@@ -86,17 +87,21 @@
 
 
 	 //	Need to check: file extension (just a simple check to help the user, not a real safety measure
-	
+		
 		$('input[name^="img"]').each(function(){
-			$this->addScript('./themes/default/javascript/jquery/ajaxupload.js');
-			val ext = getExt(fileName = $(this).val());
-		/*	alert(ext);
+		
+		/*
+			fileName = $(this).val();
+			alert(fileName);
+			extName = getExt(fileName);			
+			alert(extName);
+			
 			ext = getExt(filename);
 			
 			if (!hasExtension(fileName, ['.jpg', '.gif', '.png'])) {
 				$(this).parent().find('span').append('   Dit type bestand is niet toegestaan !');
 				error = true;
-	}	
+			}	
 		*/
 		});
 		

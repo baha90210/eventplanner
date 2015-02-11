@@ -22,6 +22,8 @@
 				<td class="center"><?php echo number_format($event['price'], 2, ',', '.'); ?></td>
 				<td><a href="index.php?route=event/edit&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME ?>/images/edit.png"  /></a></td>
 				<td><a href="index.php?route=event/delete&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME ?>/images/remove.png"  /></a></td>
+				<!-- toegevoegd Oorzaak ivm pdf functie -->
+				<td><a target=_blank href="index.php?route=event/event_pdf&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>">Pdf</a></td>
 			</tr>
 			<?php foreach($event['locations'] as $location){ ?>
 			<tr class="row location_<?php echo $event['event_id'] ?>">
