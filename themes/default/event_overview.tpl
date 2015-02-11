@@ -56,7 +56,7 @@
                         <?php if($event['performances'] !=''){ ?>
                             <tr class="gray row performance_<?php echo $event['event_id'] ?>"><td colspan="6">Performances</td></tr>
                         <?php } ?>
-                        <?php //echo "<pre>";var_dump($event['performances']); echo "</pre>";?>
+                        <?php //echo "<pre>";var_dump($event); echo "</pre>";?>
 			<?php foreach($event['performances'] as $performance){ ?>
 			<tr class="row items performance_<?php echo $event['event_id'] ?>">
 				<td><?php echo $performance['performance_title']; ?></td>

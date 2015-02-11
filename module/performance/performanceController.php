@@ -31,6 +31,13 @@ public function overview(){
     $this->loadModel('artist');
     $this->artists = $this->model->getArtists();
 
+	$ws = new Ws();
+	
+	//echo '<pre>';var_dump($ws->checkVAT('NL', '809808572B01'));echo '</pre>';
+	echo '<pre>';var_dump($ws->checkVAT('BE', '0881377533'));echo '</pre>';
+
+	echo '<pre>';var_dump($ws->getWeather('10025'));echo '</pre>';
+
     $this->render('performance_overview.tpl');
 }
 

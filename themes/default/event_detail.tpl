@@ -11,11 +11,11 @@
 		</tr>
 		<tr>
 			<td>Startdatum:</td>
-			<td><input class="datepicker" type="date" name="req_start_date" value="<?php echo $this->event['start_date']; ?>" /></td>
+			<td><input class="datepicker" type="text" name="req_start_date" value="<?php echo $this->event['start_date']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Einddatum:</td>
-			<td><input class="datepicker" type="date" name="req_end_date" value="<?php echo $this->event['end_date']; ?>" /></td>
+			<td><input class="datepicker" type="text" name="req_end_date" value="<?php echo $this->event['end_date']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Toegangsprijs:</td>
@@ -60,6 +60,7 @@
 		<tr class="resource_placeholder">
 			<td colspan="2"><input type="button" name="addResourcehtml" value="Add resource" onclick="addResource();" /></td>
 		</tr>
+
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
 		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=event/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
 	</table>
@@ -115,6 +116,8 @@
 				resource_array.push($(this).val());
 			}
 		});
+                
+
                 $('form').submit();
                 
 		
@@ -157,6 +160,8 @@
 		$('.resource_placeholder').before(html);
 	}
         
+
+        
 	
 
 	function deleteLocation(location){
@@ -165,6 +170,7 @@
 	function deleteResource(resource){
 		$(resource).parent().parent().remove();
 	}	
+	
 	
 </script>
 
