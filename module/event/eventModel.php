@@ -147,7 +147,7 @@ class eventModel extends Model{
 		return $result->rows;
 	}
 	
-    public function getEventResources($id){
+        public function getEventResources($id){
 	$sql = "SELECT resource_id FROM event_resource WHERE event_id = '".$id."'";
 	
 	$result = $this->db->query($sql);
@@ -155,13 +155,13 @@ class eventModel extends Model{
 	return $result->rows;
 	}
         
-//        public function getEventPerformances($id){
-//		$sql = "SELECT performance_id FROM event_performance WHERE event_id = '".$id."'";
-//		
-//		$result = $this->db->query($sql);
-//		
-//		return $result->rows;
-//	}
+        public function getEventPerformances($id){
+		$sql = "SELECT performance_id FROM performance WHERE event_id = '".$id."'";
+		
+		$result = $this->db->query($sql);
+		
+		return $result->rows;
+	}
 
 	private function validateEvent($data){
 		foreach($data as $k => $v){
