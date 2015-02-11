@@ -52,7 +52,7 @@ class Controller{
 	    $str='Location: index.php?route='.$route;
 		if($token != '') $str .= '&token='.$token;
 		if($msg != '') $str .= '&msg='.$msg;
-		if($lang == '') {$str .= '&lang=english';}else{$str .= '&lang='.$lang;}
+		//if($lang == '') {$str .= '&lang=english';}else{$str .= '&lang='.$lang;}
 		// Redirect browser, $str contains location data
         header($str);
 	}
@@ -71,6 +71,9 @@ class Controller{
     			if($this->IsAuthorized($_GET['token'])){;
     			    return true;
     			}else{
+    		        $this->error_msg = "U bent niet geautoriseerd voor deze pagina!!<br />";
+    		        $this->error_msg .= "Maak een geldige keuze uit het menu.";
+    		        $this->render("error_page.tpl");
     		        //echo "U bent niet geautoriseerd voor deze pagina!!!"; //opvangpagina voor maken??
     			}
 			}else{

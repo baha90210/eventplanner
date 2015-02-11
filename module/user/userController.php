@@ -81,12 +81,12 @@ class userController extends Controller{
             $this->loadModel('user');
             if(isset($_POST['group'])){
                 if($_POST['group']!="" && $_POST['module']!=""){
-                    if($_POST['edit']==""){
+                    if(isset($_POST['edit']) && $_POST['edit']==""){
                         $edit=0;
                     }else{
                         $edit=1;
                     }
-                    if($_POST['view']==""){
+                    if(isset($_POST['view']) && $_POST['view']==""){
                         $view=0;
                     }else{
                         $view=1;
