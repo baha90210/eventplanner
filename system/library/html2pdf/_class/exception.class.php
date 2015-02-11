@@ -88,7 +88,7 @@ class HTML2PDF_exception extends exception
         }
 
         // create the HTML message
-        $this->_messageHtml = '<span style="color: #AA0000; font-weight: bold;">'.HTML2PDF_locale::get('txt01', 'error: ').$err.'</span><br>';
+        $this->_messageHtml = '<span style="color: #AA0000; font-weight: bold;">'.HTML2PDF_locale::get('txt01', 'error: ').$err.'</span><br/>';
         $this->_messageHtml.= HTML2PDF_locale::get('txt02', 'file:').' '.$this->file.'<br>';
         $this->_messageHtml.= HTML2PDF_locale::get('txt03', 'line:').' '.$this->line.'<br>';
         $this->_messageHtml.= '<br>';
