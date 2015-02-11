@@ -202,16 +202,17 @@ class eventModel extends Model{
 		return $result->rows;
 	}
         
-//	public function baha_getEventPerformances($event_id){
-//		$sql  = "SELECT r.*, rt.name type_name FROM event_performance er ";
-//		$sql .= "LEFT JOIN performance r ON er.performance_id = r.performance_id ";
-//		$sql .= "LEFT JOIN performance_type rt ON rt.performance_type_id = r.type ";
-//		$sql .= "WHERE er.event_id = '".$event_id."'";
-////echo $sql;
-//		$result = $this->db->query($sql);
-//		
-//		return $result->rows;
-//	}
+	public function baha_getEventPerformances($event_id){
+		$sql  = "SELECT LOCA.*,PERF.*,ART.name as artist_name FROM performance PERF ";
+                $sql .= "LEFT JOIN artist ART USING (artist_id) ";
+                $sql .= "LEFT JOIN location LOCA USING (location_id) ";
+
+		$sql .= "WHERE PERF.event_id = '".$event_id."'";
+//echo $sql;
+		$result = $this->db->query($sql);
+		
+		return $result->rows;
+	}
 
 
 	public function eventPdf($id){
