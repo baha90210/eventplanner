@@ -62,7 +62,7 @@
 	});
 	
 	function addEvent(){
-		document.location.href='index.php?route=event/add&token=<?php echo $_GET['token']; ?>';
+		document.location.href='index.php?route=event/add&token=<?php echo $_GET['token']; ?>&lang=<?php echo $_GET['lang']; ?>';
 	}
 	
 	function showLocRes(event_id){
