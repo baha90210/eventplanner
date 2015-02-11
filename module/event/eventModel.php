@@ -14,7 +14,7 @@ class eventModel extends Model{
 	}
 	
 	public function addEvent($data){
-            var_dump($data);
+            //var_dump($data);
 		$sql  = "INSERT INTO event SET ";
 		$sql .= "name = '".$this->db->escape($data['req_name'])."', ";
 		$sql .= "start_date = '".$data['req_start_date']."', ";
@@ -43,12 +43,12 @@ class eventModel extends Model{
 					$sql = "INSERT IGNORE INTO event_resource SET ";
 					$sql .= "event_id = '".$data['id']."', ";
 					$sql .= "resource_id = '".$v."'";
-                                        ;
+                                        
 					$this->db->query($sql);
 				}
 			}
 		}
-                echo $sql;
+                
                 
                 
 //		//handle event performances
