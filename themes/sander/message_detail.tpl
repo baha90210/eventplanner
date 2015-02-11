@@ -22,8 +22,9 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-sm-4">
-          <button type="submit" class="btn btn-default">Save</button>
+        <div class="col-sm-12">
+            <button type="submit" class="btn btn-success">Save</button>
+            <a class="btn btn-danger" href="./index.php?route=message/overview&token=<?php echo $_GET['token'] ?>" >Cancel</a>
         </div>
     </div>
     </form>

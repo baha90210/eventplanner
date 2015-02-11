@@ -10,14 +10,36 @@ class userModel extends Model{
         return;
     }
     
-    public function updateUser($email, $password){
+    public function updateUser($data){
         $sql  = "UPDATE users ";
-        $sql .= "SET email='".$email."', ";
-        $sql .= "password= MD5('".$this->db->escape($password).":12345abc') ";
-        $sql .= "WHERE email='".$email."'";
+        $sql .= "SET password = MD5('".$this->db->escape($data['req_password']).":12345abc') ";
+        $sql .= "WHERE email='".$data['req_email']."'";
         $this->db->query($sql);
+        
+        //handle groups
+        $sql = "DELETE FROM user_group WHERE user_email = '".$data['req_email']."'";
+		$this->db->query($sql);
+        
+        if(isset($data['a_groups'])){
+   			foreach($data['a_groups'] as $k=>$v){
+				if($v != ''){
+					$sql = "INSERT IGNORE INTO user_group SET ";
+					$sql .= "user_email = '".$data['req_email']."', ";
+					$sql .= "group_id = '".$v."'";
+
+					$this->db->query($sql);
+				}
+			}
+		}
+           
         return;
         
+    }
+    
+    public function deleteUser($email){
+        $sql  = "DELETE FROM users ";
+        $sql .= "WHERE email='".$email."'";
+        $this->db->query($sql);
     }
     
     public function getUser($email){
@@ -28,7 +50,12 @@ class userModel extends Model{
     }
     
     public function getUsers(){
-        $sql = "SELECT * FROM users";
+        $sql  = "SELECT u.email, u.password, u.token, u.date_last_logged_in, g.id, g.name ";
+        $sql .= "FROM users u ";
+        $sql .= "LEFT JOIN user_group ug ON u.email = ug.user_email "; //LEFT JOIN omdat je alle users wilt zien
+        $sql .= "LEFT JOIN groups g ON ug.group_id = g.id ";           //LEFT JOIN hier herhalen
+        $sql .= "ORDER BY u.email";                                    //ORDER BY nodig voor juiste weergave overview 
+        //echo $sql;
         $result = $this->db->query($sql);
         return $result->rows;
     }
@@ -40,15 +67,44 @@ class userModel extends Model{
         return $result->rows;
     }
     
+    public function getUserGroupsUser($email){
+        $sql  = "SELECT g.name, g.id FROM groups g ";
+        $sql .= "INNER JOIN user_group ug ";
+        $sql .= "ON g.id = ug.group_id ";
+        $sql .= "WHERE ug.user_email = '".$email."' ";
+        $sql .= "ORDER BY g.name";
+        //echo $sql; die;
+        $result = $this->db->query($sql);
+        return $result->rows;
+        
+    }
+    
     public function getUserGroupsRights(){
         //let op: tabel met groepen kan geen 'group' heten ivm het statement GROUP in SQL :)
         $sql  = "SELECT g.name, g.id, g.description, ";
         $sql .= "gr.module, gr.edit, gr.view ";
         $sql .= "FROM groups g JOIN group_rights gr ON g.id = gr.group_id ";
-        $sql .= "ORDER BY g.id";
+        $sql .= "ORDER BY g.name";
         //echo $sql; die;
         $result = $this->db->query($sql);
         return $result->rows;
+    }
+    
+    public function deleteGroup($groupid){
+        //group verwijderen uit groups maar ook uit user_group en group_rights tabellen!!
+        //in afzonderlijke sql-statements gedaan ivm overzichtelijkheid
+        $sql  = "DELETE FROM group_rights ";
+        $sql .= "WHERE group_id = ".$groupid;
+        $this->db->query($sql);
+        
+        $sql  = "DELETE FROM user_group ";
+        $sql .= "WHERE group_id = ".$groupid;
+        $this->db->query($sql);
+        
+        $sql  = "DELETE FROM groups ";
+        $sql .= "WHERE id = ".$groupid;
+        $this->db->query($sql);
+        return;
     }
     
     public function deleteGroupRights(){
@@ -94,7 +150,7 @@ class userModel extends Model{
     }
     
     public function getGroupsNoRights(){
-        $sql  = "SELECT g.name ";
+        $sql  = "SELECT g.id, g.name ";
         $sql .= "FROM groups g ";
         $sql .= "LEFT JOIN group_rights gr ON gr.group_id = g.id ";
         $sql .= "WHERE gr.group_id IS NULL";
@@ -103,3 +159,4 @@ class userModel extends Model{
         return $result->rows;
             }
 }
+

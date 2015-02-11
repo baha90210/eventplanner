@@ -7,26 +7,31 @@ class loginController extends Controller{
     }
     	
     public function login(){
-    		$this->loadModel('login');
-    		
-    		$result = $this->model->checkUser($_POST['username'], $_POST['password']);
-    
-    		if($result)
-    			$this->redirect('event/overview', $result['token']);
-    		else {
-    			$this->error_msg = 'Je hebt een verkeerde email/wachtwoord combinatie gebruikt!';
-    			$this->index();
-    		}
-    		
-    		if (isset($_POST['remember']))
-    		    setcookie('RememberMe',$_POST['username'], strtotime( '+30 days' ));
-    		else 
-    		{
-    		    setcookie('RememberMe',null,time()-1 );
-    		    unset($_COOKIE['RememberMe']);
-    		}
-    }
+		$this->loadModel('login');
+		
+		//zet cookies voor onthouden username en keuze;
+		if(isset($_POST['remember'])){
+		    setcookie('Username',$_POST['username'], strtotime( '+30 days' ));
+		    setcookie('RememberMe','1', strtotime( '+30 days' ));
+        }else{
+		    setcookie('RememberMe',null,time()-1 );
+		    setcookie('Username',null,time()-1 );
+		    unset($_COOKIE['RememberMe']);
+		    unset($_COOKIE['Username']);
+		}
     	
+    	//check gebruikersnaam en ww	
+		$result = $this->model->checkUser($_POST['username'], $_POST['password']);
+
+		if($result){
+			$this->redirect('event/overview', $result['token'],'',$_GET['lang']);
+        }else{
+			$this->error_msg = 'Je hebt een verkeerde email/wachtwoord combinatie gebruikt!';
+			$this->index();
+		}
+    		
+    }
+            
     public function logout(){
     		$this->loadModel('login');
     		

@@ -4,7 +4,7 @@
         <div class="panel-heading"><?php echo ($this->header_msg); ?></div>
         <div class="panel-body">
             <div class="row form-group form-horizontal" >
-                <div class="col-xs-3">
+                <div class="col-sm-3">
                  <select name="event" class="form-control" onchange="SelectRows()">
                     <option value="">Alle Events</option>
                     <?php foreach($this->events as $events){ ?>
@@ -12,7 +12,7 @@
                     <?php } ?>
                 </select>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-sm-3">
                 <select name="artist" class="form-control" onchange="SelectRows()">
                     <option value="">Alle Artiesten</option>
                     <?php foreach($this->artists as $artists){ ?>
@@ -20,11 +20,14 @@
                     <?php } ?>
                 </select>
                 </div>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-info pull-right" onclick="addPerformance();">Performance toevoegen</button>
+                </div>
             </div>
             <table class="table table-hover">
             <thead><tr>
-                <td>Event</td><td>Titel</td><td>Artiest</td><td>Start datum</td><td>Eind datum</td>
-                <td>Confirmed</td><td colspan="2">Bewerking</td>
+                <th>Event</th><th>Titel</th><th>Artiest</th><th>Start datum</th><th>Eind datum</th>
+                <th>Confirmed</th><th colspan="2">Bewerking</th>
             </tr></thead>
             <?php foreach($this->performance as $perf){ ?>
             <tr class="rij artist_<?php echo $perf['artist_id'] ?> event_<?php echo $perf['event_id'] ?>" onclick="getArtistInfo(<?php echo $perf['artist_id'] ?>);">
@@ -39,7 +42,7 @@
             </tr>
             <?php } ?>
             </table>
-            <button type="button" class="btn btn-default" onclick="addPerformance();">Performance toevoegen</button>
+            <button type="button" class="btn btn-info" onclick="addPerformance();">Performance toevoegen</button>
         </div>
     </div>
 </div>
@@ -57,12 +60,14 @@ function SelectRows(){
     $('.rij').hide();
     artist_id = $('select[name="artist"]').val();
     event_id = $('select[name="event"]').val();
+    
     // Bepaal welke regels getoond moeten worden
     selector = '.rij'; // Begin met alles
     if (event_id) { selector += '.event_'+event_id; } // Voeg event toe als die is ingesteld.
     if (artist_id) { selector += '.artist_'+artist_id; } // Voeg artist toe als die is ingesteld.
     $(selector).show(); // Toon deze rijen.
 }
+
 function getArtistInfo(artist_id){
     $.ajax({
         url: "index.php?route=artist/getInfo",

@@ -1,9 +1,19 @@
 eventplanner
 ============
-<<<<<<< HEAD
 
-eventplanner
-============
+8-2: locations table uitgebreid met postcode, plaats en land coor extra adres gegevens die nodig zijn voor kaartjes.
+
+ALTER TABLE `location` ADD `postcode` VARCHAR(6) NOT NULL AFTER `address`, ADD `plaats` VARCHAR(50) NOT NULL AFTER `postcode`;
+ALTER TABLE `location` ADD `land` VARCHAR(50) NOT NULL AFTER `plaats`;
+
+5-2: Loginmodule: rememberme vinkje werkt nu. (Joan)
+----------------
+
+7-2 : performance toevoegen aan event werkt nu! 
+
+TODO:
+Er zit nog een vette fout in de artist module...image upload finfo class not found...in system/library/
+
 
 Mensen het belangrijkst van git is dat na het clonen van de "master"....
 
@@ -25,24 +35,4 @@ hulp voor het vullen van deze read.me :
 https://help.github.com/articles/github-flavored-markdown/
 >>>>>>> ef56c75022e5a154e2900bf2d64efe7ad125f9e3
 
-TABELLEN AANGEPAST. 
-Voor de werking van userbeheer en groepenbeheer heb ik tabel(namen) aangepast. Zie apart document of hieronder:
-Gebruikte tabellen voor user- en groepbeheer:
-TABEL groups
-Kolom/Type/Leeg/Standaardwaarde/Opmerkingen
-id/int(11)/Nee
-name/varchar(255)/Nee
-description/varchar(255)Nee
-------------------------------------------------------------
-TABEL group_rights
-Kolom/Type/Leeg/Standaardwaarde/Opmerkingen
-group_id/int(11)/Nee 
-module/varchar(255)/Nee
-edit/tinyint(1)/Nee
-view/tinyint(1)/Nee
----------------------------------------------------------------
-TABEL user_group
-Kolom/Type/Leeg/Standaardwaarde/Opmerkingen
-user_email/varchar(200)/Nee
-group_id/int(11)/Nee
 

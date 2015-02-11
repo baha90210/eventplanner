@@ -20,13 +20,16 @@
 				<td><?php echo $event['start_date']; ?></td>
 				<td><?php echo $event['end_date']; ?></td>
 				<td class="center"><?php echo number_format($event['price'], 2, ',', '.'); ?></td>
-				<td><a href="index.php?route=event/edit&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME ?>/images/edit.png"  /></a></td>
-				<td><a href="index.php?route=event/delete&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME ?>/images/remove.png"  /></a></td>
-				<!-- toegevoegd Oorzaak ivm pdf functie -->
-				<td><a target=_blank href="index.php?route=event/event_pdf&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>">Pdf</a></td>
-			</tr>
+
+				<td><a href="index.php?route=event/edit&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>&lang=<?php echo $_GET['lang']; ?>"><img src="./themes/<?php echo THEME ?>/images/edit.png"  /></a></td>
+				<td><a href="index.php?route=event/delete&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>&lang=<?php echo $_GET['lang']; ?>"><img src="./themes/<?php echo THEME ?>/images/remove.png"  /></a></td>
+				<td><a target=_blank href="index.php?route=event/event_pdf&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>&lang=<?php echo $_GET['lang']; ?>">Pdf</a></td>
+					</tr>
+                        <?php if($event['locations'] !=''){ ?>
+                            <tr class="gray row location_<?php echo $event['event_id'] ?>"><td colspan="6">Locations</td></tr>
+                        <?php } ?>                        
 			<?php foreach($event['locations'] as $location){ ?>
-			<tr class="row location_<?php echo $event['event_id'] ?>">
+			<tr class="row items location_<?php echo $event['event_id'] ?>">
 				<td><?php echo stripslashes($location['name']); ?></td>
 				<td><?php echo $location['address']; ?></td>
 				<td><?php echo $location['capacity']; ?></td>
@@ -35,8 +38,11 @@
 				<td>&nbsp;</td>
 			</tr>
 			<?php } ?>
+                        <?php if($event['resources'] !=''){ ?>
+                            <tr class="gray row resource_<?php echo $event['event_id'] ?>"><td colspan="6">Resources</td></tr>
+                        <?php } ?>                        
 			<?php foreach($event['resources'] as $resource){ ?>
-			<tr class="row resource_<?php echo $event['event_id'] ?>">
+			<tr class="row items resource_<?php echo $event['event_id'] ?>">
 				<td><?php echo $resource['name']; ?></td>
 				<td><?php echo $resource['description']; ?></td>
 				<td><?php echo $resource['type_name']; ?></td>
@@ -45,6 +51,7 @@
 				<td>&nbsp;</td>
 			</tr>
 			<?php } ?>
+
 			<?php } ?>
 			<tr><td colspan="6"><input type="button" onclick="addEvent();" value="Event toevoegen" /></td></tr>
     </table>
@@ -56,13 +63,13 @@
 	});
 	
 	function addEvent(){
-		document.location.href='index.php?route=event/add&token=<?php echo $_GET['token']; ?>';
+		document.location.href='index.php?route=event/add&token=<?php echo $_GET['token']; ?>&lang=<?php echo $_GET['lang']; ?>';
 	}
 	
 	function showLocRes(event_id){
 		$('.row').hide();
 		$('.location_'+event_id).show();
+		$('.performance_'+event_id).show();
 		$('.resource_'+event_id).show();
 	}
-
 </script>

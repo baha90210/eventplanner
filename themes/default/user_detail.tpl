@@ -6,11 +6,11 @@
 	<table class="list">
 		<tr>
 			<td>E-mail gebruiker:</td>
-			<td><input class="required" type="text" name="req_email" value="<?php echo $this->user['email']; ?>" <?php echo $this->readonly; ?>/></td>
+			<td><input class="required" type="text" name="req_email" onclick="this.select()" value="<?php echo $this->user['email']; ?>" <?php echo $this->readonly; ?>/></td>
 		</tr>
 		<tr>
 			<td>Password:</td>
-			<td><input class="required" type="password" name="req_password" value="<?php echo $this->user['password']; ?>" /></td>
+			<td><input class="required" type="password" name="req_password" onclick="this.select()" value="<?php echo $this->user['password']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Laatste login:</td>
@@ -18,10 +18,27 @@
 		</tr>
 		<tr>
 			<td>Token:</td>
-			<td><?php echo $this->user['token']; ?></td>
+			<td><?php echo $this->user['token']; ?><input type="hidden" name="token" value="<?php echo $this->user['token']; ?>"></td>
 		</tr>
-		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
-		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=user/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
+		<?php foreach($this->usergroups as $group){  //aan user gekoppelde groepen?>
+		<tr>
+			<td>Autorisatiegroep:</td>
+			<td>
+				<select name="a_groups[]">
+					<option value="">-- Selecteer een groep --</option>
+					<?php foreach($this->groups as $aut_group){ //alle autorisatiegroepen?>
+					<option value="<?php echo $aut_group['id'] ?>" <?php echo ($aut_group['id'] == $group['id'])?'selected="selected"':''; ?>><?php echo $aut_group['name'] ?></option>
+					<?php } ?>
+				</select> <img src="./themes/<?php echo THEME ?>/images/remove.png" onclick="deleteGroup(this);" />
+			</td>
+		</tr>
+		<?php } ?>
+		<tr class="groups_placeholder">
+			<td colspan="2"><input type="button" name="addGrouphtml" value="Groep toevoegen" onclick="addGroup();" /></td>
+		</tr>
+		<tr><td colspan="2">&nbsp;</td></tr>
+		<tr><td><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td>
+		<td><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=user/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
 	</table>
 	</form>
 </div>
@@ -52,7 +69,29 @@
 			$('form').submit();
 		}
 	}
+	function addGroup(){
+		html = '';
+		
+		html += '<tr>';
+		html += '<td>Autorisatiegroep:</td>';
+		html += '<td>';
+		html += '<select name="a_groups[]">';
+		html += '<option value="">-- Selecteer een groep --</option>';
+		<?php foreach($this->groups as $aut_group){ ?>
+		html += '<option value="<?php echo $aut_group['id'] ?>"><?php echo $aut_group['name'] ?></option>';
+		<?php } ?>
+		html += '</select>';
+		html += '  <img src="./themes/<?php echo THEME ?>/images/remove.png" onclick="deleteGroup(this);" />';
+		html += '</td>';
+		html += '</tr>';
 
+		$('.groups_placeholder').before(html);
+	}
+
+	function deleteGroup(group){
+		$(group).parent().parent().remove();
+	}	
+	
 </script>
 
 
