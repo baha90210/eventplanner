@@ -37,13 +37,29 @@ $(function() {
         success: function(xml) {
             
             $(xml).find('translation').each(function(){
- 
+                
                 var id = $(this).attr('id');
                 
                 var text = $(this).find(language).text();
-
+                
                 $("." + id).html(text);
                 
+
+           // if($(xml).find('translation')) {
+ 
+           //     $(xml).each(function(){
+                
+           //     var id = $(this).attr('id');
+                
+           //     var text = $(this).find(language).text();
+                
+           //     $("." + id).html(text);
+                
+           //     }else{
+
+           //     $("." + id).html();
+                
+           //     }
             });
         }
     });

@@ -72,6 +72,9 @@ ul.menu li{
 .gray{
     background-color:lightgray;
 }
+.items{
+    background-color:lightblue;
+}
 
 /* ============  Begin menu sectie =============== */
 .drop {
@@ -149,4 +152,7 @@ ul.menu li{
 /*===============Translation styles============*/
 .Trans-how-are-u{
     float:right !important;
+    color:white;
+    z-index:999;
+    padding: 5px 15px 0 0;
 }

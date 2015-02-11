@@ -4,6 +4,9 @@ class eventController extends Controller{
 		//parent::__construct();
 		
 		$this->authorize();
+                $this->addScript('//code.jquery.com/jquery-1.11.2.min.js');
+                $this->addScript('//code.jquery.com/ui/1.11.2/jquery-ui.js');
+                $this->addStyle('//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
 	}
 
 	public function overview(){		
@@ -33,13 +36,13 @@ class eventController extends Controller{
 		        $event['resources'][] = $resource;
 	        }
                 
-	        //get event performances
-	        $event['performances'] = array();
-	        $event_performances = $this->model->baha_getEventPerformances($event['event_id']);
-	        //var_dump($event_performances);
-	        foreach($event_performances as $performance){
-		        $event['performances'][] = $performance;
-	        }
+//	        //get event performances
+//	        $event['performances'] = array();
+//	        $event_performances = $this->model->baha_getEventPerformances($event['event_id']);
+//	        //var_dump($event_performances);
+//	        foreach($event_performances as $performance){
+//		        $event['performances'][] = $performance;
+//	        }
 	        
 	        $this->events[] = $event;
 		}		
@@ -80,11 +83,11 @@ class eventController extends Controller{
 			
 			$this->resources = $this->model->getResources();
                         
-			$this->event_performances = array();
+			//$this->event_performances = array();
 			
-			$this->loadModel('performance');
+			//$this->loadModel('performance');
 			
-			$this->performances = $this->model->getPerformances();
+			//$this->performances = $this->model->getPerformances();
                         
 			$this->render('event_detail.tpl');		
 		}
@@ -125,11 +128,11 @@ class eventController extends Controller{
                         
                         $this->loadModel('event');
                         
-			$this->event_performances = $this->model->getEventPerformances($id);
+			//$this->event_performances = $this->model->getEventPerformances($id);
 			
-			$this->loadModel('performance');
+			//$this->loadModel('performance');
 			
-			$this->performances = $this->model->getPerformances();
+			//$this->performances = $this->model->getPerformances();
                        
 			
 			$this->render('event_detail.tpl');		

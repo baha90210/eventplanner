@@ -41,7 +41,7 @@ public function add(){
     {
         $this->loadModel('performance');
         $this->model->addPerformance($_POST);	
-        $this->redirect('performance/overview', $_GET['token']);
+        $this->redirect('performance/overview', $_GET['token'],'',$_GET['lang']);
     }
     else
     {		
@@ -62,7 +62,7 @@ public function edit(){
     {
         if($this->validate($_POST))
             $this->model->editPerformance($_POST);					
-        $this->redirect('performance/overview', $_GET['token'],'msg_PERFADDED');
+        $this->redirect('performance/overview', $_GET['token'],'msg_PERFADDED',$_GET['lang']);
     }
 
     if(isset($_GET['id']))
@@ -80,7 +80,7 @@ public function delete(){
             $this->loadModel('performance');
             $this->model->deletePerformance($id);
     }
-    $this->redirect('performance/overview', $_GET['token']);
+    $this->redirect('performance/overview', $_GET['token'],'',$_GET['lang']);
 }
 	
 private function validate($data){

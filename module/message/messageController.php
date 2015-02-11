@@ -31,7 +31,7 @@ public function add(){
     {
         $this->loadModel('message');
         $this->model->addMessage($_POST);	
-        $this->redirect('message/overview', $_GET['token'],'msg_MSGADDED');
+        $this->redirect('message/overview', $_GET['token'],'msg_MSGADDED',$_GET['lang']);
     }
     else	
         $this->render('message_detail.tpl');
@@ -45,7 +45,7 @@ public function edit(){
     {
         if($this->validate($_POST))
             $this->model->editMessage($_POST);					
-        $this->redirect('message/overview', $_GET['token']);
+        $this->redirect('message/overview', $_GET['token'],'',$_GET['lang']);
     }
 
     if(isset($_GET['id']))
@@ -63,7 +63,7 @@ public function delete(){
             $this->loadModel('message');
             $this->model->deleteMessage($id);
     }
-    $this->redirect('message/overview', $_GET['token']);
+    $this->redirect('message/overview', $_GET['token'],'',$_GET['lang']);
 }
 	
 private function validate($data){

@@ -24,7 +24,7 @@ class loginController extends Controller{
 		$result = $this->model->checkUser($_POST['username'], $_POST['password']);
 
 		if($result){
-			$this->redirect('event/overview', $result['token']);
+			$this->redirect('event/overview', $result['token'],'',$_GET['lang']);
         }else{
 			$this->error_msg = 'Je hebt een verkeerde email/wachtwoord combinatie gebruikt!';
 			$this->index();

@@ -2,7 +2,7 @@
 	<?php if(isset($this->msg)){ ?>
 	<div class="msg"><?php echo $this->msg; ?></div>
 	<?php } ?>
-	<form name="frm" method="post" action="index.php?route=<?php echo $_GET['route'] ?>&token=<?php echo $_GET['token'] ?>" enctype="multipart/form-data">
+	<form name="frm" method="post" action="index.php?route=<?php echo $_GET['route'] ?>&token=<?php echo $_GET['token'] ?>&lang=<?php echo $_GET['lang']; ?>" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="<?php echo (isset($_GET['id']))?$_GET['id']:''; ?>" />
 	<table class="list">
 		<tr>
@@ -11,11 +11,11 @@
 		</tr>
 		<tr>
 			<td>Startdatum:</td>
-			<td><input class="datepicker hasDatepicker" type="text" name="req_start_date" value="<?php echo $this->event['start_date']; ?>" /></td>
+			<td><input class="datepicker" type="date" name="req_start_date" value="<?php echo $this->event['start_date']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Einddatum:</td>
-			<td><input class="datepicker hasDatepicker" type="text" name="req_end_date" value="<?php echo $this->event['end_date']; ?>" /></td>
+			<td><input class="datepicker" type="date" name="req_end_date" value="<?php echo $this->event['end_date']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Toegangsprijs:</td>
@@ -37,22 +37,7 @@
 		<tr class="location_placeholder">
 			<td colspan="2"><input type="button" name="addLocationhtml" value="Add location" onclick="addLocation();" /></td>
 		</tr>
-		<?php foreach($this->event_performances as $performance_id){ ?>
-		<tr>
-			<td>Performance:</td>
-			<td>
-				<select name="performance[]">
-					<option value="">-- Selecteer een locatie --</option>
-					<?php foreach($this->performances as $performance){  ?>
-					<option value="<?php echo $performance['performance_id'] ?>" <?php echo ($performance['performance_id'] == $performance_id['performance_id'])?'selected="selected"':''; ?>><?php echo $performance['performance_title']; ?></option>
-					<?php } ?>
-				</select> <img src="./themes/<?php echo THEME ?>/images/remove.png" onclick="deletePerformance(this);" />
-			</td>
-		</tr>
-		<?php } ?>
-		<tr class="performance_placeholder">
-			<td colspan="2"><input type="button" name="addPerformancehtml" value="Add performance" onclick="addPerformance();" /></td>
-		</tr>
+		
                 
                 <?php //var_dump($this->event_resources); ?>
                 
@@ -76,7 +61,7 @@
 			<td colspan="2"><input type="button" name="addResourcehtml" value="Add resource" onclick="addResource();" /></td>
 		</tr>
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
-		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=event/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
+		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=event/overview&token=<?php echo $_GET['token']; ?>&lang=<?php echo $_GET['lang']; ?>'" /></td></tr>
 	</table>
 	</form>
 </div>
@@ -84,6 +69,10 @@
 	$(document).ready(function(){
 		$('input[name^="req"]').each(function(){
 			$(this).after('<span>*</span>');
+		});
+                
+                $('input[class="datepicker"]').datepicker({
+			dateFormat: 'yy-mm-dd' 
 		});
 	});
 	
@@ -180,6 +169,7 @@
 
 		$('.resource_placeholder').before(html);
 	}
+        
 	function addPerformance(){
 		html = '';
 		

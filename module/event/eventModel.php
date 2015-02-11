@@ -154,13 +154,13 @@ class eventModel extends Model{
 	return $result->rows;
 	}
         
-        public function getEventPerformances($id){
-		$sql = "SELECT performance_id FROM event_performance WHERE event_id = '".$id."'";
-		
-		$result = $this->db->query($sql);
-		
-		return $result->rows;
-	}
+//        public function getEventPerformances($id){
+//		$sql = "SELECT performance_id FROM event_performance WHERE event_id = '".$id."'";
+//		
+//		$result = $this->db->query($sql);
+//		
+//		return $result->rows;
+//	}
 
 	private function validateEvent($data){
 		foreach($data as $k => $v){
@@ -201,16 +201,16 @@ class eventModel extends Model{
 		return $result->rows;
 	}
         
-	public function baha_getEventPerformances($event_id){
-		$sql  = "SELECT r.*, rt.name type_name FROM event_performance er ";
-		$sql .= "LEFT JOIN performance r ON er.performance_id = r.performance_id ";
-		$sql .= "LEFT JOIN performance_type rt ON rt.performance_type_id = r.type ";
-		$sql .= "WHERE er.event_id = '".$event_id."'";
-//echo $sql;
-		$result = $this->db->query($sql);
-		
-		return $result->rows;
-	}
+//	public function baha_getEventPerformances($event_id){
+//		$sql  = "SELECT r.*, rt.name type_name FROM event_performance er ";
+//		$sql .= "LEFT JOIN performance r ON er.performance_id = r.performance_id ";
+//		$sql .= "LEFT JOIN performance_type rt ON rt.performance_type_id = r.type ";
+//		$sql .= "WHERE er.event_id = '".$event_id."'";
+////echo $sql;
+//		$result = $this->db->query($sql);
+//		
+//		return $result->rows;
+//	}
 
 
 
