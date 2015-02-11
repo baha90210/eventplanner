@@ -18,7 +18,7 @@
 	</page_header>
 	
 	<page_footer>
-		<span id="doc_footer> Powered by The A-Team, <?php echo date('d-m-Y'); ?> </span>
+		<span id="doc_footer"> Powered by The A-Team, <?php echo date('d-m-Y'); ?> </span>
 	</page_footer>
 	
 	<table style="width:760px; margin-top: 40px; border: 0px solid #000;">
@@ -41,7 +41,7 @@
 
 		<?php if(isset($this->event['locations']) and $this->event['locations'] !='') : ?>	
 			<tr>
-				<td colspan=3>&nbsp;</td>
+				<td colspan="3">&nbsp;</td>
 				<td>&nbsp;</td>
 			</tr>
 			<?php foreach($this->event['locations'] as $location) : ?>
@@ -60,7 +60,7 @@
 
 		<?php if(isset($this->event['artists']) and $this->event['artists'] !='') : ?>	
 			<tr>
-				<td colspan=3>&nbsp;</td>
+				<td colspan="3">&nbsp;</td>
 				<td>&nbsp;</td>
 			</tr>
 			<?php foreach($this->event['artists'] as $artist) : ?>
@@ -79,7 +79,7 @@
 
 		<?php if(isset($this->event['resources']) and $this->event['resources'] !='') : ?>	
 			<tr>
-				<td colspan=3>&nbsp;</td>
+				<td colspan="3">&nbsp;</td>
 				<td>&nbsp;</td>
 			</tr>
 
@@ -100,11 +100,11 @@
 
 
 			<tr>
-				<td colspan=3>&nbsp;</td>
+				<td colspan="3">&nbsp;</td>
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td colspan=3 style="font-weight:bold">
+				<td colspan="3" style="font-weight:bold">
 					Total rate</td>
 				<td style="text-align:right;font-weight:bold">
 					<?php echo number_format($this->event['total_rate'], 2); ?></td>
