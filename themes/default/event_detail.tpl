@@ -61,7 +61,7 @@
 			<td colspan="2"><input type="button" name="addResourcehtml" value="Add resource" onclick="addResource();" /></td>
 		</tr>
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
-		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=event/overview&token=<?php echo $_GET['token']; ?>&lang=<?php echo $_GET['lang']; ?>'" /></td></tr>
+		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=event/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
 	</table>
 	</form>
 </div>

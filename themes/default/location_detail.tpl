@@ -7,31 +7,31 @@
 	<table class="list">
 		<tr>
 			<td>Naam locatie:</td>
-			<td><input class="required" type="text" name="req_name" value="<?php echo $this->location['name']; ?>" /></td>
+			<td><input class="required" type="text" name="req_name" value="<?php if (isset($_GET['id'])) echo $this->location['name']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Adres:</td>
-			<td><input class="required" type="text" name="req_address" value="<?php echo $this->location['address']; ?>" /></td>
+			<td><input class="required" type="text" name="req_address" value="<?php if (isset($_GET['id'])) echo $this->location['address']; ?>" /></td>
 		</tr>
 				<tr>
 			<td>postcode:</td>
-			<td><input class="required" type="text" name="req_postcode" value="<?php echo $this->location['postcode']; ?>" /></td>
+			<td><input class="required" type="text" name="req_postcode" value="<?php if (isset($_GET['id'])) echo $this->location['postcode']; ?>" /></td>
 		</tr>
 				<tr>
 			<td>Plaats:</td>
-			<td><input class="required" type="text" name="req_plaats" value="<?php echo $this->location['plaats']; ?>" /></td>
+			<td><input class="required" type="text" name="req_plaats" value="<?php if (isset($_GET['id'])) echo $this->location['plaats']; ?>" /></td>
 		</tr>
 				<tr>
 			<td>Land:</td>
-			<td><input class="required" type="text" name="req_land" value="<?php echo $this->location['land']; ?>" /></td>
+			<td><input class="required" type="text" name="req_land" value="<?php if (isset($_GET['id'])) echo $this->location['land']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Tarief:</td>
-			<td><input class="required" type="text" name="reqnum_rate" value="<?php echo $this->location['rate']; ?>" /></td>
+			<td><input class="required" type="text" name="reqnum_rate" value="<?php if (isset($_GET['id'])) echo $this->location['rate']; ?>" /></td>
 		</tr>
 		<tr>
 			<td>Capaciteit:</td>
-			<td><input class="required" type="text" name="reqnum_capacity" value="<?php echo $this->location['capacity']; ?>" /></td>
+			<td><input class="required" type="text" name="reqnum_capacity" value="<?php if (isset($_GET['id'])) echo $this->location['capacity']; ?>" /></td>
 		</tr>
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
 	</table>

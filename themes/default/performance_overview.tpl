@@ -26,8 +26,8 @@
                 <tr>
                     <td>Event</td>
                     <td>Titel</td>
-                    <td>Artiest</td>
-                    <td>Locatie</td>
+                    <td>Artist</td>
+                    <td>Location</td>
                     <td>Start datum</td>
                     <td>Eind datum</td>
                     <td>Confirmed</td>
@@ -39,7 +39,7 @@
                 <td><?php echo $perf['eventname']; ?></td>
                 <td><?php echo $perf['performance_title']; ?></td>
                 <td><?php echo $perf['artistname']; ?></td>
-                <td><?php echo $perf['location']; ?></td>
+                <td><?php echo $perf['location_name']; ?></td>
                 <td><?php echo $perf['date_from']; ?></td>
                 <td><?php echo $perf['date_until']; ?></td>
                 <td><?php if ($perf['confirmed']==1) echo ('Ja'); ?></td>
