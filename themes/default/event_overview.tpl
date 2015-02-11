@@ -49,20 +49,7 @@
 				<td>&nbsp;</td>
 			</tr>
 			<?php } ?>
-                        <?php if($event['performances'] !=''){ ?>
-                            <tr class="gray row performance_<?php echo $event['event_id'] ?>"><td colspan="6">Performances</td></tr>
-                        <?php } ?>
-                        <?php //var_dump($event['performances']); ?>
-			<?php foreach($event['performances'] as $performance){ ?>
-			<tr class="row items performance_<?php echo $event['event_id'] ?>">
-				<td><?php echo $performance['performance_title']; ?></td>
-				<td><?php echo $performance['date_from']; ?></td>
-				<td><?php echo $performance['date_until']; ?></td>
-				<td class="center"><?php echo number_format($performance['rate'], 2, ',', '.'); ?></td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-			</tr>
-			<?php } ?>
+
 			<?php } ?>
 			<tr><td colspan="6"><input type="button" onclick="addEvent();" value="Event toevoegen" /></td></tr>
     </table>

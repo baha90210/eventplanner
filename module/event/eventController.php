@@ -36,13 +36,13 @@ class eventController extends Controller{
 		        $event['resources'][] = $resource;
 	        }
                 
-	        //get event performances
-	        $event['performances'] = array();
-	        $event_performances = $this->model->baha_getEventPerformances($event['event_id']);
-	        //var_dump($event_performances);
-	        foreach($event_performances as $performance){
-		        $event['performances'][] = $performance;
-	        }
+//	        //get event performances
+//	        $event['performances'] = array();
+//	        $event_performances = $this->model->baha_getEventPerformances($event['event_id']);
+//	        //var_dump($event_performances);
+//	        foreach($event_performances as $performance){
+//		        $event['performances'][] = $performance;
+//	        }
 	        
 	        $this->events[] = $event;
 		}		
@@ -83,11 +83,11 @@ class eventController extends Controller{
 			
 			$this->resources = $this->model->getResources();
                         
-			$this->event_performances = array();
+			//$this->event_performances = array();
 			
-			$this->loadModel('performance');
+			//$this->loadModel('performance');
 			
-			$this->performances = $this->model->getPerformances();
+			//$this->performances = $this->model->getPerformances();
                         
 			$this->render('event_detail.tpl');		
 		}
