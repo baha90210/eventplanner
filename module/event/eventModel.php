@@ -14,6 +14,7 @@ class eventModel extends Model{
 	}
 	
 	public function addEvent($data){
+            //var_dump($data);
 		$sql  = "INSERT INTO event SET ";
 		$sql .= "name = '".$this->db->escape($data['req_name'])."', ";
 		$sql .= "start_date = '".$data['req_start_date']."', ";
@@ -21,6 +22,7 @@ class eventModel extends Model{
 		$sql .= "price = '".$data['reqnum_price']."'";
 		
 		$this->db->query($sql);
+		$data['id'] = $this->db->getLastId();
 		
 		//handle event locations
 		if(isset($data['location'])){
@@ -29,7 +31,7 @@ class eventModel extends Model{
 					$sql = "INSERT IGNORE INTO event_location SET ";
 					$sql .= "event_id = '".$data['id']."', ";
 					$sql .= "location_id = '".$v."'";
-
+                                        
 					$this->db->query($sql);
 				}
 			}
@@ -41,24 +43,26 @@ class eventModel extends Model{
 					$sql = "INSERT IGNORE INTO event_resource SET ";
 					$sql .= "event_id = '".$data['id']."', ";
 					$sql .= "resource_id = '".$v."'";
-
+                                        
 					$this->db->query($sql);
 				}
 			}
 		}
                 
-		//handle event performances
-		if(isset($data['performance'])){
-			foreach($data['performance'] as $k=>$v){
-				if($v != ''){
-					$sql = "INSERT IGNORE INTO event_performance SET ";
-					$sql .= "event_id = '".$data['id']."', ";
-					$sql .= "performance_id = '".$v."'";
-
-					$this->db->query($sql);
-				}
-			}
-		}
+                
+                
+//		//handle event performances
+//		if(isset($data['performance'])){
+//			foreach($data['performance'] as $k=>$v){
+//				if($v != ''){
+//					$sql = "INSERT IGNORE INTO event_performance SET ";
+//					$sql .= "event_id = '".$data['id']."', ";
+//					$sql .= "performance_id = '".$v."'";
+//
+//					$this->db->query($sql);
+//				}
+//			}
+//		}
 		
 		return;
 	}
@@ -107,21 +111,21 @@ class eventModel extends Model{
 				}
 			}
                         
-			//handle event performances
-			$sql = "DELETE FROM event_performance WHERE event_id = '".$data['id']."'";
-			$this->db->query($sql);
-			
-			if(isset($data['performance'])){
-				foreach($data['performance'] as $k=>$v){
-					if($v != ''){
-						$sql = "INSERT IGNORE INTO event_performance SET ";
-						$sql .= "event_id = '".$data['id']."', ";
-						$sql .= "performance_id = '".$v."'";
-						
-						$this->db->query($sql);
-					}
-				}
-			}
+//			//handle event performances
+//			$sql = "DELETE FROM event_performance WHERE event_id = '".$data['id']."'";
+//			$this->db->query($sql);
+//			
+//			if(isset($data['performance'])){
+//				foreach($data['performance'] as $k=>$v){
+//					if($v != ''){
+//						$sql = "INSERT IGNORE INTO event_performance SET ";
+//						$sql .= "event_id = '".$data['id']."', ";
+//						$sql .= "performance_id = '".$v."'";
+//						
+//						$this->db->query($sql);
+//					}
+//				}
+//			}
 		}
 		
 		return;

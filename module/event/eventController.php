@@ -54,6 +54,7 @@ class eventController extends Controller{
 		$this->setTitle('Event toevoegen');
 
 		if($_POST){
+                    
 			$this->loadModel('event');
 
 			$this->model->addEvent($_POST);

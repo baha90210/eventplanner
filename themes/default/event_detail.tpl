@@ -70,13 +70,10 @@
 		$('input[name^="req"]').each(function(){
 			$(this).after('<span>*</span>');
 		});
-                
-                $('input[class="datepicker"]').datepicker({
-			dateFormat: 'yy-mm-dd' 
-		});
 	});
 	
 	function validate(){
+       
 		error = false;
 		
 		$('input[name^="req"]').each(function(){
@@ -98,6 +95,7 @@
 		location_array = [];
 		
 		$('select[name="location[]"]').each(function(){
+                        
 			if($.inArray($(this).val(), location_array) != -1){
 				error = true;
 				$(this).css('border', '1px solid #f00');
@@ -109,6 +107,7 @@
 		resource_array = [];
 		
 		$('select[name="resource[]"]').each(function(){
+                        
 			if($.inArray($(this).val(), resource_array) != -1){
 				error = true;
 				$(this).css('border', '1px solid #f00');
@@ -116,21 +115,9 @@
 				resource_array.push($(this).val());
 			}
 		});
+                $('form').submit();
                 
-		performance_array = [];
 		
-		$('select[name="performance[]"]').each(function(){
-			if($.inArray($(this).val(), performance_array) != -1){
-				error = true;
-				$(this).css('border', '1px solid #f00');
-			}else{
-				performance_array.push($(this).val());
-			}
-		});
-
-		if(!error){
-			$('form').submit();
-		}
 	}
 
 	function addLocation(){
@@ -170,24 +157,7 @@
 		$('.resource_placeholder').before(html);
 	}
         
-	function addPerformance(){
-		html = '';
-		
-		html += '<tr>';
-		html += '<td>Performance:</td>';
-		html += '<td>';
-		html += '<select name="performance[]">';
-		html += '<option value="">-- Selecteer een performance --</option>';
-		<?php foreach($this->performances as $performance){ ?>
-		html += '<option value="<?php echo $performance['performance_id'] ?>"><?php echo $performance['performance_title'] ?></option>';
-		<?php } ?>
-		html += '</select>';
-		html += '  <img src="./themes/<?php echo THEME ?>/images/remove.png" onclick="deletePerformance(this);" />';
-		html += '</td>';
-		html += '</tr>';
-
-		$('.performance_placeholder').before(html);
-	}
+	
 
 	function deleteLocation(location){
 		$(location).parent().parent().remove();
@@ -195,9 +165,7 @@
 	function deleteResource(resource){
 		$(resource).parent().parent().remove();
 	}	
-	function deletePerformance(performance){
-		$(performance).parent().parent().remove();
-	}	
+	
 </script>
 
 

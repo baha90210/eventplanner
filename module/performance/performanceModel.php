@@ -3,10 +3,11 @@ class performanceModel extends Model{
 	
 public function getPerformances()
 {
-    $sql = "SELECT performance_id, performance_title, t1.event_id, event.name AS eventname, artist.artist_id artist_id, artist.name AS artistname, t1.date_from, t1.date_until, confirmed ";
+    $sql = "SELECT performance_id, performance_title, t1.event_id, event.name AS eventname, artist.artist_id artist_id, artist.name AS artistname, t1.date_from, t1.date_until, confirmed, location.name AS location ";
     $sql .= "FROM performance AS t1 ";
     $sql .= "INNER JOIN artist ON artist.artist_id = t1.artist_id ";
     $sql .= "INNER JOIN event ON event.event_id = t1.event_id ";
+    $sql .= "INNER JOIN location ON location.location_id = t1.location_id ";
     if (isset($_GET['event']) && $_GET['event']!=='') $sql .= "WHERE t1.event_id='".$_GET['event']."' ";
     if (isset($_GET['artist']) && $_GET['artist']!=='') $sql .= "WHERE t1.artist_id='".$_GET['artist']."' ";
     $sql .= "ORDER BY date_from ASC";
@@ -29,6 +30,7 @@ public function addPerformance($data){
         $sql .= "performance_title = '".$this->db->escape($data['req_perfname'])."', ";
         $sql .= "event_id = '".$data['req_eventid']."', ";
         $sql .= "artist_id = '".$data['req_artistid']."', ";
+        $sql .= "location_id = '".$data['req_location']."', ";
         $sql .= "date_from = '".$data['req_date_from']."', ";
         $sql .= "date_until = '".$data['req_date_until']."', ";
         $sql .= "confirmed = '".$data['confirmed']."'";
@@ -45,6 +47,7 @@ public function editPerformance($data){
         $sql .= "performance_title = '".$this->db->escape($data['req_perfname'])."', ";
         $sql .= "event_id = '".$data['req_eventid']."', ";
         $sql .= "artist_id = '".$data['req_artistid']."', ";
+        $sql .= "location_id = '".$data['req_location']."', ";
         $sql .= "date_from = '".$data['req_date_from']."', ";
         $sql .= "date_until = '".$data['req_date_until']."' ";
         
