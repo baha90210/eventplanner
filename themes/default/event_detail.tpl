@@ -37,22 +37,7 @@
 		<tr class="location_placeholder">
 			<td colspan="2"><input type="button" name="addLocationhtml" value="Add location" onclick="addLocation();" /></td>
 		</tr>
-		<?php foreach($this->event_performances as $performance_id){ ?>
-		<tr>
-			<td>Performance:</td>
-			<td>
-				<select name="performance[]">
-					<option value="">-- Selecteer een locatie --</option>
-					<?php foreach($this->performances as $performance){  ?>
-					<option value="<?php echo $performance['performance_id'] ?>" <?php echo ($performance['performance_id'] == $performance_id['performance_id'])?'selected="selected"':''; ?>><?php echo $performance['performance_title']; ?></option>
-					<?php } ?>
-				</select> <img src="./themes/<?php echo THEME ?>/images/remove.png" onclick="deletePerformance(this);" />
-			</td>
-		</tr>
-		<?php } ?>
-		<tr class="performance_placeholder">
-			<td colspan="2"><input type="button" name="addPerformancehtml" value="Add performance" onclick="addPerformance();" /></td>
-		</tr>
+		
                 
                 <?php //var_dump($this->event_resources); ?>
                 
@@ -184,6 +169,7 @@
 
 		$('.resource_placeholder').before(html);
 	}
+        
 	function addPerformance(){
 		html = '';
 		

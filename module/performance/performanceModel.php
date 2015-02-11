@@ -46,9 +46,13 @@ public function editPerformance($data){
         $sql .= "event_id = '".$data['req_eventid']."', ";
         $sql .= "artist_id = '".$data['req_artistid']."', ";
         $sql .= "date_from = '".$data['req_date_from']."', ";
-        $sql .= "date_until = '".$data['req_date_until']."', ";
-        $sql .= "confirmed = '".$data['confirmed']."' ";
-        $sql .= "WHERE performance_id = '".$data['id']."'";
+        $sql .= "date_until = '".$data['req_date_until']."' ";
+        
+        if(isset($data['confirmed'])){
+        	$sql .= ", confirmed = '".$data['confirmed']."' ";
+        }
+        
+         $sql .= "WHERE performance_id = '".$data['id']."'";
 
         $this->db->query($sql);		
     }		

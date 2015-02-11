@@ -103,6 +103,8 @@ class artistModel extends Model{
 
 
 	private function moveUploadedImage($image){
+			// invoegen: resizen, 
+		
 			move_uploaded_file ($image['img_image']['tmp_name'], 'images/'.$image['img_image']['name'] );	
 			
 			return;	

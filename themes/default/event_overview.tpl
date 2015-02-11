@@ -20,9 +20,11 @@
 				<td><?php echo $event['start_date']; ?></td>
 				<td><?php echo $event['end_date']; ?></td>
 				<td class="center"><?php echo number_format($event['price'], 2, ',', '.'); ?></td>
+
 				<td><a href="index.php?route=event/edit&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>&lang=<?php echo $_GET['lang']; ?>"><img src="./themes/<?php echo THEME ?>/images/edit.png"  /></a></td>
 				<td><a href="index.php?route=event/delete&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>&lang=<?php echo $_GET['lang']; ?>"><img src="./themes/<?php echo THEME ?>/images/remove.png"  /></a></td>
-			</tr>
+				<td><a target=_blank href="index.php?route=event/event_pdf&id=<?php echo $event['event_id'] ?>&token=<?php echo $_GET['token'] ?>&lang=<?php echo $_GET['lang']; ?>">Pdf</a></td>
+					</tr>
                         <?php if($event['locations'] !=''){ ?>
                             <tr class="gray row location_<?php echo $event['event_id'] ?>"><td colspan="6">Locations</td></tr>
                         <?php } ?>                        
@@ -36,6 +38,9 @@
 				<td>&nbsp;</td>
 			</tr>
 			<?php } ?>
+                        <?php echo "<pre>"; ?>
+                        <?php var_dump($event); ?>
+                        <?php echo "</pre>"; ?>
                         <?php if($event['resources'] !=''){ ?>
                             <tr class="gray row resource_<?php echo $event['event_id'] ?>"><td colspan="6">Resources</td></tr>
                         <?php } ?>                        
