@@ -1,7 +1,7 @@
 <?php
 class performanceController extends Controller{
 public function __construct(){
-    //parent::__construct();
+    parent::__construct();
 
     $this->authorize();
     $this->addScript('//code.jquery.com/jquery-1.11.2.min.js');
@@ -11,6 +11,10 @@ public function __construct(){
 }
 
 public function overview(){
+	$this->language->load('performance', 'nederlands');
+	$this->welcome = sprintf($this->language->get('welcome'), 'Bart', 'Hanssen');
+	$this->all_events = $this->language->get('all_events');
+
     if (isset($_GET['msg']))
         // Set Header message according to value of $GET['msg']
         $this->setHeaderMSG($this->model->getMessageTextByKey($_GET['msg']));
