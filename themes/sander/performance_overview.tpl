@@ -26,7 +26,7 @@
             </div>
             <table class="table table-hover">
             <thead><tr>
-                <th>Event</th><th>Titel</th><th>Artiest</th><th>Start datum</th><th>Eind datum</th>
+                <th>Event</th><th>Title</th><th>Artist</th><th>Location</th><th>Start date</th><th>End date</th>
                 <th>Confirmed</th><th colspan="2">Bewerking</th>
             </tr></thead>
             <?php foreach($this->performance as $perf){ ?>
@@ -34,6 +34,7 @@
                 <td><?php echo $perf['eventname']; ?></td>
                 <td><?php echo $perf['performance_title']; ?></td>
                 <td><?php echo $perf['artistname']; ?></td>
+                <td><?php echo $perf['location_name']; ?></td>
                 <td><?php echo $perf['date_from']; ?></td>
                 <td><?php echo $perf['date_until']; ?></td>
                 <td><?php if ($perf['confirmed']==1) echo ('<span style="color: 009900" class="glyphicon glyphicon-ok"></span>'); ?></td>
