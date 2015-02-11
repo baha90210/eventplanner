@@ -15,11 +15,20 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="req_eventid">Event</label>
                     <div class="col-sm-4">
-                    <select name="req_eventid" class="form-control">
+                    <select id="event_id" name="req_eventid" class="form-control">
                     <?php foreach($this->events as $events){ ?>
                     <option value="<?php echo $events['event_id']; ?>" <?php echo(isset($_GET['id']) && $this->performance['event_id']==$events['event_id'])?'selected':'' ?> >
                     <?php echo $events['name']; ?></option>
                     <?php } ?>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="req_location">Location</label>
+                    <div class="col-sm-4">
+                    <select id="location" name="req_location" class="form-control">
+                    
+                    
                     </select>
                     </div>
                 </div>
@@ -30,16 +39,6 @@
                     <?php foreach($this->artists as $artists){ ?>
                     <option value="<?php echo $artists['artist_id']; ?>" <?php echo(isset($_GET['id']) && $this->performance['artist_id']==$artists['artist_id'])?'selected':'' ?> >
                     <?php echo $artists['name']; ?></option>
-                    <?php } ?>
-                    </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="req_location">Location</label>
-                    <div class="col-sm-4">
-                    <select name="req_location" class="form-control">
-                    <?php foreach($this->locations as $location){ ?>
-                    <option value="<?php echo $location['location_id']; ?>" <?php echo(isset($_GET['id']) && $this->performance['location_id']==$location['location_id'])?'selected':'' ?> ><?php echo $location['name']; ?></option>
                     <?php } ?>
                     </select>
                     </div>
@@ -89,4 +88,30 @@ function validate(){
         $('form').submit();
     }
 }
+
+function populateLocations(location_id) {    
+    $.ajax({   
+        url: "./index.php?route=location/getEventLocations",
+        type: "get",
+        data: "event=" + $('#event_id').val() + "&token=<?php echo $_GET['token']; ?>",
+        dataType: 'json',
+        success: function(data){
+            option = '<option value="">Select een Location</option>';
+            $.each(data, function(index, array) {
+                option += '<option value="'+array['location_id']+'"';
+                if (location_id==array['location_id']) option += ' selected'
+                option +=' >'+array['name']+"</option>";
+            });
+            console.log(option);
+            $('#location').html(option);
+        },
+    });	 
+} 
+
+populateLocations(<?php if(isset($this->performance['location_id'])) echo $this->performance['location_id'] ?>);
+
+$('#event_id').change(function() {
+        populateLocations(<?php if(isset($this->performance['location_id'])) echo $this->performance['location_id'] ?>);
+	});
+        
 </script>
