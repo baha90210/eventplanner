@@ -1,5 +1,6 @@
 <?php
 class artistController extends Controller{
+	
 	public function __construct(){
 		//parent::__construct(); // te activeren als er in de parent class een construct zou zitten	
 		$this->authorize();

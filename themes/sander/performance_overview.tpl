@@ -36,9 +36,9 @@
                 <td><?php echo $perf['artistname']; ?></td>
                 <td><?php echo $perf['date_from']; ?></td>
                 <td><?php echo $perf['date_until']; ?></td>
-                <td><?php if ($perf['confirmed']==1) echo ('<span class="glyphicon glyphicon-ok"></span>'); ?></td>
+                <td><?php if ($perf['confirmed']==1) echo ('<span style="color: 009900" class="glyphicon glyphicon-ok"></span>'); ?></td>
                 <td><a href="index.php?route=performance/edit&id=<?php echo $perf['performance_id'] ?>&token=<?php echo $_GET['token'] ?>"><span class="glyphicon glyphicon-edit"></span></a></td>
-                <td><a href="index.php?route=performance/delete&id=<?php echo $perf['performance_id'] ?>&token=<?php echo $_GET['token'] ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
+                <td><a href="index.php?route=performance/delete&id=<?php echo $perf['performance_id'] ?>&token=<?php echo $_GET['token'] ?>"><span style="color: f00" class="glyphicon glyphicon-remove"></span></a></td>
             </tr>
             <?php } ?>
             </table>
