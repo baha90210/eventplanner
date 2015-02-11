@@ -147,6 +147,10 @@ ul.menu li{
 	color: blue;
 }
 
+.list tbody tr:nth-child(odd) {
+    background: #eeeeee;
+}
+
 /* ============  Einde menu sectie =============== */
 
 /*===============Translation styles============*/
