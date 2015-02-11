@@ -41,6 +41,8 @@ class artistModel extends Model{
 		if($this->validateArtist($data) and $this->validateImage($image)){
 
 			// adding timestamp to image filename or check for duplicate file names needed
+			if(!isset($data['remove_image'])) $data['remove_image']= 0;
+			
   			$sql  = "UPDATE artist SET ";
 			$sql .= "name = '".$this->db->escape($data['req_name'])."', ";
 			$sql .= "rate = '".$data['reqnum_rate']."', ";
