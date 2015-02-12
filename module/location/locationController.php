@@ -89,6 +89,13 @@ class locationController extends Controller{
 		//$this->redirect('index.php?route=location/overview');
 	}
 	
+public function getEventLocations()
+{
+    $this->loadModel('location');
+    $result = $this->model->getLocationsByEvent($_GET['event']);
+    echo json_encode($result);
+}
+        
 	private function validate($data){
 		foreach($data as $k => $v){
 			if(substr($k, 0, 3) == 'req'){
