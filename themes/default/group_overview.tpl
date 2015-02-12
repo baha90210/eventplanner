@@ -91,7 +91,7 @@
 		html += '<td>Groep:<select name="group">';
 		html += '<option value="">-- Selecteer usergroep --</option>';
 		<?php if($this->groups){foreach($this->groups as $groups){ ?>
-		html += '<option value="<?php echo $groups['id']; ?>"><?php echo addslashes($groups['name']); ?></option>';
+		html += '<option value="<?php if($groups['name']!='admin'){echo $groups['id']; ?>"><?php echo addslashes($groups['name']); }?></option>';
 		<?php } }?>
 		html += '</select></td>';
 		html += '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>';
@@ -117,7 +117,7 @@
 		html += 'this.options[this.selectedIndex].text);">';
 		html += '<option value="">-- Selecteer usergroep --</option>';
 		<?php if($this->groups){foreach($this->groups as $groups){ ?>
-		html += '<option value="<?php echo $groups['id']; ?>"><?php echo addslashes($groups['name']); ?></option>';
+		html += '<option value="<?php if($groups['name']!='admin'){echo $groups['id']; ?>"><?php echo addslashes($groups['name']); }?></option>';
 		<?php } }?>
 		html += '</select>';
 		html += '</td></tr></table></form>';

@@ -7,6 +7,7 @@
 			<tr>
 				<td>&nbsp;<br />User</td>
 				<td>Autorisatiegroepen<br /><small>(klik op e-mailadres)</small></td>
+				<td>Taal</td>
 				<td>&nbsp;<br />Laatste login</td>
 				<td colspan="2">&nbsp;<br />BeheerActies</td>
 			</tr>
@@ -18,6 +19,7 @@
       			<tr onclick="showGroups('<?php echo str_replace($search, '', $user['email']); ?>');">
     				<td><?php echo $user['email']; if($user['token']==$_GET['token']){echo " *";} ?></td>
     				<td>&nbsp;</td>
+    				<td><?php echo $user['language']; ?></td>
     				<td><?php echo $user['date_last_logged_in']; ?></td>
     				<td><a href="index.php?route=user/edit&email=<?php echo $user['email'] ?>&token=<?php echo $_GET['token'] ?>">Edit</a></td>
     				<td><a href="index.php?route=user/delete&email=<?php echo $user['email'] ?>&token=<?php echo $_GET['token'] ?>">Delete</a></td>

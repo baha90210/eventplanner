@@ -11,7 +11,7 @@ public function __construct(){
 }
 
 public function overview(){
-	$this->language->load('performance', 'nederlands');
+	$this->language->load('performance', $this->user['language']);
 	$this->welcome = sprintf($this->language->get('welcome'), 'Bart', 'Hanssen');
 	$this->all_events = $this->language->get('all_events');
 
@@ -31,12 +31,12 @@ public function overview(){
     $this->loadModel('artist');
     $this->artists = $this->model->getArtists();
 
-	$ws = new Ws();
+	//$ws = new Ws();
 	
 	//echo '<pre>';var_dump($ws->checkVAT('NL', '809808572B01'));echo '</pre>';
-	echo '<pre>';var_dump($ws->checkVAT('BE', '0881377533'));echo '</pre>';
+	//echo '<pre>';var_dump($ws->checkVAT('BE', '0881377533'));echo '</pre>';
 
-	echo '<pre>';var_dump($ws->getWeather('10025'));echo '</pre>';
+	//echo '<pre>';var_dump($ws->getWeather('10025'));echo '</pre>';
 
     $this->render('performance_overview.tpl');
 }

@@ -13,6 +13,17 @@
 			<td><input class="required" type="password" name="req_password" onclick="this.select()" value="<?php echo $this->user['password']; ?>" /></td>
 		</tr>
 		<tr>
+			<td>Voorkeur taal:</td>
+			<td>
+				<select name="language">
+					<option value="">-- Selecteer een taal --</option>
+					<?php foreach($this->languages as $key => $value){ //alle talen ?>
+					<option value="<?php echo $value; ?>" <?php echo ($value == $this->user['language'])?'selected="selected"':''; ?>><?php echo $value; ?></option>
+					<?php } ?>
+				</select>
+			</td>
+			</tr>
+		<tr>
 			<td>Laatste login:</td>
 			<td><?php echo $this->user['date_last_logged_in']; ?></td>
 		</tr>
@@ -20,7 +31,9 @@
 			<td>Token:</td>
 			<td><?php echo $this->user['token']; ?><input type="hidden" name="token" value="<?php echo $this->user['token']; ?>"></td>
 		</tr>
-		<?php foreach($this->usergroups as $group){  //aan user gekoppelde groepen?>
+		<?php if(isset($this->usergroups)){
+		    foreach($this->usergroups as $group){  //aan user gekoppelde groepen
+		?>
 		<tr>
 			<td>Autorisatiegroep:</td>
 			<td>
@@ -32,7 +45,7 @@
 				</select> <img src="./themes/<?php echo THEME ?>/images/remove.png" onclick="deleteGroup(this);" />
 			</td>
 		</tr>
-		<?php } ?>
+		<?php } } ?>
 		<tr class="groups_placeholder">
 			<td colspan="2"><input type="button" name="addGrouphtml" value="Groep toevoegen" onclick="addGroup();" /></td>
 		</tr>

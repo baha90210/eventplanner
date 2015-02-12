@@ -31,7 +31,9 @@ class userController extends Controller{
             $this->user = $this->model->getUser($_GET['email']);
             $this->usergroups = $this->model->getUserGroupsUser($_GET['email']);
             $this->groups = $this->model->getUserGroups();
+            $this->languages = $this->getDirs('./languages');
 //             echo "<pre>";
+//             var_dump($this->languages);echo "<hr>";
 //             var_dump($this->user);echo "<hr>";
 //             var_dump($this->usergroups);echo "<hr>";
 //             var_dump($this->groups); echo "</pre>";
@@ -40,13 +42,17 @@ class userController extends Controller{
             $this->setTitle("Beheer Gebruiker");
         }else{                      //aanroepen pagina zonder gegevens is toevoegen.
             $this->setTitle("Toevoegen Gebruiker");
+            $this->loadModel('user');
+            $this->groups = $this->model->getUserGroups();
+            $this->languages = $this->getDirs('./languages');
             $this->readonly="";
             
 			$this->user = array(
 				'email'			         => '<email>',
 				'password'	             => '',
 				'date_last_logged_in'	 => '',
-				'token'			         => ''
+				'token'			         => '',
+			    'language'               => ''
 			);
         }
         $this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
@@ -63,7 +69,7 @@ class userController extends Controller{
                     }else{
                         //nieuwe user"
                         $this->loadModel('user');
-                        $this->model->addUser($_POST['req_email'], $_POST['req_password']);
+                        $this->model->addUser($_POST);
                     }
                     $this->overview();
             }else{
@@ -170,6 +176,7 @@ class userController extends Controller{
         $this->model->deleteGroupModule($_GET['group'], $_GET['module']);
         $this->group();
      }
+    
     public function getEmptyGroups(){
         //echo "getEmptyGroups";
         $this->loadModel('user');

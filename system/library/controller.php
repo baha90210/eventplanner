@@ -13,11 +13,11 @@ class Controller{
 	}
 	
 	public function index(){
-		echo 'Dit is de index van de parent controller';		
+		//echo 'Dit is de index van de parent controller';		
 	}
 	
-	public function getDirs($directory){
-	    $result = array_diff(scandir($directory), array('..', '.', '.DS_Store')); //evt andere dirs of files toevoegen die je niet wilt zien
+	public function getDirs($directory, $exclude1 = '', $exclude2 = '', $exclude3 = ''){
+	    $result = array_diff(scandir($directory), array('..', '.', '.DS_Store', $exclude1, $exclude2, $exclude3)); //evt andere dirs of files toevoegen die je niet wilt zien
 	    return $result;
 	}
 	
@@ -62,9 +62,9 @@ class Controller{
 			$this->redirect('login', '');
 		}else{
 			$this->loadModel('login');
-			$result = $this->model->authorize($_GET['token']);
+			$this->user = $this->model->authorize($_GET['token']);
 			
-			if($result){
+			if($this->user){
 			    //als je ingelogd bent ga je door naar de opgevraagde pagina
 			    //hier extra check inbouwen op autorisatie voor die pagina!!
     			if($this->IsAuthorized($_GET['token'])){;
