@@ -1,21 +1,40 @@
 <?php
 class eventController extends Controller{
 	public function __construct(){
-		//parent::__construct();
+		parent::__construct();
 		
 		$this->authorize();
+                
+                $this->language->load('event', $this->user['language']); //overal beschikbaar
+		
+		$this->label_event = $this->language->get('label_artist_overview');		
+		
                 $this->addScript('//code.jquery.com/jquery-1.11.2.min.js');
                 //$this->addScript('//code.jquery.com/ui/1.11.2/jquery-ui.js');
                 $this->addStyle('//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
 	}
 
-	public function overview(){		
+	public function overview(){
+
 		$this->setTitle('Overzicht events');
+                
 		$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
-		
+                
+
+                
 		$this->loadModel('event');
 		
 		$events = $this->model->getEvents();
+                
+                $ws = new Ws();
+	
+
+        //echo '<pre>';var_dump($ws->getFunctions('cdyne_client'));echo '</pre>';        
+        //echo '<pre>';var_dump($ws->NumbWord());echo '</pre>';        
+	//echo '<pre>';var_dump($ws->getWeather('90210'));echo '</pre>';
+	//echo '<pre>';var_dump($ws->getWeatherInfo('90210'));echo '</pre>';
+	//echo '<pre>';var_dump($ws->getWeatherCity());echo '</pre>';
+	
 
 		$this->events = array();
 		
@@ -25,6 +44,9 @@ class eventController extends Controller{
 	        $event_locations = $this->model->baha_getEventLocation($event['event_id']);
 	        
 	        foreach($event_locations as $location){
+//                        var_dump( $location ['postcode']);
+//                        $weather =  $ws->getWeather($location['postcode']); 
+//                        var_dump($weather);
 		        $event['locations'][] = $location;
 	        }
 
