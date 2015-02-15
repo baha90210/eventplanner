@@ -2,9 +2,10 @@
 
 class messageController extends Controller{
 public function __construct(){
-    //parent::__construct();
+    parent::__construct();
 
     $this->authorize();
+    $this->loadMenu();
     $this->addScript('//code.jquery.com/jquery-1.11.2.min.js');
     $this->addScript('./themes/sander/bootstrap-3.3.2-dist/js/bootstrap.min.js');
 }

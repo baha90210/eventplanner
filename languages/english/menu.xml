@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translation>
+	<menu_events>Events</menu_events>
+	<menu_artists>Artists</menu_artists>
+	<menu_locations>Locations</menu_locations>
+	<menu_resources>Resources</menu_resources>
+	<menu_performances>Performances</menu_performances>
+	<menu_usermanagement>Usermanagement</menu_usermanagement>
+	<menu_manage_users>Manage users</menu_manage_users>
+	<menu_manage_groups>Manage groups</menu_manage_groups>
+	<menu_add_user>Add User</menu_add_user>
+	<text_logout>Log out</text_logout>
+	<text_userlogin>user: </text_userlogin>
+</translation>

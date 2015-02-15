@@ -5,7 +5,8 @@ class artistController extends Controller{
 		parent::__construct();
 			
 		$this->authorize();
-
+        $this->loadMenu();
+		
 		$this->language->load('artist', $this->user['language']); //overal beschikbaar
 		
 		$this->label_artist_overview = $this->language->get('label_artist_overview');		

@@ -72,7 +72,7 @@ class Controller{
     			}else{
     		        $this->error_msg = "U bent niet geautoriseerd voor deze pagina!!<br />";
     		        $this->error_msg .= "Maak een geldige keuze uit het menu.";
-    		        $this->render("error_page.tpl"); die;
+    		        $this->render("error_page.tpl");
     		        //echo "U bent niet geautoriseerd voor deze pagina!!!"; //opvangpagina voor maken??
     			}
 			}else{
@@ -154,6 +154,25 @@ class Controller{
 	// Set the header_msg to the provided text.
 	public function setHeaderMSG($text){
 	    $this->header_msg = $text;
+	}
+	
+	public function loadMenu(){
+	    //toewijzen vertalingen menuitems
+	    //echo $this->user['language'];die;
+    	$this->language->load('menu', $this->user['language']);
+    	
+    	$this->menu_events = $this->language->get('menu_events');		
+    	$this->menu_artists = $this->language->get('menu_artists');		
+    	$this->menu_locations = $this->language->get('menu_locations');		
+    	$this->menu_resources = $this->language->get('menu_resources');		
+    	$this->menu_performances = $this->language->get('menu_performances');		
+    	$this->menu_usermanagement = $this->language->get('menu_usermanagement');		
+    	$this->menu_manage_users = $this->language->get('menu_manage_users');		
+    	$this->menu_manage_groups = $this->language->get('menu_manage_groups');		
+    	$this->menu_add_user = $this->language->get('menu_add_user');		
+    	$this->menu_logout = $this->language->get('menu_logout');		
+    	$this->text_userlogin = $this->language->get('text_userlogin');		
+                
 	}
 }	
 	
