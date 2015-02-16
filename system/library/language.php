@@ -3,6 +3,7 @@ class language{
 	private $xml;
 
 	public function load($module, $language = 'nederlands'){
+	    if(!isset($language) || $language=="") $language='nederlands';
 		$this->xml = simplexml_load_file('./languages/'.$language.'/'.$module.'.xml');
 		
 		return;

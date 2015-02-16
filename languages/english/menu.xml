@@ -9,6 +9,11 @@
 	<menu_manage_users>Manage users</menu_manage_users>
 	<menu_manage_groups>Manage groups</menu_manage_groups>
 	<menu_add_user>Add User</menu_add_user>
-	<text_logout>Log out</text_logout>
-	<text_userlogin>user: </text_userlogin>
+	<menu_logout>Log out</menu_logout>
+	<text_userlogin>user</text_userlogin>
+	<menu_add_event>Add Event</menu_add_event>
+	<menu_add_artist>Add Artist</menu_add_artist>
+	<menu_add_location>Add Location</menu_add_location>
+	<menu_add_resource>Add Resource</menu_add_resource>
+	<menu_add_performance>Add Performance</menu_add_performance>
 </translation>

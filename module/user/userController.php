@@ -29,13 +29,8 @@ class userController extends Controller{
             $this->usergroups = $this->model->getUserGroupsUser($_GET['email']);
             $this->groups = $this->model->getUserGroups();
             $this->languages = $this->getDirs('./languages');
-//             echo "<pre>";
-//             var_dump($this->languages);echo "<hr>";
-//             var_dump($this->user);echo "<hr>";
-//             var_dump($this->usergroups);echo "<hr>";
-//             var_dump($this->groups); echo "</pre>";
-//             die;
-            $this->readonly="readonly";
+            $this->readonly="readonly"; //email niet laten wijzigen
+            $this->passwordreq=false; //password niet verplicht bij edit - leeg is niet wijzigen!!
             $this->setTitle("Beheer Gebruiker");
         }else{                      //aanroepen pagina zonder gegevens is toevoegen.
             $this->setTitle("Toevoegen Gebruiker");
@@ -43,10 +38,11 @@ class userController extends Controller{
             $this->groups = $this->model->getUserGroups();
             $this->languages = $this->getDirs('./languages');
             $this->readonly="";
+            $this->passwordreq=true;
             
 			$this->user = array(
 				'email'			         => '<email>',
-				'password'	             => '',
+				'password'	             => '<password>',
 				'date_last_logged_in'	 => '',
 				'token'			         => '',
 			    'language'               => ''
@@ -57,21 +53,22 @@ class userController extends Controller{
     }
     
     public function edit(){
-        if(isset($_POST['req_email']) && isset($_POST['req_password'])){
-            //code voor opslaan in db
-            //var_dump($_POST); die;
-                    if(isset($_POST['token']) && $_POST['token']!=""){     //als token gevuld: user bestaat al
-                        $this->loadModel('user');
-                        $this->model->updateUser($_POST);
-                    }else{
-                        //nieuwe user"
-                        $this->loadModel('user');
-                        $this->model->addUser($_POST);
-                    }
-                    $this->overview();
+        //var_dump($_POST); die;
+        //als token gevuld: user bestaat al
+        if($_POST){
+            if(isset($_POST['req_email']) && isset($_POST['token']) && $_POST['token']!=""){
+                //code voor opslaan in db
+                $this->loadModel('user');
+                $this->model->updateUser($_POST);
             }else{
-                $this->add();
+                //nieuwe user"
+                $this->loadModel('user');
+                $this->model->addUser($_POST);
             }
+            $this->overview();
+        }else{
+             $this->add();
+        }
     }
     
     public function group(){

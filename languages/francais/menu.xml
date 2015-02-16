@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translation>
+	<menu_events>Evénements</menu_events>
+	<menu_artists>Artistes</menu_artists>
+	<menu_locations>Endroits</menu_locations>
+	<menu_resources>Ressources</menu_resources>
+	<menu_performances>Performances</menu_performances>
+	<menu_usermanagement>Gestion de Utilisateurs</menu_usermanagement>
+	<menu_manage_users>Gestion de Utilisateurs</menu_manage_users>
+	<menu_manage_groups>Gestion de groups</menu_manage_groups>
+	<menu_add_user>Ajouter Utilisateur</menu_add_user>
+	<menu_logout>Déconnecter</menu_logout>
+	<text_userlogin>utilisateur</text_userlogin>
+	<menu_add_event>Ajouter Evénement</menu_add_event>
+	<menu_add_artist>Ajouter Artiste</menu_add_artist>
+	<menu_add_location>Ajouter Emplacement</menu_add_location>
+	<menu_add_resource>Ajouter Ressource</menu_add_resource>
+	<menu_add_performance>Ajouter Performance</menu_add_performance>
+</translation>

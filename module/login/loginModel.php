@@ -26,7 +26,8 @@ public function checkUser($username, $password){
 }
 	
 	public function logout(){
-		$sql = "UPDATE users SET token = '' WHERE token = '".$_GET['token']."'";
+		$sql = "UPDATE users SET token = '".MD5(uniqid())."' WHERE token = '".$_GET['token']."'";
+		//token niet leegmaken ivm test op token bij editen gebruiker!!!
 		$this->db->query($sql);
 		
 		return;

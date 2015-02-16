@@ -72,7 +72,8 @@ class Controller{
     			}else{
     		        $this->error_msg = "U bent niet geautoriseerd voor deze pagina!!<br />";
     		        $this->error_msg .= "Maak een geldige keuze uit het menu.";
-    		        $this->render("error_page.tpl");
+    		        $this->loadMenu();
+    		        $this->render("error_page.tpl");die;
     		        //echo "U bent niet geautoriseerd voor deze pagina!!!"; //opvangpagina voor maken??
     			}
 			}else{
@@ -82,60 +83,76 @@ class Controller{
 		}
 	}
 	
-	public function IsAuthorized($token, $module=''){
+	public function IsAuthorized($token, $module='', $function=''){
         $this->loadModel('login');
+        unset($this->msg);
         
         //eerst check op 'admin' die mag altijd alles ;-)
         $admin = $this->model->IsAdmin($token);
         if($admin){
-            $this->msg = "Welkom admin!";
+            $this->aut_group='admin';
+            //$this->msg = "Welkom admin!";
             return true;
         }
 	    
+        if($module!='' && $function!=''){
+            $testmodule=$module;
+            $testfunction=$function;
+            //echo "test1";
+        }elseif(isset($_GET['route']) && $_GET['route'] != ''){
+            $route = explode('/', $_GET['route']);
+  	        $testmodule=$route[0];
+    	    $testfunction=$route[1];
+    	    //echo "test2";
+        }else{
+            //echo "foutje?";die;
+            return false;
+        }
+     
 	    //controle autorisaties overige groepen bij user
 	    //check op module en functie
+        //echo "module: ".$testmodule." functie:".$testfunction;die;
         
-        if(isset($_GET['route']) && $_GET['route'] != ''){
-    	   $route = explode('/', $_GET['route']);
-    	   
-	       if(isset($route[0]) && isset($route[1])){
-		      $result = $this->model->getAuthorization($route[0], $token);
-		      //echo '<pre>'.var_dump($result).'</pre>'; die;
+        $result = $this->model->getAuthorization($testmodule, $token);
+		//echo '<pre>'.var_dump($result).'</pre>'; die;
 		      
-              //check of module is toegestaan; zoniet: meteen false geven; zoja: volgende check doen
-		      if($result){
-		          //als er resultaat is, is de user geautoriseerd voor deze module; nu nog functie checken
-		          $this->msg = "module ".$result['module']." is toegestaan...<br />";
-                  
-		          //check of functie is toegestaan; zoniet ook false; zoja: true
-                  // edit en view array vullen met functies
-                  $edit = array("add", "edit", "delete");
-                  $view = array("overview", "details");
+          //check of module is toegestaan; zoniet: meteen false geven; zoja: volgende check doen
+        if($result){
+            //als er resultaat is, is de user geautoriseerd voor deze module; nu nog functie checken
+            //$this->msg = "module ".$result['module']." is toegestaan...<br />";
+          
+            //check of functie is toegestaan; zoniet ook false; zoja: true
+            // edit en view array vullen met functies
+            $edit = array("add", "edit", "delete", "group");
+            $view = array("overview", "view", "details");
 
-                  if(in_array($route[1], $edit)){       //pagina valt onder 'edit'
-                      if($result["edit"]==1){
-                          $this->msg .= "edit toegestaan <br />";       //no problems
-                      }elseif($result['edit']==0){
-                          $this->msg .= "edit NIET toegestaan <br />";  //problem
-                      }
-                  }
-                  if(in_array($route[1], $view)){       //pagina valt in categorie 'view'
-                      if($result['edit']==1){           //editrechten mag ook viewen
-                          $this->msg .= "edit/view toegestaan <br />";  //no problem
-                      }elseif($result['view']==1){
-                          $this->msg .= "view toegestaan <br />"; //no problem
-                      }else{
-                          $this->msg .= "view NIET toegestaan <br />"; //problem
-                      }
-                  }
-	           }else{
-		          //$this->msg = "module niet toegestaan";
-		          return false;
-		      }
-              return true;
-    	   }
-	    }
-	}
+            if(in_array($testfunction, $edit)){       //pagina valt onder 'edit'
+                if($result["edit"]==1){
+                    //$this->msg .= "edit toegestaan <br />";       //no problems
+                    return true;
+                }elseif($result['edit']==0){
+                    //$this->msg .= "edit NIET toegestaan <br />";
+                    return false;
+                }
+            }
+            if(in_array($testfunction, $view)){       //pagina valt in categorie 'view'
+                if($result['edit']==1){           //editrechten mag ook viewen
+                    //$this->msg .= "edit/view toegestaan <br />";  //no problem
+                    return true;
+                }elseif($result['view']==1){
+                    //$this->msg .= "view is toegestaan <br />"; //no problem
+                    return true;
+                }else{
+                    //$this->msg .= "view is NIET toegestaan <br />"; 
+                    return false;
+                }
+            }
+        }else{
+            //$this->msg = "module niet toegestaan";
+            return false;
+        }
+	return true;       
+    }
     	
 	public function loadFile($file){
 		if(file_exists('./themes/'.THEME.'/'.$file)){
@@ -171,8 +188,13 @@ class Controller{
     	$this->menu_manage_groups = $this->language->get('menu_manage_groups');		
     	$this->menu_add_user = $this->language->get('menu_add_user');		
     	$this->menu_logout = $this->language->get('menu_logout');		
-    	$this->text_userlogin = $this->language->get('text_userlogin');		
-                
+    	$this->text_userlogin = $this->language->get('text_userlogin');	
+    	$this->menu_add_event=$this->language->get('menu_add_event');	
+    	$this->menu_add_location=$this->language->get('menu_add_location');	
+    	$this->menu_add_artist=$this->language->get('menu_add_artist');	
+    	$this->menu_add_resource=$this->language->get('menu_add_resource');	
+    	$this->menu_add_performance=$this->language->get('menu_add_performance');	
+    	
 	}
 }	
 	

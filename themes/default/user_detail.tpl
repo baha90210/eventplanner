@@ -10,7 +10,7 @@
 		</tr>
 		<tr>
 			<td>Password:</td>
-			<td><input class="required" type="password" name="req_password" onclick="this.select()" value="<?php echo $this->user['password']; ?>" /></td>
+			<td><input class="required" type="password" name="<?php echo ($this->passwordreq)?'req_':''; ?>password" onclick="this.select()" value="" /></td>
 		</tr>
 		<tr>
 			<td>Voorkeur taal:</td>
@@ -71,7 +71,7 @@
 	   	$('input[name^="req"]').each(function(){
 			$(this).parent().find('span').html('*');
 			
-			if($(this).val() == ''){
+			if($(this).val() == '' || $(this).val() == '<email>') {
 				$(this).css('border', '1px solid #f00');
 				$(this).parent().find('span').append('   Dit veld is verplicht!');
 				error = true;

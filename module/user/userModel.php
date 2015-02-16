@@ -6,7 +6,7 @@ class userModel extends Model{
         $sql .= "(email, password, date_last_logged_in, token, language) ";
         $sql .= "VALUES ('".$this->db->escape($data['req_email'])."', ";
         $sql .= "MD5('".$this->db->escape($data['req_password']).":12345abc'), ";
-        $sql .= "'00-00-00', 0, '".$this->db->escape($data['language'])."')";
+        $sql .= "'00-00-00', ".MD5(uniqid()).", '".$this->db->escape($data['language'])."')";
         //echo $sql; die;
         $this->db->query($sql);
         
@@ -27,7 +27,10 @@ class userModel extends Model{
     
     public function updateUser($data){
         $sql  = "UPDATE users ";
-        $sql .= "SET password = MD5('".$this->db->escape($data['req_password']).":12345abc'), ";
+        $sql .= "SET ";
+        if($data['password']!=''){
+            $sql .= "password = MD5('".$this->db->escape($data['password']).":12345abc'), ";
+        }
         $sql .= "language = '".$this->db->escape($data['language'])."' ";
         $sql .= "WHERE email='".$data['req_email']."'";
         $this->db->query($sql);
@@ -103,7 +106,7 @@ class userModel extends Model{
         //let op: tabel met groepen kan geen 'group' heten ivm het statement GROUP in SQL :)
         $sql  = "SELECT g.name, g.id, g.description, ";
         $sql .= "gr.module, gr.edit, gr.view ";
-        $sql .= "FROM groups g JOIN group_rights gr ON g.id = gr.group_id ";
+        $sql .= "FROM groups g INNER JOIN group_rights gr ON g.id = gr.group_id ";
         $sql .= "ORDER BY g.name";
         //echo $sql; die;
         $result = $this->db->query($sql);
