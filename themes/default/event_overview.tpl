@@ -82,10 +82,11 @@
                         <?php if($event['performances'] !=''){ ?>
                             <tr class="gray row performance_<?php echo $event['event_id'] ?>">
                                 <td><?php echo $this->label_performances; ?></td>
-                                <td><?php echo $this->label_performances_title; ?></td>
-                                <td><?php echo $this->label_performances_name; ?></td>
+                                
+                                <td><?php echo $this->label_performances_artist_name; ?></td>
                                 <td><?php echo $this->label_performances_from; ?></td>
                                 <td><?php echo $this->label_performances_until; ?></td>
+                                <td><?php echo $this->label_performances_rate; ?></td>
                             </tr>
                         <?php } ?>
                         <?php //echo "<pre>";var_dump($event); echo "</pre>";?>
@@ -93,8 +94,8 @@
 			<tr class="row items performance_<?php echo $event['event_id'] ?>">
 				<td><?php echo $performance['performance_title']; ?></td>
 				<td><?php echo $performance["name"]; ?></td>
-				<td><?php echo $performance["artist_name"]; ?></td>
 				<td><?php echo $performance["date_from"]; ?></td>
+				<td><?php echo $performance["date_until"]; ?></td>
                                 <td><?php echo number_format($performance['rate'], 2, ',', '.'); ?></td>
 				
 				

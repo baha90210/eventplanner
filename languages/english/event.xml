@@ -47,7 +47,7 @@
         
         <label_performances>Performance</label_performances>	
         <label_performances_title>Title</label_performances_title>	
-        <label_performances_name>Name</label_performances_name>	
+        <label_performances_artist_name>Artist Name</label_performances_artist_name>	
         <label_performances_from>From</label_performances_from>	
         <label_performances_until>Until</label_performances_until>	
         <label_performances_rate>Rate</label_performances_rate>	

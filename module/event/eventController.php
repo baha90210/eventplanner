@@ -26,7 +26,7 @@ class eventController extends Controller{
 		$this->label_resources_price = $this->language->get('label_resources_price');		
 		$this->label_performances = $this->language->get('label_performances');		
 		$this->label_performances_title = $this->language->get('label_performances_title');		
-		$this->label_performances_name = $this->language->get('label_performances_name');		
+		$this->label_performances_artist_name = $this->language->get('label_performances_artist_name');		
 		$this->label_performances_from = $this->language->get('label_performances_from');		
 		$this->label_performances_until = $this->language->get('label_performances_until');		
 		$this->label_performances_rate = $this->language->get('label_performances_rate');		
