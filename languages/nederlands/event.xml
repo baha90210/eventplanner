@@ -27,6 +27,32 @@
 	<label_artist_remove_image>Afbeelding verwijderen</label_artist_remove_image>
 	<label_artist_current_image>Huidige afbeelding</label_artist_current_image>	
 
+        <label_event_name>Naam Event</label_event_name>
+        <label_event_startdatum>Startdatum</label_event_startdatum>
+        <label_event_einddatum>Einddatum</label_event_einddatum>
+        <label_event_prijs>Prijs</label_event_prijs>
+        <label_event_edit>Bewerk</label_event_edit>
+        <label_event_delete>Verwijder</label_event_delete>
+        <label_event_pdf>PDF</label_event_pdf>
+        
+        <label_locations>Locatie</label_locations>
+        <label_locations_adres>Adres</label_locations_adres>
+        <label_locations_cap>Capaciteit</label_locations_cap>
+        <label_locations_price>Prijs</label_locations_price>
+        
+        <label_resources>Resource</label_resources>
+        <label_resources_desc>Omschrijving</label_resources_desc>
+        <label_resources_type>Type</label_resources_type>
+        <label_resources_price>Prijs</label_resources_price>
+        
+        <label_performances>Performance</label_performances>	
+        <label_performances_title>Titel</label_performances_title>	
+        <label_performances_name>Naam</label_performances_name>	
+        <label_performances_from>Vanaf</label_performances_from>	
+        <label_performances_until>Tot</label_performances_until>	
+        <label_performances_rate>Prijs</label_performances_rate>	
+        
+        
 
 
 </translation>
