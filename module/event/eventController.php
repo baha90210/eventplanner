@@ -4,6 +4,7 @@ class eventController extends Controller{
 		parent::__construct();
 		
 		$this->authorize();
+        $this->loadMenu();
                 
                 $this->language->load('event', $this->user['language']); //overal beschikbaar
 		

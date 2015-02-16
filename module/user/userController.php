@@ -2,21 +2,17 @@
 class userController extends Controller{
     
     public function __construct(){
-        //parent::__construct();
+        parent::__construct();
     
         $this->authorize();
+        $this->loadMenu();
+//     	$this->language->load('user', $this->user['language']);
     }
     
     public function overview(){
-        //echo "functie userOverview";
-        
         $this->loadModel('user');
-        
         $this->users = $this->model->getUsers();
         
-        //echo "<pre>";var_dump($this->users);echo "</pre>";
-        //die;
-            
         $this->setTitle("Overzicht Gebruikers");
 		$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
         
@@ -25,6 +21,7 @@ class userController extends Controller{
     
     public function add(){
         //functie wordt ook gebruikt om edit-pagina weer te geven
+        //editfunctie vangt de POST op.
         
         if(isset($_GET['email'])){  //aanroep pagina om user te bewerken
             $this->loadModel('user');

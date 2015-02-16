@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translation>
+	<menu_events>Evenementen</menu_events>
+	<menu_artists>Artiesten</menu_artists>
+	<menu_locations>Locaties</menu_locations>
+	<menu_resources>Middelen</menu_resources>
+	<menu_performances>Voorstellingen</menu_performances>
+	<menu_usermanagement>Gebruikersbeheer</menu_usermanagement>
+	<menu_manage_users>Beheer gebruikers</menu_manage_users>
+	<menu_manage_groups>Beheer groepen</menu_manage_groups>
+	<menu_add_user>Nieuwe gebruiker</menu_add_user>
+	<menu_logout>Uitloggen</menu_logout>
+	<text_userlogin>gebruiker: </text_userlogin>
+</translation>

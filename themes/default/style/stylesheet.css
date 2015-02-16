@@ -101,6 +101,7 @@ ul.menu li{
 .drop_menu li:hover { 
 	/* Stel tekstkleur in voor mouseover / hover */
 	color: blue;
+	
 }
 .drop_menu li a {
 	/* stel tussenruimte in en kleur van de tekst en font */

@@ -21,8 +21,10 @@
     				<td>&nbsp;</td>
     				<td><?php echo $user['language']; ?></td>
     				<td><?php echo $user['date_last_logged_in']; ?></td>
-    				<td><a href="index.php?route=user/edit&email=<?php echo $user['email'] ?>&token=<?php echo $_GET['token'] ?>">Edit</a></td>
-    				<td><a href="index.php?route=user/delete&email=<?php echo $user['email'] ?>&token=<?php echo $_GET['token'] ?>">Delete</a></td>
+    				<td><a href="index.php?route=user/edit&email=<?php echo $user['email'] ?>&token=<?php echo $_GET['token'] ?>">
+    				    <img src="./themes/<?php echo THEME ?>/images/edit.png" /></a></td>
+    				<td><a href="index.php?route=user/delete&email=<?php echo $user['email'] ?>&token=<?php echo $_GET['token'] ?>">
+    				    <img src="./themes/<?php echo THEME ?>/images/remove.png" /></a></td>
     			</tr>
 		<?php   $helpuser = $user['email'];
 		    }
