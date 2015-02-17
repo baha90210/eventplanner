@@ -10,7 +10,7 @@
 		</tr>
 		<tr>
 			<td><?php echo $this->label_password; ?>:</td>
-			<td><input class="required" type="password" name="<?php echo ($this->passwordreq)?'req_':''; ?>password" onclick="this.select()" value="" /></td>
+			<td><input class="required" type="password" name="<?php echo ($this->passwordreq)?'req_':''; ?>password" onclick="this.select()" value="" autocomplete="off" /></td>
 		</tr>
 		<tr>
 			<td><?php echo $this->label_preferred_language; ?>:</td>
