@@ -4,7 +4,7 @@ class eventController extends Controller{
 		parent::__construct();
 		
 		$this->authorize();
-        $this->loadMenu();
+                $this->loadMenu();
                 
                 $this->language->load('event', $this->user['language']); //overal beschikbaar
 		
@@ -29,10 +29,10 @@ class eventController extends Controller{
 		$this->label_performances_artist_name = $this->language->get('label_performances_artist_name');		
 		$this->label_performances_from = $this->language->get('label_performances_from');		
 		$this->label_performances_until = $this->language->get('label_performances_until');		
-		$this->label_performances_rate = $this->language->get('label_performances_rate');		
-		
+		$this->label_performances_rate = $this->language->get('label_performances_rate');
+                
                 $this->addScript('//code.jquery.com/jquery-1.11.2.min.js');
-                //$this->addScript('//code.jquery.com/ui/1.11.2/jquery-ui.js');
+                $this->addScript('//code.jquery.com/ui/1.11.2/jquery-ui.js');
                 $this->addStyle('//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
 	}
 
@@ -113,7 +113,7 @@ class eventController extends Controller{
 			
 			$this->overview();
 		}else{		
-			$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+			
 
 			$this->event = array(
 				'name'			=> '',
@@ -146,7 +146,7 @@ class eventController extends Controller{
 
 	public function edit(){
 		$this->setTitle('Event aanpassen');
-		$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+
 		$this->loadModel('event');
 
 		if($_POST){

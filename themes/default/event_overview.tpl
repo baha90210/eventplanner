@@ -15,9 +15,9 @@
 				<td><?php echo $this->label_event_startdatum; ?></td>
 				<td><?php echo $this->label_event_einddatum; ?></td>
 				<td><?php echo $this->label_event_prijs; ?></td>
-				<td><?php echo $this->label_event_edit; ?></td>
-				<td><?php echo $this->label_event_delete; ?></td>
-				<td><?php echo $this->label_event_pdf; ?></td>
+				<td colspan="3"><?php echo $this->label_event_edit; ?></td>
+<!--				<td><?php echo $this->label_event_delete; ?></td>
+				<td><?php echo $this->label_event_pdf; ?></td>-->
 
 			</tr>
 		</thead>
