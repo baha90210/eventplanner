@@ -25,7 +25,32 @@
 
 	<label_artist_new_image>Nieuwe afbeelding</label_artist_new_image>
 	<label_artist_remove_image>Afbeelding verwijderen</label_artist_remove_image>
-	<label_artist_current_image>Huidige afbeelding</label_artist_current_image>	
+	<label_artist_current_image>Huidige afbeelding</label_artist_current_image>
+        
+        <label_event_name>Name Event</label_event_name>
+        <label_event_startdatum>Startdate</label_event_startdatum>
+        <label_event_einddatum>Enddate</label_event_einddatum>
+        <label_event_prijs>Price</label_event_prijs>
+        <label_event_edit>Edit</label_event_edit>	
+        <label_event_delete>Delete</label_event_delete>	
+        <label_event_pdf>PDF</label_event_pdf>
+        
+        <label_locations>Location</label_locations>
+        <label_locations_adres>Address</label_locations_adres>
+        <label_locations_cap>Capacity</label_locations_cap>
+        <label_locations_price>Price</label_locations_price>
+        
+        <label_resources>Resource</label_resources>
+        <label_resources_desc>Description</label_resources_desc>
+        <label_resources_type>Type</label_resources_type>
+        <label_resources_price>Price</label_resources_price>
+        
+        <label_performances>Performance</label_performances>	
+        <label_performances_title>Title</label_performances_title>	
+        <label_performances_artist_name>Artist Name</label_performances_artist_name>	
+        <label_performances_from>From</label_performances_from>	
+        <label_performances_until>Until</label_performances_until>	
+        <label_performances_rate>Rate</label_performances_rate>	
 
 
 

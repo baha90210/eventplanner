@@ -8,7 +8,28 @@ class eventController extends Controller{
                 
                 $this->language->load('event', $this->user['language']); //overal beschikbaar
 		
-		$this->label_event = $this->language->get('label_artist_overview');		
+		$this->label_event = $this->language->get('label_event_overview');		
+		$this->label_event_name = $this->language->get('label_event_name');		
+		$this->label_event_startdatum = $this->language->get('label_event_startdatum');		
+		$this->label_event_einddatum = $this->language->get('label_event_einddatum');		
+		$this->label_event_prijs = $this->language->get('label_event_prijs');		
+		$this->label_event_edit = $this->language->get('label_event_edit');		
+		$this->label_event_delete = $this->language->get('label_event_delete');		
+		$this->label_event_pdf = $this->language->get('label_event_pdf');		
+		$this->label_locations = $this->language->get('label_locations');		
+		$this->label_locations_adres = $this->language->get('label_locations_adres');		
+		$this->label_locations_cap = $this->language->get('label_locations_cap');		
+		$this->label_locations_price = $this->language->get('label_locations_price');		
+		$this->label_resources = $this->language->get('label_resources');		
+		$this->label_resources_desc = $this->language->get('label_resources_desc');		
+		$this->label_resources_type = $this->language->get('label_resources_type');		
+		$this->label_resources_price = $this->language->get('label_resources_price');		
+		$this->label_performances = $this->language->get('label_performances');		
+		$this->label_performances_title = $this->language->get('label_performances_title');		
+		$this->label_performances_artist_name = $this->language->get('label_performances_artist_name');		
+		$this->label_performances_from = $this->language->get('label_performances_from');		
+		$this->label_performances_until = $this->language->get('label_performances_until');		
+		$this->label_performances_rate = $this->language->get('label_performances_rate');		
 		
                 $this->addScript('//code.jquery.com/jquery-1.11.2.min.js');
                 //$this->addScript('//code.jquery.com/ui/1.11.2/jquery-ui.js');
