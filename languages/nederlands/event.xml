@@ -47,7 +47,7 @@
         
         <label_performances>Performance</label_performances>	
         <label_performances_title>Titel</label_performances_title>	
-        <label_performances_name>Naam</label_performances_name>	
+        <label_performances_artist_name>Artiest Naam</label_performances_artist_name>	
         <label_performances_from>Vanaf</label_performances_from>	
         <label_performances_until>Tot</label_performances_until>	
         <label_performances_rate>Prijs</label_performances_rate>	
