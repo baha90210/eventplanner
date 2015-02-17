@@ -73,8 +73,8 @@ class Controller{
     		        $this->error_msg = "U bent niet geautoriseerd voor deze pagina!!<br />";
     		        $this->error_msg .= "Maak een geldige keuze uit het menu.";
     		        $this->loadMenu();
-    		        $this->render("error_page.tpl");die;
-    		        //echo "U bent niet geautoriseerd voor deze pagina!!!"; //opvangpagina voor maken??
+    		        $this->render("error_page.tpl");
+    		        die;
     			}
 			}else{
 			    //user is niet ingelogd en wordt teruggestuurd naar loginpagina

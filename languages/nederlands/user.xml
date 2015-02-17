@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<translation>
+	<label_user>Gebruiker</label_user>
+	<label_groups>Autorisatiegroepen</label_groups>
+	<label_click_email>klik op e-mailadres</label_click_email>
+	<label_language>Taal</label_language>
+	<label_last_logged_in>Laatste login</label_last_logged_in>
+	<label_manage>Beheeracties</label_manage>
+	<label_logged_in>ingelogd</label_logged_in>
+	<label_manage_user>Beheer Gebruiker</label_manage_user>
+	<label_email_user>E-mail gebruiker</label_email_user>
+	<label_password>Wachtwoord</label_password>
+	<label_preferred_language>Voorkeur taal</label_preferred_language>
+	<label_token>Token</label_token>
+	<label_auth_group>Autorisatiegroep</label_auth_group>
+	<label_selectgroup>Selecteer een groep</label_selectgroup>
+	<label_selectlanguage>Selecteer een taal</label_selectlanguage>
+	<label_selectmodule>Selecteer een module</label_selectmodule>
+	<label_manage_groups>Beheer Autorisatiegroepen</label_manage_groups>
+	<label_group>Groep</label_group>
+	<label_module>Module</label_module>
+	<label_rights>Rechten</label_rights>
+	<label_edit>Bewerken</label_edit>
+	<label_view>Bekijken</label_view>
+	<label_delete_group>Groep verwijderen</label_delete_group>
+	<label_groups_norights>Groepen zonder rechten</label_groups_norights>
+	<label_groupname>Groepnaam</label_groupname>
+	<label_description>Omschrijving</label_description>
+	<label_delete_group_list>Groep verwijderen (kies uit de lijst)</label_delete_group_list>
+	<label_remove>Verwijderen</label_remove>
+	<label_confirm_delete_group>met rechten echt verwijderen</label_confirm_delete_group>
+	<label_not_removed>is niet verwijderd</label_not_removed>
+	<label_required_field>Dit veld is verplicht</label_required_field>
+	
+	<btn_add_user>Gebruiker toevoegen</btn_add_user>
+	<btn_add_group>Groep toevoegen</btn_add_group>
+	<btn_save>Opslaan</btn_save>
+	<btn_cancel>Annuleren</btn_cancel>
+	<btn_save_rights>Rechten opslaan</btn_save_rights>
+	<btn_add_module>Module toevoegen</btn_add_module>
+	<btn_add_new_group>Nieuwe groep toevoegen</btn_add_new_group>
+	<btn_delete_group>Groep verwijderen</btn_delete_group>
+	<btn_add>Voeg toe</btn_add>
+
+	<msg_no_grouprights>Er zijn nog geen groepsrechten toegekend.</msg_no_grouprights>
+
+	<title_overview_users>Overzicht gebruikers</title_overview_users>
+
+</translation>

@@ -5,11 +5,11 @@
 	<table class="list">
 		<thead class="theader">
 			<tr>
-				<td>&nbsp;<br />User</td>
-				<td>Autorisatiegroepen<br /><small>(klik op e-mailadres)</small></td>
-				<td>Taal</td>
-				<td>&nbsp;<br />Laatste login</td>
-				<td colspan="2">&nbsp;<br />BeheerActies</td>
+				<td>&nbsp;<br /><?php echo $this->label_user; ?></td>
+				<td><?php echo $this->label_groups; ?><br /><small>(<?php echo $this->label_click_email; ?>)</small></td>
+				<td>&nbsp;<br /><?php echo $this->label_language; ?></td>
+				<td>&nbsp;<br /><?php echo $this->label_last_logged_in; ?></td>
+				<td colspan="2">&nbsp;<br /><?php echo $this->label_manage; ?></td>
 			</tr>
 		</thead>
 		<?php $helpuser = ''; //om te voorkomen dat user meerdere keren wordt getoond
@@ -37,9 +37,9 @@
         <?php   }
         } ?>
 		<tr><td class="test" colspan="5">&nbsp;</td></tr>
-        <tr><td colspan="5"><input type="button" onclick="addUser();" value="User toevoegen" /></td></tr>
+        <tr><td colspan="5"><input type="button" onclick="addUser();" value="<?php echo $this->btn_add_user; ?>" /></td></tr>
 		<tr><td class="test" colspan="5">&nbsp;</td></tr>
-        <tr><td class="test" colspan="5">*<small> = ingelogd</small></td></tr>
+        <tr><td class="test" colspan="5">*<small> = <?php echo $this->label_logged_in; ?></small></td></tr>
         </table>
 </div>
 
