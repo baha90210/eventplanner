@@ -11,11 +11,11 @@
 		</tr>
 		<tr>
 			<td><?php echo $this->label_event_startdatum; ?> : </td>
-			<td><input class="datepicker" type="text" name="req_start_date" value="<?php echo $this->event['start_date']; ?>" /></td>
+			<td><input class="required datepicker" type="text" name="req_start_date" value="<?php echo $this->event['start_date']; ?>" /></td>
 		</tr>
 		<tr>
 			<td><?php echo $this->label_event_einddatum; ?> : </td>
-			<td><input class="datepicker" type="text" name="req_end_date" value="<?php echo $this->event['end_date']; ?>" /></td>
+			<td><input class="required datepicker" type="text" name="req_end_date" value="<?php echo $this->event['end_date']; ?>" /></td>
 		</tr>
 		<tr>
 			<td><?php echo $this->label_event_prijs; ?></td>
