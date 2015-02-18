@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding='UTF-8'?>
 <translation>
-	<label_user>Gebruiker</label_user>
-	<label_groups>Autorisatiegroepen</label_groups>
-	<label_click_email>klik op e-mailadres</label_click_email>
-	<label_language>Taal</label_language>
-	<label_last_logged_in>Laatste login</label_last_logged_in>
-	<label_manage>Beheeracties</label_manage>
-	<label_logged_in>ingelogd</label_logged_in>
+	<label_user>Utilisateur</label_user>
+	<label_groups><![CDATA[Groupes d&apos;autorisation]]></label_groups>
+	<label_click_email><![CDATA[Appuyez sur l&apos;addresse email]]></label_click_email>
+	<label_language><![CDATA[Langue]]></label_language>
+	<label_last_logged_in><![CDATA[Derni&egrave;re login]]></label_last_logged_in>
+	<label_manage>Actions des gestion</label_manage>
+	<label_logged_in><![CDATA[Authoris&eacute;]]></label_logged_in>
 	<label_manage_user>Beheer Gebruiker</label_manage_user>
 	<label_email_user>E-mail gebruiker</label_email_user>
 	<label_password>Wachtwoord</label_password>
