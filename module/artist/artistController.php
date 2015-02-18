@@ -30,6 +30,9 @@ class artistController extends Controller{
 		$this->label_delete = $this->language->get('label_delete');
 		$this->label_cancel = $this->language->get('label_cancel');
 		$this->label_back_to_overview = $this->language->get('label_back_to_overview');
+		$this->label_artist_required_field = $this->language->get('label_artist_required_field');
+		$this->label_artist_numeric_field = $this->language->get('label_artist_numeric_field');
+		$this->label_artist_wrong_filetype = $this->language->get('label_artist_wrong_filetype');
 
 	}
 
