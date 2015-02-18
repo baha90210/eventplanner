@@ -9,12 +9,15 @@ class Image {
 			$this->file = $file;
 
 			$info = getimagesize($file);
-
+	
+			$extension = substr($info['mime'], strpos($info['mime'], '/')+1);
+			
 			$this->info = array(
 				'width'  => $info[0],
 				'height' => $info[1],
 				'bits'   => $info['bits'],
-				'mime'   => $info['mime']
+				'mime'   => $info['mime'],
+				'extension' => $extension				
 			);
 
 			$this->image = $this->create($file);
@@ -38,7 +41,7 @@ class Image {
 	public function save($file, $quality = 90) {
 		$info = pathinfo($file);
 
-		$extension = strtolower($info['extension']);
+		$extension = strtolower($this->info['extension']);
 
 		if (is_resource($this->image)) {
 			if ($extension == 'jpeg' || $extension == 'jpg') {
