@@ -5,6 +5,14 @@ class resourceController extends Controller{
 		
 		$this->authorize();
         $this->loadMenu();
+		
+		$this->language->load('resource', $this->user['language']);
+		$this->label_resource_price = $this->language->get('label_resource_price');
+		$this->label_resource_discription = $this->language->get('label_resource_discription');
+		$this->label_resource_add_button = $this->language->get('label_resource_add_button');
+		
+		$this->label_resource_add = $this->language->get('label_resource_add');
+		$this->label_resource_name = $this->language->get('label_resource_name');
 	}
 
     

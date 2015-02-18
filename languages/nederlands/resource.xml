@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<translation>
+	<label_resource_price>Prijs</label_resource_price>
+	<label_resource_discription>omschrijving</label_resource_discription>
+	<label_resource_add_button>Resource Toevoegen</label_resource_add_button>
+	
+	<label_resource_add>Opslaan</label_resource_add>
+	<label_resource_name>Naam Resource</label_resource_name>
+</translation>
