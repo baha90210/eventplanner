@@ -32,6 +32,10 @@
         <label_event_einddatum>Einddatum</label_event_einddatum>
         <label_event_prijs>Prijs</label_event_prijs>
         <label_event_edit>Bewerk</label_event_edit>
+        <label_event_addlocation>Voeg locatie toe</label_event_addlocation>
+        <label_event_select_addlocation>-- Selecteer een locatie --</label_event_select_addlocation>
+        <label_event_addresource>Voeg resource toe</label_event_addresource>
+        <label_event_select_addresource>-- Selecteer een resource --</label_event_select_addresource>
         <label_event_delete>Verwijder</label_event_delete>
         <label_event_pdf>PDF</label_event_pdf>
         
