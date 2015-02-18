@@ -1,0 +1,300 @@
+*{
+	font-family: arial, verdana, tahoma, sans-serif;
+	color: #247;
+}
+
+body{
+	background-image: url("../images/concert.jpeg");
+        background-position: -50px;
+}
+
+
+#container{
+	margin: 0 auto;
+	width: 1200px;
+	border: 1px solid #448;
+	border-radius: 24px;
+	padding: 20px;
+  /*box-shadow: 8px 8px 8px 0px #ccc;*/
+	margin-bottom: 20px;
+	background-color: white;
+}
+.error{
+	border: 1px solid #8c0909;
+	border-radius: 8px;
+	background-color: #fd9999;
+	color: #8c0909;
+	padding: 8px;
+	margin-bottom: 20px;
+}
+
+/* ========================eerdere css================= */
+table{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table.arceren td{
+	border: 1px solid #AAA;
+}
+
+table.arceren tr:nth-child(2n) {
+	background-color: #eee;
+}
+
+/* klasse voor eerste rij van tabel */
+.theader{
+	font-weight: bold;	
+	text-transform: uppercase;
+	border-bottom: 1px dashed #247;
+}
+/* =================einde eerdere css ================*/
+thead{
+	font-weight: bold;
+}
+td.right{
+	text-align: right;
+}
+table.list{
+	width: 100%;
+}
+.msg{
+	border: 1px solid #00662a;
+	border-radius: 2px;
+	background-color: #36a531;
+	color: #fff;
+	padding: 2px;
+	margin-bottom: 10px;
+}
+.required + span{
+	color: #f00;
+	margin-left: 5px;
+}
+ul.menu{
+	list-style-type: none;
+}
+ul.menu li{
+	float: left;
+	margin-right: 20px;
+}
+.gray{
+    background-color:lightgray;
+}
+.items{
+    
+}
+
+/* ============  Begin menu sectie =============== */
+.drop {
+    position:fixed;
+    width:100%;
+	/* stel evt. menubreedte in */ 
+	/* width: 1038px; */
+}
+.drop_menu {
+	/* menu achtergrond en hoogte vd balk */
+	background:#224477;
+	padding:2px;
+	margin: 0 auto;
+	list-style-type:none;
+	height:30px;
+}
+.drop_menu li { 
+	float:left;
+}
+.drop_menu li:hover { 
+	/* Stel tekstkleur in voor mouseover / hover */
+	color: blue;
+	
+}
+.drop_menu li a {
+	/* stel tussenruimte in en kleur van de tekst en font */
+	padding:9px 20px;
+	display:block;
+	color: white;
+	text-decoration:none;
+	font:14px arial, verdana, sans-serif;
+}
+.drop_menu a:hover {
+	/* tekstkleur bij hover over main item */
+	color: blue;
+}
+
+/* =========== Submenu =============== */
+.drop_menu ul {
+	position:absolute;
+	left:-9999px;
+	top:-9999px;
+	list-style-type:none;
+}
+.drop_menu li:hover {
+	/* tekstkleur bij hover en achtergrond */
+	color: blue;
+	position:relative; 
+	background:#AAD4FF;
+}
+.drop_menu li:hover ul {
+	/* submenu positie en achtergrond */
+	left:0px;
+	top:30px;
+	background:#eee;
+	padding:0px;
+	color: blue;
+}
+
+.drop_menu li:hover ul li a {
+	/* submenu achtergrond en breedte */
+	padding:5px;
+	display:block;
+	width:168px;
+	border: none;
+	text-indent:15px;
+	background-color:#eee;
+	color: blue;
+}
+.drop_menu li:hover ul li a:hover { 
+	/* achtergrond submenu bij hover */
+	background: #AAD4FF;
+	color: blue;
+}
+
+/* ============  Einde menu sectie =============== */
+
+@import url('http://fonts.googleapis.com/css?family=Roboto');
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html { overflow-y: scroll; }
+body { 
+ 
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 82.5%;
+  line-height: 1;
+  color: #585858;
+  padding: 22px 10px;
+  padding-bottom: 55px;
+}
+
+::selection { background: #5f74a0; color: #fff; }
+::-moz-selection { background: #5f74a0; color: #fff; }
+::-webkit-selection { background: #5f74a0; color: #fff; }
+
+br { display: block; line-height: 1.6em; } 
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+ol, ul { list-style: none; }
+
+input, textarea { 
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none; 
+}
+
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+strong, b { font-weight: bold; } 
+
+table { border-collapse: collapse; border-spacing: 0; }
+img { border: 0; max-width: 100%; }
+
+/**
+h1 { 
+  font-family: 'Amarante', Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 3.6em;
+  line-height: 1.7em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+**/
+
+
+/** page structure **/
+#wrapper {
+  display: block;
+  width: 850px;
+  background: #fff;
+  margin: 0 auto;
+  padding: 10px 17px;
+  -webkit-box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.35);
+}
+
+#keywords {
+  margin: 0 auto;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+
+#keywords thead {
+  cursor: pointer;
+  background: #c9dff0;
+}
+#keywords thead tr th { 
+  font-weight: bold;
+  padding: 12px 30px;
+  padding-left: 42px;
+}
+#keywords thead tr th span { 
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+}
+
+#keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
+  background: #acc8dd;
+}
+
+#keywords thead tr th.headerSortUp span {
+  background-image: url('http://i.imgur.com/SP99ZPJ.png');
+}
+#keywords thead tr th.headerSortDown span {
+  background-image: url('http://i.imgur.com/RkA9MBo.png');
+}
+
+
+#keywords tbody tr { 
+  color: #555;
+}
+#keywords tbody tr td {
+  text-align: center;
+  padding: 15px 10px;
+}
+#keywords tbody tr td.lalign {
+  text-align: left;
+}
+h1 {
+    padding:20px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size:3em;
+    border: 1px solid #448;
+    border-radius: 24px;
+    background-color:white;
+    margin: 0 auto;
+    width:50%;
+    
+}
+h1 div{
+    
+    text-align: center;
+}
+
+
