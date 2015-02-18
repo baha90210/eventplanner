@@ -6,34 +6,34 @@
 	<input type="hidden" name="id" value="<?php echo (isset($_GET['id']))?$_GET['id']:''; ?>" />
 	<table class="list">
 		<tr>
-			<td>Naam locatie:</td>
+			<td><?php echo $this->lang->label_location_name; ?>:</td>
 			<td><input class="required" type="text" name="req_name" value="<?php if (isset($_GET['id'])) echo $this->location['name']; ?>" /></td>
 		</tr>
 		<tr>
-			<td>Adres:</td>
+			<td><?php echo $this->lang->label_location_address; ?>:</td>
 			<td><input class="required" type="text" name="req_address" value="<?php if (isset($_GET['id'])) echo $this->location['address']; ?>" /></td>
 		</tr>
 				<tr>
-			<td>postcode:</td>
+			<td><?php echo $this->lang->label_location_zip; ?>:</td>
 			<td><input class="required" type="text" name="req_postcode" value="<?php if (isset($_GET['id'])) echo $this->location['postcode']; ?>" /></td>
 		</tr>
 				<tr>
-			<td>Plaats:</td>
+			<td><?php echo $this->lang->label_location_city; ?>:</td>
 			<td><input class="required" type="text" name="req_plaats" value="<?php if (isset($_GET['id'])) echo $this->location['plaats']; ?>" /></td>
 		</tr>
 				<tr>
-			<td>Land:</td>
+			<td><?php echo $this->lang->label_location_country; ?>:</td>
 			<td><input class="required" type="text" name="req_land" value="<?php if (isset($_GET['id'])) echo $this->location['land']; ?>" /></td>
 		</tr>
 		<tr>
-			<td>Tarief:</td>
+			<td><?php echo $this->lang->label_location_rate; ?>:</td>
 			<td><input class="required" type="text" name="reqnum_rate" value="<?php if (isset($_GET['id'])) echo $this->location['rate']; ?>" /></td>
 		</tr>
 		<tr>
-			<td>Capaciteit:</td>
+			<td><?php echo $this->lang->label_location_capacity; ?>:</td>
 			<td><input class="required" type="text" name="reqnum_capacity" value="<?php if (isset($_GET['id'])) echo $this->location['capacity']; ?>" /></td>
 		</tr>
-		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
+		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="<?php echo $this->lang->label_location_submit; ?>" /></td></tr>
 	</table>
 	</form>
 </div>
@@ -53,7 +53,7 @@
 			
 			if($(this).val() == ''){
 				$(this).css('border', '1px solid #f00');
-				$(this).parent().find('span').append('   Dit veld is verplicht!');
+				$(this).parent().find('span').append('   <?php echo $this->lang->label_location_required_field; ?>');
 				error = true;
 			}
 		});
@@ -61,7 +61,7 @@
 		$('input[name^="reqnum"]').each(function(){
 			if(isNaN($(this).val())){
 				$(this).css('border', '1px solid #f00');
-				$(this).parent().find('span').append('   Dit moet een getal zijn!');
+				$(this).parent().find('span').append('   <?php echo $this->lang->label_location_numeric_field; ?>');
 				error = true;
 			}
 		});
