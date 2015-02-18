@@ -41,8 +41,8 @@ class artistModel extends Model{
 	public function editArtist($data, $image){
 		if($this->validateArtist($data) and $this->validateImage($image)){
 
-			if(isset($data['current_image'])) echo '<br />Current img: ' . $data['current_image'];
-			else echo '<br />Current img not set';
+		//	if(isset($data['current_image'])) echo '<br />Current img: ' . $data['current_image'];
+		//	else echo '<br />Current img not set';
 
 			// adding timestamp to image filename or check for duplicate file names needed
 			// only for new files
@@ -137,10 +137,10 @@ class artistModel extends Model{
 			else $max_size = 250;			
 			
 			$dimensions = getimagesize($image['img_image']['tmp_name']);
-
+			
 			if($dimensions[0] > $max_size or $dimensions[1] > $max_size){
 
-				if($dimensions[0] > $dimensions[1]){ 
+				if($dimensions[0] >= $dimensions[1]){ 
 					$width = $max_size;
 					$height= floor(($dimensions[1] / $dimensions[0]) * $max_size);
 				}

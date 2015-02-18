@@ -30,7 +30,7 @@
 		<tr>
 			<td>&nbsp;</td>
 			<td>
-					<img style="max-width:380px" src="images/<?php echo $this->artist['image']; ?>" />
+					<img src="images/<?php echo $this->artist['image']; ?>" />
 			</td>
 		</tr>
 		<?php endif; ?>

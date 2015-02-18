@@ -22,7 +22,7 @@
 		<?php if($this->artist['image']!='') : ?>		
 			<tr>
 				<td style="vertical-align:top;" ><?php echo $this->label_artist_current_image; ?></td>
-				<td><img style="max-width:150px;max-height:150px;" src="images/<?php echo $this->artist['image']; ?>" /></td>
+				<td><img src="images/<?php echo $this->artist['image']; ?>" /></td>
 				<input type="hidden" name="current_image" value="<?php echo $this->artist['image']; ?>" />
 			</tr>
 			<tr>
