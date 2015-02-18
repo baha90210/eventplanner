@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<translation>
+	<welcome>Hallo %s %s, welkom</welcome>
+	<column_performance><![CDATA[<< Terug]]></column_performance>
+	<all_events>Alle Events</all_events>
+</translation>

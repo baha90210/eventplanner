@@ -1,9 +1,10 @@
 <?php
 class locationController extends Controller{
 	public function __construct(){
-		//parent::__construct();
+		parent::__construct();
 		
 		$this->authorize();
+        $this->loadMenu();
 		$this->addScript('//code.jquery.com/jquery-1.11.2.min.js');
 		$this->addScript('//code.jquery.com/ui/1.11.2/jquery-ui.js');
 		$this->addScript('./themes/sander/bootstrap-3.3.2-dist/js/bootstrap.min.js');
@@ -89,6 +90,13 @@ class locationController extends Controller{
 		//$this->redirect('index.php?route=location/overview');
 	}
 	
+public function getEventLocations()
+{
+    $this->loadModel('location');
+    $result = $this->model->getLocationsByEvent($_GET['event']);
+    echo json_encode($result);
+}
+        
 	private function validate($data){
 		foreach($data as $k => $v){
 			if(substr($k, 0, 3) == 'req'){

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<translation>
+	<label_user>User</label_user>
+	<label_groups>Autorization groups</label_groups>
+	<label_click_email>click emailaddress</label_click_email>
+	<label_language>Language</label_language>
+	<label_last_logged_in>Last login</label_last_logged_in>
+	<label_manage>Manage user</label_manage>
+	<label_logged_in>logged in</label_logged_in>
+	<label_manage_user>Manage User</label_manage_user>
+	<label_email_user>User email</label_email_user>
+	<label_password>Password</label_password>
+	<label_preferred_language>Preferred language</label_preferred_language>
+	<label_token>Token</label_token>
+	<label_auth_group>Authorization group</label_auth_group>
+	<label_selectgroup>Select group</label_selectgroup>
+	<label_selectlanguage>Select language</label_selectlanguage>
+	<label_selectmodule>Select module</label_selectmodule>
+	<label_manage_groups>Manager Authorization Groups</label_manage_groups>
+	<label_group>Group</label_group>
+	<label_module>Module</label_module>
+	<label_rights>Rights</label_rights>
+	<label_edit>Edit</label_edit>
+	<label_view>View</label_view>
+	<label_delete_group>Delete Group</label_delete_group>
+	<label_groups_norights>Groups without assigned rights</label_groups_norights>
+	<label_groupname>Groupname</label_groupname>
+	<label_description>Description</label_description>
+	<label_delete_group_list>Delete Group (choose from list)</label_delete_group_list>
+	<label_remove>Remove</label_remove>
+	<label_confirm_delete_group>will be removed; are you sure?</label_confirm_delete_group>
+	<label_not_removed>is not removed</label_not_removed>
+	<label_required_field>Required field</label_required_field>
+	
+	<btn_add_user>Add User</btn_add_user>
+	<btn_add_group>Add Group</btn_add_group>
+	<btn_save>Save</btn_save>
+	<btn_cancel>Cancel</btn_cancel>
+	<btn_save_rights>Save Grouprights</btn_save_rights>
+	<btn_add_module>Add Module</btn_add_module>
+	<btn_add_new_group>Add New Group</btn_add_new_group>
+	<btn_delete_group>Delete Group</btn_delete_group>
+	<btn_add>Add</btn_add>
+
+	<msg_no_grouprights>No grouprights assigned yet.</msg_no_grouprights>
+
+	<title_overview_users>User overview</title_overview_users>
+
+</translation>

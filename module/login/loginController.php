@@ -24,7 +24,7 @@ class loginController extends Controller{
 		$result = $this->model->checkUser($_POST['username'], $_POST['password']);
 
 		if($result){
-			$this->redirect('event/overview', $result['token']); // ,'',$_GET['lang']
+			$this->redirect('event/overview', $result['token']);
         }else{
 			$this->error_msg = 'Je hebt een verkeerde email/wachtwoord combinatie gebruikt!';
 			$this->index();
@@ -37,7 +37,7 @@ class loginController extends Controller{
     		
     		$this->model->logout();
     		
-    		$this->index();
+    		$this->redirect('login'); //JM: gewijzigd ivm menu; alleen menu tonen als user is ingelogd
     }
 
 }

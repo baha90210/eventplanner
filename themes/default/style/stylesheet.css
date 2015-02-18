@@ -2,6 +2,11 @@
 	font-family: arial, verdana, tahoma, sans-serif;
 	color: #247;
 }
+
+body{
+	background-image: url("../../../images/bgconcert.jpg");
+}
+
 #container{
 	margin: 0 auto;
 	width: 1200px;
@@ -10,6 +15,7 @@
 	padding: 20px;
   /*box-shadow: 8px 8px 8px 0px #ccc;*/
 	margin-bottom: 20px;
+	background-color: white;
 }
 .error{
 	border: 1px solid #8c0909;
@@ -73,7 +79,7 @@ ul.menu li{
     background-color:lightgray;
 }
 .items{
-    background-color:lightblue;
+    
 }
 
 /* ============  Begin menu sectie =============== */
@@ -95,6 +101,7 @@ ul.menu li{
 .drop_menu li:hover { 
 	/* Stel tekstkleur in voor mouseover / hover */
 	color: blue;
+	
 }
 .drop_menu li a {
 	/* stel tussenruimte in en kleur van de tekst en font */
@@ -147,16 +154,6 @@ ul.menu li{
 	color: blue;
 }
 
-.list tbody tr:nth-child(odd) {
-    background: #eeeeee;
-}
-
 /* ============  Einde menu sectie =============== */
 
-/*===============Translation styles============*/
-.Trans-how-are-u{
-    float:right !important;
-    color:white;
-    z-index:999;
-    padding: 5px 15px 0 0;
-}
+

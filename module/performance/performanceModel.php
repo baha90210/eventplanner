@@ -8,7 +8,7 @@ public function getPerformances()
     $sql .= "FROM performance AS t1 ";
     $sql .= "INNER JOIN artist ON artist.artist_id = t1.artist_id ";
     $sql .= "INNER JOIN event ON event.event_id = t1.event_id ";
-    $sql .= "INNER JOIN location ON location.location_id = t1.location_id ";
+    $sql .= "LEFT JOIN location ON location.location_id = t1.location_id ";
     if (isset($_GET['event']) && $_GET['event']!=='') $sql .= "WHERE t1.event_id='".$_GET['event']."' ";
     if (isset($_GET['artist']) && $_GET['artist']!=='') $sql .= "WHERE t1.artist_id='".$_GET['artist']."' ";
     $sql .= "ORDER BY date_from ASC";

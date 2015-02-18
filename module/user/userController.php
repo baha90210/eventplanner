@@ -2,22 +2,22 @@
 class userController extends Controller{
     
     public function __construct(){
-        //parent::__construct();
+        parent::__construct();
     
         $this->authorize();
+        $this->loadMenu();
+     	$translations = $this->language->loadResult('user', $this->user['language']);
+     	foreach($translations as $a => $b){
+     	    //echo $a."      = ". $b.'<br>';
+     	    $this->$a = $b;
+     	}
     }
     
     public function overview(){
-        //echo "functie userOverview";
-        
         $this->loadModel('user');
-        
         $this->users = $this->model->getUsers();
         
-        //echo "<pre>";var_dump($this->users);echo "</pre>";
-        //die;
-            
-        $this->setTitle("Overzicht Gebruikers");
+        $this->setTitle($this->title_overview_users);
 		$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
         
         $this->render('user_overview.tpl');
@@ -25,54 +25,57 @@ class userController extends Controller{
     
     public function add(){
         //functie wordt ook gebruikt om edit-pagina weer te geven
-        
-        if(isset($_GET['email'])){  //aanroep pagina om user te bewerken
-            $this->loadModel('user');
-            $this->user = $this->model->getUser($_GET['email']);
-            $this->usergroups = $this->model->getUserGroupsUser($_GET['email']);
-            $this->groups = $this->model->getUserGroups();
-//             echo "<pre>";
-//             var_dump($this->user);echo "<hr>";
-//             var_dump($this->usergroups);echo "<hr>";
-//             var_dump($this->groups); echo "</pre>";
-//             die;
-            $this->readonly="readonly";
-            $this->setTitle("Beheer Gebruiker");
-        }else{                      //aanroepen pagina zonder gegevens is toevoegen.
-            $this->setTitle("Toevoegen Gebruiker");
-            $this->readonly="";
-            
-			$this->user = array(
-				'email'			         => '<email>',
-				'password'	             => '',
-				'date_last_logged_in'	 => '',
-				'token'			         => ''
-			);
-        }
-        $this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
-        $this->render('user_detail.tpl');
+        //editfunctie vangt de POST op.
+            if(isset($_GET['email'])){  //aanroep pagina om user te bewerken
+                $this->loadModel('user');
+                $this->user = $this->model->getUser($_GET['email']);
+                $this->usergroups = $this->model->getUserGroupsUser($_GET['email']);
+                $this->groups = $this->model->getUserGroups();
+                $this->languages = $this->getDirs('./languages');
+                $this->readonly="readonly"; //email niet laten wijzigen
+                $this->passwordreq=false; //password niet verplicht bij edit - leeg is niet wijzigen!!
+                $this->setTitle($this->label_manage_user);
+            }else{                      //aanroepen pagina zonder gegevens is toevoegen.
+                $this->setTitle($this->btn_add_user);
+                $this->loadModel('user');
+                $this->groups = $this->model->getUserGroups();
+                $this->languages = $this->getDirs('./languages');
+                $this->readonly="";
+                $this->passwordreq=true;
+                
+    			$this->user = array(
+    				'email'			         => '<email>',
+    				'password'	             => '<password>',
+    				'date_last_logged_in'	 => '',
+    				'token'			         => '',
+    			    'language'               => ''
+    			);
+            }
+            $this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+            $this->render('user_detail.tpl');
     }
     
     public function edit(){
-        if(isset($_POST['req_email']) && isset($_POST['req_password'])){
-            //code voor opslaan in db
-            //var_dump($_POST); die;
-                    if(isset($_POST['token']) && $_POST['token']!=""){     //als token gevuld: user bestaat al
-                        $this->loadModel('user');
-                        $this->model->updateUser($_POST);
-                    }else{
-                        //nieuwe user"
-                        $this->loadModel('user');
-                        $this->model->addUser($_POST['req_email'], $_POST['req_password']);
-                    }
-                    $this->overview();
+        //var_dump($_POST); die;
+        //als token gevuld: user bestaat al
+        if($_POST){
+            if(isset($_POST['req_email']) && isset($_POST['token']) && $_POST['token']!=""){
+                //code voor opslaan in db
+                $this->loadModel('user');
+                $this->model->updateUser($_POST);
             }else{
-                $this->add();
+                //nieuwe user"
+                $this->loadModel('user');
+                $this->model->addUser($_POST);
             }
+            $this->overview();
+        }else{
+             $this->add();
+        }
     }
     
     public function group(){
-        $this->setTitle("Beheer Autorisatiegroepen");
+        $this->setTitle($this->label_manage_groups);
         //echo "function group";
         
         //Module aan groep toevoegen
@@ -170,6 +173,7 @@ class userController extends Controller{
         $this->model->deleteGroupModule($_GET['group'], $_GET['module']);
         $this->group();
      }
+    
     public function getEmptyGroups(){
         //echo "getEmptyGroups";
         $this->loadModel('user');

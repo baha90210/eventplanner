@@ -1,21 +1,62 @@
 <?php
 class eventController extends Controller{
 	public function __construct(){
-		//parent::__construct();
+		parent::__construct();
 		
 		$this->authorize();
+                $this->loadMenu();
+                
+                $this->language->load('event', $this->user['language']); //overal beschikbaar
+		
+		$this->label_event = $this->language->get('label_event_overview');		
+		$this->label_event_name = $this->language->get('label_event_name');		
+		$this->label_event_startdatum = $this->language->get('label_event_startdatum');		
+		$this->label_event_einddatum = $this->language->get('label_event_einddatum');		
+		$this->label_event_prijs = $this->language->get('label_event_prijs');		
+		$this->label_event_edit = $this->language->get('label_event_edit');		
+		$this->label_event_delete = $this->language->get('label_event_delete');		
+		$this->label_event_pdf = $this->language->get('label_event_pdf');		
+		$this->label_locations = $this->language->get('label_locations');		
+		$this->label_locations_adres = $this->language->get('label_locations_adres');		
+		$this->label_locations_cap = $this->language->get('label_locations_cap');		
+		$this->label_locations_price = $this->language->get('label_locations_price');		
+		$this->label_resources = $this->language->get('label_resources');		
+		$this->label_resources_desc = $this->language->get('label_resources_desc');		
+		$this->label_resources_type = $this->language->get('label_resources_type');		
+		$this->label_resources_price = $this->language->get('label_resources_price');		
+		$this->label_performances = $this->language->get('label_performances');		
+		$this->label_performances_title = $this->language->get('label_performances_title');		
+		$this->label_performances_artist_name = $this->language->get('label_performances_artist_name');		
+		$this->label_performances_from = $this->language->get('label_performances_from');		
+		$this->label_performances_until = $this->language->get('label_performances_until');		
+		$this->label_performances_rate = $this->language->get('label_performances_rate');
+                
                 $this->addScript('//code.jquery.com/jquery-1.11.2.min.js');
-                //$this->addScript('//code.jquery.com/ui/1.11.2/jquery-ui.js');
+                $this->addScript('//code.jquery.com/ui/1.11.2/jquery-ui.js');
                 $this->addStyle('//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
 	}
 
-	public function overview(){		
+	public function overview(){
+
 		$this->setTitle('Overzicht events');
+                
 		$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
-		
+                
+
+                
 		$this->loadModel('event');
 		
 		$events = $this->model->getEvents();
+                
+                $ws = new Ws();
+	
+
+        //echo '<pre>';var_dump($ws->getFunctions('cdyne_client'));echo '</pre>';        
+        //echo '<pre>';var_dump($ws->NumbWord());echo '</pre>';        
+	//echo '<pre>';var_dump($ws->getWeather('90210'));echo '</pre>';
+	//echo '<pre>';var_dump($ws->getWeatherInfo('90210'));echo '</pre>';
+	//echo '<pre>';var_dump($ws->getWeatherCity());echo '</pre>';
+	
 
 		$this->events = array();
 		
@@ -25,6 +66,9 @@ class eventController extends Controller{
 	        $event_locations = $this->model->baha_getEventLocation($event['event_id']);
 	        
 	        foreach($event_locations as $location){
+//                        var_dump( $location ['postcode']);
+//                        $weather =  $ws->getWeather($location['postcode']); 
+//                        var_dump($weather);
 		        $event['locations'][] = $location;
 	        }
 
@@ -69,7 +113,7 @@ class eventController extends Controller{
 			
 			$this->overview();
 		}else{		
-			$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+			
 
 			$this->event = array(
 				'name'			=> '',
@@ -102,7 +146,7 @@ class eventController extends Controller{
 
 	public function edit(){
 		$this->setTitle('Event aanpassen');
-		$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+
 		$this->loadModel('event');
 
 		if($_POST){

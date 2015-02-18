@@ -6,14 +6,14 @@
 	<table class="list">
 		<thead class='theader'>
 		      <tr><td colspan = "2">&nbsp;</td>
-		      <td colspan="2" align="center">Rechten</td>
+		      <td colspan="2" align="center"><?php echo $this->label_rights; ?></td>
 		      <td>&nbsp;</td>
 			<tr>
-				<td>Groep</td>
-				<td>Module</td>
-				<td align="center">Edit</td>
-				<td align="center">View</td>
-				<td align="center">Delete groep</td>
+				<td><?php echo $this->label_group; ?></td>
+				<td><?php echo $this->label_module; ?></td>
+				<td align="center"><?php echo $this->label_edit; ?></td>
+				<td align="center"><?php echo $this->label_view; ?></td>
+				<td align="center"><?php echo $this->label_delete_group; ?></td>
 			</tr>
 		</thead>
 		
@@ -25,21 +25,21 @@
 				<td align="center"><input name="group[<?php echo $groupright['id'] ?>][<?php echo $groupright['module']; ?>][view]" value="<?php echo $groupright['view']; ?>" type="checkbox" <?php echo ($groupright['view'] =='1')?'checked="checked"':''; ?>></td>
 				<td align="center"><a href="index.php?route=user/group_delete&group=<?php echo $groupright['id'] ?>&module=<?php echo $groupright['module']; ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/default/images/remove.png" alt="verwijderen"></a></td>
 			</tr>
-		<?php }}else{echo "<div class='msg'>Er zijn nog geen groepsrechten toegekend</div>";} ?>
+		<?php }}else{echo "<div class='msg'>".$this->msg_no_grouprights."</div>";} ?>
 		<tr><td colspan="5">&nbsp;</td></tr>
-		<tr><td colspan="5"><input type="button" onclick="validate('rights_frm');" name="btnSubmit" value="Rechten opslaan" />
-		<input type="hidden" name="opslaan" value="opslaan"></td></tr>
+		<tr><td colspan="5"><input type="button" onclick="validate('rights_frm');" name="btnSubmit" value="<?php echo $this->btn_save_rights; ?>" />
+		<input type="hidden" name="opslaan" value="<?php echo $this->btn_save; ?>"></td></tr>
 		<tr><td colspan="5">&nbsp;</td></tr>
 		<tr><td colspan="5"><hr>&nbsp;</td></tr>
-		<tr><td><input type="button" onclick="addModule();" value="Module toevoegen" />&nbsp;&nbsp;&nbsp;&nbsp;
-		</td><td><input type="button" onclick="addGroup();" value="Nieuwe groep toevoegen" /></td>
-		<td colspan="3"><input type="button" onclick="delGroup();" value="Groep verwijderen" /></td>
+		<tr><td><input type="button" onclick="addModule();" value="<?php echo $this->btn_add_module; ?>" />&nbsp;&nbsp;&nbsp;&nbsp;
+		</td><td><input type="button" onclick="addGroup();" value="<?php echo $this->btn_add_new_group; ?>" /></td>
+		<td colspan="3"><input type="button" onclick="delGroup();" value="<?php echo $this->btn_delete_group; ?>" /></td>
 		</tr>
 	</table>
 	</form>
 	    
 		<p class="module_placeholder">
-		<p onclick="getGroupsnorights();">Groepen zonder rechten</p><div id="group_norights"></div>
+		<p onclick="getGroupsnorights();"><?php echo $this->label_groups_norights; ?></p><div id="group_norights"></div>
 		
 	
 </div>
@@ -50,11 +50,11 @@
 
 		html += '<form id="grp_frm" name="grp_frm" method="post" action="index.php?route=user/group&token=<?php echo $_GET['token']; ?>" enctype="multipart/form-data">';
 		html += '<table><tr>';
-		html += '<td>Groepnaam:<input type="text" name="groep"></td>';
+		html += '<td><?php echo $this->label_groupname; ?>:<input type="text" name="groep"></td>';
 		html += '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>';
-		html += '<td>Omschrijving:<input type="text" name="omschrijving"></td>';
+		html += '<td><?php echo $this->label_description; ?>:<input type="text" name="omschrijving"></td>';
 		html += '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>';
-		html += '<td><input type="submit" name="Submit" value="Voeg groep toe" /></td>';
+		html += '<td><input type="submit" name="Submit" value="<?php echo $this->btn_add; ?>" /></td>';
 		html += '</tr></table></form>';
 
 		$('.module_placeholder').after(html);
@@ -88,21 +88,21 @@
 	
 		html += '<form id="mod_frm" name="mod_frm" method="post" action="index.php?route=user/group&token=<?php echo $_GET['token']; ?>" enctype="multipart/form-data">';
 		html += '<table><tr>';
-		html += '<td>Groep:<select name="group">';
-		html += '<option value="">-- Selecteer usergroep --</option>';
+		html += '<td><?php echo $this->label_group; ?>:<select name="group">';
+		html += '<option value="">-- <?php echo $this->label_selectgroup; ?> --</option>';
 		<?php if($this->groups){foreach($this->groups as $groups){ ?>
-		html += '<option value="<?php echo $groups['id']; ?>"><?php echo addslashes($groups['name']); ?></option>';
+		html += '<option value="<?php if($groups['name']!='admin'){echo $groups['id']; ?>"><?php echo addslashes($groups['name']); }?></option>';
 		<?php } }?>
 		html += '</select></td>';
 		html += '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>';
-		html += '<td>Module:<select name="module">';
-		html += '<option value="">-- Selecteer module --</option>';
+		html += '<td><?php echo $this->label_module; ?>:<select name="module">';
+		html += '<option value="">-- <?php echo $this->label_selectmodule; ?> --</option>';
 		<?php if($this->dirs){foreach($this->dirs as $key=>$value){ ?>
 		html += '<option value="<?php echo $value; ?>"><?php echo $value; ?></option>';
 		<?php } } ?>
 		html += '</select></td>';
 		html += '<td>Edit: <input name="edit" type="checkbox">&nbsp;&nbsp;&nbsp;View: <input name="view" type="checkbox">&nbsp;&nbsp;</td>';
-		html += '<td><input type="submit" name="Submit" value="Voeg toe" /></td>';
+		html += '<td><input type="submit" name="Submit" value="<?php echo $this->btn_add; ?>" /></td>';
 		html += '</tr></table></form>';
 
 		$('.module_placeholder').after(html);
@@ -112,12 +112,12 @@
 		html = '<hr>';
 	
 		html += '<form><table><tr>';
-		html += '<td style="color: red;">Groep verwijderen (kies uit de lijst): ';
+		html += '<td style="color: red;"><?php echo $this->label_delete_group_list; ?>: ';
 		html += '<select name="group" id="group" onchange="deleteGroup(this.options[this.selectedIndex].value, ';
 		html += 'this.options[this.selectedIndex].text);">';
-		html += '<option value="">-- Selecteer usergroep --</option>';
+		html += '<option value="">-- <?php echo $this->label_selectgroup; ?> --</option>';
 		<?php if($this->groups){foreach($this->groups as $groups){ ?>
-		html += '<option value="<?php echo $groups['id']; ?>"><?php echo addslashes($groups['name']); ?></option>';
+		html += '<option value="<?php if($groups['name']!='admin'){echo $groups['id']; ?>"><?php echo addslashes($groups['name']); }?></option>';
 		<?php } }?>
 		html += '</select>';
 		html += '</td></tr></table></form>';
@@ -126,10 +126,10 @@
 	}
 
 	function deleteGroup(groupid, groupname){
-		if (confirm('Groep '+groupname+' met rechten echt verwijderen?')){
+		if (confirm('<?php echo $this->label_group; ?> '+groupname+' <?php echo $this->label_confirm_delete_group; ?>?')){
 			window.location.href="index.php?route=user/delgroup&id="+groupid+"&token=<?php echo $_GET['token']; ?>"
 		} else {
-			alert('Groep '+groupname+' is niet verwijderd!')
+			alert('<?php echo $this->label_group; ?> '+groupname+' <?php echo $this->label_not_removed; ?>!')
 		}
 	}
 	
