@@ -59,7 +59,7 @@ public function add(){
     }
     else
     {		
-        // $this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+        // $this->addScript('./themes/'.THEME.'/javascript/jquery/jquery-1.7.1.min.js');
         $this->render('performance_detail.tpl');		
     }
 }

@@ -18,7 +18,7 @@ class userController extends Controller{
         $this->users = $this->model->getUsers();
         
         $this->setTitle($this->title_overview_users);
-		$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+		$this->addScript('./themes/'.THEME.'/javascript/jquery/jquery-1.7.1.min.js');
         
         $this->render('user_overview.tpl');
     }
@@ -51,7 +51,7 @@ class userController extends Controller{
     			    'language'               => ''
     			);
             }
-            $this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+            $this->addScript('./themes/'.THEME.'/javascript/jquery/jquery-1.7.1.min.js');
             $this->render('user_detail.tpl');
     }
     
@@ -139,7 +139,7 @@ class userController extends Controller{
         
         //pagina laden voor rechten-overzicht:    
         $this->loadModel('user');
-        $this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+        $this->addScript('./themes/'.THEME.'/javascript/jquery/jquery-1.7.1.min.js');
         $this->grouprights = $this->model->getUserGroupsRights();
         $this->dirs = $this->getDirs("./module");
         $this->groups = $this->model->getUserGroups();

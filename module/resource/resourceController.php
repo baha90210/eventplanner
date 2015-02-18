@@ -31,7 +31,7 @@ class resourceController extends Controller{
 			
 			$this->overview();
 		}else{		
-			$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+			$this->addScript('./themes/'.THEME.'/javascript/jquery/jquery-1.7.1.min.js');
 
 			$this->resource = array(
 				'name'			=> '',
@@ -45,7 +45,7 @@ class resourceController extends Controller{
 
 	public function edit(){
 		$this->setTitle('resource aanpassen');
-		$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+		$this->addScript('./themes/'.THEME.'/javascript/jquery/jquery-1.7.1.min.js');
 		$this->loadModel('resource');
 		
 		if($_POST){

@@ -1,5 +1,5 @@
 <div>
-	<?php $this->addScript('./themes/default/javascript/jquery/ajaxupload.js'); ?>
+	<?php $this->addScript('./themes/'.THEME.'/javascript/jquery/ajaxupload.js'); ?>
 	<?php if(isset($this->msg)){ ?>
 	<div class="msg"><?php echo $this->msg; ?></div>
 	<?php } ?>

@@ -40,7 +40,7 @@ class eventController extends Controller{
 
 		$this->setTitle('Overzicht events');
                 
-		$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+		$this->addScript('./themes/'.THEME.'/javascript/jquery/jquery-1.7.1.min.js');
                 
 
                 
@@ -48,7 +48,7 @@ class eventController extends Controller{
 		
 		$events = $this->model->getEvents();
                 
-                $ws = new Ws();
+//                $ws = new Ws();
 	
 
         //echo '<pre>';var_dump($ws->getFunctions('cdyne_client'));echo '</pre>';        

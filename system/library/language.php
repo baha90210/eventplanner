@@ -19,9 +19,9 @@ class language{
 	
 	public function loadResult($module, $language = 'nederlands'){
 	    if(!isset($language) || $language=="") $language='nederlands';
-		$result = $this->xml = simplexml_load_file('./languages/'.$language.'/'.$module.'.xml');
+		$this->xml = simplexml_load_file('./languages/'.$language.'/'.$module.'.xml');
 		
-		return $result;
+		return $this->xml;
 	}
 	
 }

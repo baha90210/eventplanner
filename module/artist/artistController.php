@@ -71,7 +71,7 @@ class artistController extends Controller{
 			
 			$this->overview();
 		}else{		
-			$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+			$this->addScript('./themes/'.THEME.'/javascript/jquery/jquery-1.7.1.min.js');
 
 			$this->artist = array(
 				'name'			=> '',
@@ -88,7 +88,7 @@ class artistController extends Controller{
 
 	public function edit(){
 		$this->setTitle($this->label_edit_artist);
-		$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+		$this->addScript('./themes/'.THEME.'/javascript/jquery/jquery-1.7.1.min.js');
 		$this->loadModel('artist');
 
 		if($_POST){

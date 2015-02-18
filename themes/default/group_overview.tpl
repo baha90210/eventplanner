@@ -23,7 +23,7 @@
 				<td><input type="text" name="group[<?php echo $groupright['id'] ?>][<?php echo $groupright['module']; ?>]" value="<?php echo $groupright['module']; ?>" disabled></td>
 				<td align="center"><input name="group[<?php echo $groupright['id'] ?>][<?php echo $groupright['module']; ?>][edit]" value="<?php echo $groupright['edit']; ?>" type="checkbox" <?php echo ($groupright['edit'] =='1')?'checked="checked"':''; ?>></td>
 				<td align="center"><input name="group[<?php echo $groupright['id'] ?>][<?php echo $groupright['module']; ?>][view]" value="<?php echo $groupright['view']; ?>" type="checkbox" <?php echo ($groupright['view'] =='1')?'checked="checked"':''; ?>></td>
-				<td align="center"><a href="index.php?route=user/group_delete&group=<?php echo $groupright['id'] ?>&module=<?php echo $groupright['module']; ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/default/images/remove.png" alt="verwijderen"></a></td>
+				<td align="center"><a href="index.php?route=user/group_delete&group=<?php echo $groupright['id'] ?>&module=<?php echo $groupright['module']; ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME; ?>/images/remove.png" alt="verwijderen"></a></td>
 			</tr>
 		<?php }}else{echo "<div class='msg'>".$this->msg_no_grouprights."</div>";} ?>
 		<tr><td colspan="5">&nbsp;</td></tr>

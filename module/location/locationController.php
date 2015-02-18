@@ -52,14 +52,14 @@ class locationController extends Controller{
 			$this->msg = 'Locatie '.$_POST['req_name'].' werd toegevoegd.';
 			$this->overview();
 		}else{		
-			$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+			$this->addScript('./themes/'.THEME.'/javascript/jquery/jquery-1.7.1.min.js');
 			$this->render('location_detail.tpl');		
 		}
 	}
 
 	public function edit(){
 		$this->setTitle('Locatie aanpassen');
-		$this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
+		$this->addScript('./themes/'.THEME.'/javascript/jquery/jquery-1.7.1.min.js');
 		$this->loadModel('location');
 		
 		if($_POST){
