@@ -6,27 +6,27 @@
 	<input type="hidden" name="id" value="<?php echo (isset($_GET['id']))?$_GET['id']:''; ?>" />
 	<table class="list">
 		<tr>
-			<td>Naam event:</td>
+			<td><?php echo $this->label_event_name; ?> : </td>
 			<td><input class="required" type="text" name="req_name" value="<?php echo stripslashes($this->event['name']); ?>" /></td>
 		</tr>
 		<tr>
-			<td>Startdatum:</td>
+			<td><?php echo $this->label_event_startdatum; ?> : </td>
 			<td><input class="datepicker" type="text" name="req_start_date" value="<?php echo $this->event['start_date']; ?>" /></td>
 		</tr>
 		<tr>
-			<td>Einddatum:</td>
+			<td><?php echo $this->label_event_einddatum; ?> : </td>
 			<td><input class="datepicker" type="text" name="req_end_date" value="<?php echo $this->event['end_date']; ?>" /></td>
 		</tr>
 		<tr>
-			<td>Toegangsprijs:</td>
+			<td><?php echo $this->label_event_prijs; ?></td>
 			<td><input class="required" type="text" name="reqnum_price" value="<?php echo $this->event['price']; ?>" /></td>
 		</tr>
 		<?php foreach($this->event_locations as $location_id){ ?>
 		<tr>
-			<td>Locatie:</td>
+			<td><?php echo $this->label_locations; ?> :</td>
 			<td>
 				<select name="location[]">
-					<option value="">-- Selecteer een locatie --</option>
+					<option value=""><?php echo $this->label_select_addlocation; ?></option>
 					<?php foreach($this->locations as $location){ ?>
 					<option value="<?php echo $location['location_id'] ?>" <?php echo ($location['location_id'] == $location_id['location_id'])?'selected="selected"':''; ?>><?php echo $location['name'] ?></option>
 					<?php } ?>
@@ -45,10 +45,10 @@
 		<?php if(is_array($this->event_resources)){
                     foreach($this->event_resources as $resource_id){ ?>
                     <tr>
-                            <td>Resource:</td>
+                            <td><?php echo $this->label_resources; ?> :</td>
                             <td>
                                     <select name="resource[]">
-                                            <option value="">-- Selecteer een resource --</option>
+                                            <option value=""><?php echo $this->label_select_addresource; ?></option>
                                             <?php foreach($this->resources as $resource){ ?>
                                             <option value="<?php echo $resource['resource_id'] ?>" <?php echo ($resource['resource_id'] == $resource_id['resource_id'])?'selected="selected"':''; ?>><?php echo $resource['name'] ?></option>
                                             <?php } ?>

@@ -31,7 +31,11 @@
         <label_event_startdatum>Startdate</label_event_startdatum>
         <label_event_einddatum>Enddate</label_event_einddatum>
         <label_event_prijs>Price</label_event_prijs>
-        <label_event_edit>Edit</label_event_edit>	
+        <label_event_edit>Edit</label_event_edit>
+         <label_event_addlocation>Add location</label_event_addlocation>
+        <label_event_select_addlocation>-- Select location --</label_event_select_addlocation>
+        <label_event_addresource>Add resource</label_event_addresource>
+        <label_event_select_addresource>-- Select resource --</label_event_select_addresource>	
         <label_event_delete>Delete</label_event_delete>	
         <label_event_pdf>PDF</label_event_pdf>
         
