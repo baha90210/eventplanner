@@ -27,6 +27,8 @@
 	<label_artist_remove_image>Afbeelding verwijderen</label_artist_remove_image>
 	<label_artist_current_image>Huidige afbeelding</label_artist_current_image>	
 
-
+	<label_artist_required_field>Dit veld is verplicht!</label_artist_required_field>	
+	<label_artist_numeric_field>Dit moet een getal zijn! Gebruik een punt . als decimaal teken</label_artist_numeric_field>
+	<label_artist_wrong_filetype>Dit type bestand is niet toegestaan!</label_artist_wrong_filetype>
 
 </translation>

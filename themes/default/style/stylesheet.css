@@ -12,11 +12,11 @@ body{
 }
 
 #container{
-	margin: 0 auto;
+	margin: 10px auto;
 	width: 1200px;
 	border: 1px solid #448;
 	border-radius: 4px;
-	padding: 0px 20px;
+	padding: 10px 20px;
   /*box-shadow: 8px 8px 8px 0px #ccc;*/
 	margin-bottom: 20px;
 	background-color: white;

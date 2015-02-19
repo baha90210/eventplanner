@@ -22,7 +22,8 @@
 		<?php if($this->artist['image']!='') : ?>		
 			<tr>
 				<td style="vertical-align:top;" ><?php echo $this->label_artist_current_image; ?></td>
-				<td><img style="max-width:150px;max-height:150px;" src="images/<?php echo $this->artist['image']; ?>" /></td>
+				<td><img src="images/<?php echo $this->artist['image']; ?>" /></td>
+				<input type="hidden" name="current_image" value="<?php echo $this->artist['image']; ?>" />
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
@@ -34,13 +35,15 @@
 		
 		<tr>
 			<td><?php echo $this->label_artist_new_image; ?></td>
-			<td><input type="file" id="img_image" name="img_image" /></td>
+			<td><input type="file" id="img_image" name="img_image" /><span style="color:#f00;">&nbsp;</span></td>
 		</tr>
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="<?php echo $this->label_artist_submit; ?>" /></td></tr>
 		<tr><td colspan="2"><input type="button" name="btnBack" value="<?php echo $this->label_cancel; ?>" onclick="document.location.href='index.php?route=artist/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
 	</table>
 	</form>
 </div>
+
+
 
 
 <script>
@@ -58,7 +61,7 @@
 			
 			if($(this).val() == ''){
 				$(this).css('border', '1px solid #f00');
-				$(this).parent().find('span').append('   Dit veld is verplicht!');
+				$(this).parent().find('span').append(' <?php echo $this->label_artist_required_field; ?>');
 				error = true;
 			}
 		});
@@ -68,45 +71,39 @@
 			
 			if(isNaN($(this).val())){
 				$(this).css('border', '1px solid #f00');
-				$(this).parent().find('span').append('   Dit moet een getal zijn! Gebruik een punt . als decimaal teken');
+				$(this).parent().find('span').append(' <?php echo $this->label_artist_numeric_field; ?>');
 				error = true;
 			}
 		});
 		
 
-	 //	Need to check: file extension (just a simple check to help the user, not a real safety measure
+	 //	Check file extension (just a simple check to help the user, not a real safety measure
 		
-		$('input[name^="img"]').each(function(){
-		
-		/*
+		$('input[name^="img"]').each(function(){	
 			fileName = $(this).val();
-			alert(fileName);
-			extName = getExt(fileName);			
-			alert(extName);
-			
-			ext = getExt(filename);
-			
-			if (!hasExtension(fileName, ['.jpg', '.gif', '.png'])) {
-				$(this).parent().find('span').append('   Dit type bestand is niet toegestaan !');
-				error = true;
-			}	
-		*/
-		});
-		
+
+			if(fileName!=''){
+				if(hasExtension(fileName, ['.jpg', '.JPG', '.gif', '.GIF', '.png', '.PNG'])) {				
+				}	
+				else {
+					$(this).parent().find('span').append(' <?php echo $this->label_artist_wrong_filetype; ?>');
+					error = true;
+				}
+			}
+		});		
 		
 		if(!error){
 			$('form').submit();
 		}
 
-
 	}
 
-/*	//	function to help check the file extension
+	//	function to help check the file extension
 
 		function hasExtension(fileName, exts) {
     		return (new RegExp('(' + exts.join('|').replace(/\./g, '\\.') + ')$')).test(fileName);
 		}
-*/
+
 </script>
 
 

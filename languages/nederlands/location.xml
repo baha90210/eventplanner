@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<translation>
+	<label_location_overview>Overzicht locaties</label_location_overview>
+	<label_location>Locatie</label_location>
+	<label_location_name>Naam locatie</label_location_name>
+	<label_location_address>Adres</label_location_address>
+	<label_location_zip>Postcode</label_location_zip>
+	<label_location_city>Plaats</label_location_city>
+	<label_location_country>Land</label_location_country>
+	<label_location_rate>Tarief</label_location_rate>
+	<label_location_capacity>Capaciteit</label_location_capacity>
+
+	<label_add_location>Locatie toevoegen</label_add_location>
+	<label_edit_location>Locatie bewerken</label_edit_location>
+	<label_location_added>toegevoegd</label_location_added>
+	<label_location_edited>gewijzigd</label_location_edited>
+	<label_location_deleted>verwijderd</label_location_deleted>
+
+	<label_location_submit>Opslaan</label_location_submit>
+	<label_edit>Bewerken</label_edit>
+	<label_delete>Verwijderen</label_delete>
+
+	<label_location_required_field>Dit veld is verplicht!</label_location_required_field>	
+	<label_location_numeric_field>Dit moet een getal zijn! Gebruik een punt . als decimaal teken</label_location_numeric_field>
+
+</translation>

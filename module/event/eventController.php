@@ -40,6 +40,7 @@ class eventController extends Controller{
 
 		$this->setTitle('Overzicht events');
                 
+
 		$this->addScript('./themes/'.THEME.'/javascript/jquery/jquery-1.7.1.min.js');
                 
 

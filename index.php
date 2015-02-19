@@ -1,4 +1,6 @@
 <?php 
+error_reporting(0);
+set_error_handler('error_handler');
 
 require_once('./config.php');
 
@@ -43,3 +45,12 @@ $obj = new $controllerName();
 if (!method_exists($obj, $action)) {	$action = 'index'; }
 
 $obj->$action();
+
+function error_handler($errno, $errstr, $errfile, $errline){
+	//hier gaan we loggen
+	$fh = fopen('./system/logs/error.txt', 'a+');
+	
+ 	fwrite($fh, date('Y-m-d H:i:s').' PHP ' . $errno . ':  ' . $errstr . ' in ' . $errfile . ' on line ' . $errline."\n");
+ 	
+ 	echo '[[error]] ';
+}

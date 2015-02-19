@@ -6,8 +6,8 @@
 		<thead>
 			<tr>
 				<td>Resource</td>
-				<td class="right">Prijs</td>
-				<td class="right">Omschrijving</td>
+				<td class="right"><?php echo $this->label_resource_price; ?></td>
+				<td class="right"><?php echo $this->label_resource_discription; ?></td>
 				<td colspan="2">&nbsp;</td>
 			</tr>
 		</thead>
@@ -22,7 +22,7 @@
 				<a href="index.php?route=resource/delete&id=<?php echo $resource['resource_id'] ?>&token=<?php echo $_GET['token'] ?>"><img src="./themes/<?php echo THEME ?>/images/remove.png"  /></a></td>
 			</tr>
 		<?php } ?>
-		<tr><td colspan="6"><input type="button" onclick="addresource();" value="resource toevoegen" /></td></tr>
+		<tr><td colspan="6"><input type="button" onclick="addresource();" value="<?php echo $this->label_resource_add_button; ?>" /></td></tr>
 	</table>
 </div>
 

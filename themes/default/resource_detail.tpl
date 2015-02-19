@@ -6,18 +6,18 @@
 	<input type="hidden" name="id" value="<?php echo (isset($_GET['id']))?$_GET['id']:''; ?>" />
 	<table class="list">
 		<tr>
-			<td>Naam Resource:</td>
+			<td><?php echo $this->label_resource_name; ?>:</td>
 			<td><input class="required" type="text" name="req_name" value="<?php echo $this->resource['name']; ?>" /></td>
 		</tr>
 		<tr>
-			<td>prijs:</td>
+			<td><?php echo $this->label_resource_price; ?>:</td>
 			<td><input class="required" type="text" name="reqnum_rate" value="<?php echo $this->resource['rate']; ?>" /></td>
 		</tr>
 		<tr>
-			<td>omschrijving:</td>
+			<td><?php echo $this->label_resource_discription; ?>:</td>
 			<td><input class="required" type="text" name="description" value="<?php echo $this->resource['description']; ?>" /></td>
 		</tr>
-		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
+		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="<?php echo $this->label_resource_add; ?>" /></td></tr>
 	</table>
 	</form>
 </div>
